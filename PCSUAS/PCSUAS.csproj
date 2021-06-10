@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dbProjectUasDataSet.cs">
+      <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dbProjectUasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -63,6 +66,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterPelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterPelanggan.Designer.cs">
+      <DependentUpon>MasterPelanggan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">
@@ -70,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterBarang.resx">
       <DependentUpon>MasterBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterPelanggan.resx">
+      <DependentUpon>MasterPelanggan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

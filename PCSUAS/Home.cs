@@ -42,7 +42,12 @@ namespace PCSUAS
         {
             MasterBarang mBrg = new MasterBarang();
             mBrg.Show();
-            this.Hide();
+        }
+
+        private void btnMasterPelanggan_Click(object sender, EventArgs e)
+        {
+            MasterPelanggan mPlngn = new MasterPelanggan();
+            mPlngn.Show();
         }
     }
 }

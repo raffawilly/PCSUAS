@@ -72,6 +72,12 @@
     <Compile Include="MasterPelanggan.Designer.cs">
       <DependentUpon>MasterPelanggan.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterSupplier.Designer.cs">
+      <DependentUpon>MasterSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">
@@ -83,6 +89,9 @@
     <EmbeddedResource Include="MasterPelanggan.resx">
       <DependentUpon>MasterPelanggan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MasterSupplier.resx">
+      <DependentUpon>MasterSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -91,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="dbProjectUasDataSet.xsc">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
@@ -115,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

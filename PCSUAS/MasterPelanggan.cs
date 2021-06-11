@@ -27,6 +27,8 @@ namespace PCSUAS
 
         private void MasterPelanggan_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_kota' table. You can move, or remove it, as needed.
+            this.m_kotaTableAdapter.Fill(this.dbProjectUasDataSet.m_kota);
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_pelanggan' table. You can move, or remove it, as needed.
             this.m_pelangganTableAdapter.Fill(this.dbProjectUasDataSet.m_pelanggan);
 

@@ -45,6 +45,8 @@ namespace PCSUAS
             System.Windows.Forms.Label dESCRIPTIONLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterBarang));
             this.kODETextBox = new System.Windows.Forms.TextBox();
+            this.m_barangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.pART_NOTextBox = new System.Windows.Forms.TextBox();
             this.uNIT_PRICETextBox = new System.Windows.Forms.TextBox();
             this.uNITTextBox = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@ namespace PCSUAS
             this.mERK3TextBox = new System.Windows.Forms.TextBox();
             this.kETERANGANTextBox = new System.Windows.Forms.TextBox();
             this.dESCRIPTIONTextBox = new System.Windows.Forms.TextBox();
-            this.m_barangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -97,63 +97,63 @@ namespace PCSUAS
             // kODELabel
             // 
             kODELabel.AutoSize = true;
-            kODELabel.Location = new System.Drawing.Point(18, 162);
+            kODELabel.Location = new System.Drawing.Point(21, 150);
             kODELabel.Name = "kODELabel";
-            kODELabel.Size = new System.Drawing.Size(75, 13);
+            kODELabel.Size = new System.Drawing.Size(84, 12);
             kODELabel.TabIndex = 3;
             kODELabel.Text = "Kode Barang :";
             // 
             // pART_NOLabel
             // 
             pART_NOLabel.AutoSize = true;
-            pART_NOLabel.Location = new System.Drawing.Point(266, 162);
+            pART_NOLabel.Location = new System.Drawing.Point(310, 150);
             pART_NOLabel.Name = "pART_NOLabel";
-            pART_NOLabel.Size = new System.Drawing.Size(72, 13);
+            pART_NOLabel.Size = new System.Drawing.Size(81, 12);
             pART_NOLabel.TabIndex = 5;
             pART_NOLabel.Text = "Part Number :";
             // 
             // uNIT_PRICELabel
             // 
             uNIT_PRICELabel.AutoSize = true;
-            uNIT_PRICELabel.Location = new System.Drawing.Point(14, 192);
+            uNIT_PRICELabel.Location = new System.Drawing.Point(16, 177);
             uNIT_PRICELabel.Name = "uNIT_PRICELabel";
-            uNIT_PRICELabel.Size = new System.Drawing.Size(79, 13);
+            uNIT_PRICELabel.Size = new System.Drawing.Size(87, 12);
             uNIT_PRICELabel.TabIndex = 9;
             uNIT_PRICELabel.Text = "Harga Satuan :";
             // 
             // uNITLabel
             // 
             uNITLabel.AutoSize = true;
-            uNITLabel.Location = new System.Drawing.Point(306, 192);
+            uNITLabel.Location = new System.Drawing.Point(357, 177);
             uNITLabel.Name = "uNITLabel";
-            uNITLabel.Size = new System.Drawing.Size(32, 13);
+            uNITLabel.Size = new System.Drawing.Size(33, 12);
             uNITLabel.TabIndex = 11;
             uNITLabel.Text = "Unit :";
             // 
             // sTAMPINGLabel
             // 
             sTAMPINGLabel.AutoSize = true;
-            sTAMPINGLabel.Location = new System.Drawing.Point(18, 244);
+            sTAMPINGLabel.Location = new System.Drawing.Point(21, 225);
             sTAMPINGLabel.Name = "sTAMPINGLabel";
-            sTAMPINGLabel.Size = new System.Drawing.Size(57, 13);
+            sTAMPINGLabel.Size = new System.Drawing.Size(63, 12);
             sTAMPINGLabel.TabIndex = 13;
             sTAMPINGLabel.Text = "Stamping :";
             // 
             // dATA_FISIKLabel
             // 
             dATA_FISIKLabel.AutoSize = true;
-            dATA_FISIKLabel.Location = new System.Drawing.Point(279, 243);
+            dATA_FISIKLabel.Location = new System.Drawing.Point(325, 224);
             dATA_FISIKLabel.Name = "dATA_FISIKLabel";
-            dATA_FISIKLabel.Size = new System.Drawing.Size(60, 13);
+            dATA_FISIKLabel.Size = new System.Drawing.Size(65, 12);
             dATA_FISIKLabel.TabIndex = 15;
             dATA_FISIKLabel.Text = "Data Fisik :";
             // 
             // pERSAMAANLabel
             // 
             pERSAMAANLabel.AutoSize = true;
-            pERSAMAANLabel.Location = new System.Drawing.Point(494, 242);
+            pERSAMAANLabel.Location = new System.Drawing.Point(576, 223);
             pERSAMAANLabel.Name = "pERSAMAANLabel";
-            pERSAMAANLabel.Size = new System.Drawing.Size(66, 13);
+            pERSAMAANLabel.Size = new System.Drawing.Size(74, 12);
             pERSAMAANLabel.TabIndex = 17;
             pERSAMAANLabel.Text = "Persamaan :";
             pERSAMAANLabel.Click += new System.EventHandler(this.pERSAMAANLabel_Click);
@@ -161,160 +161,64 @@ namespace PCSUAS
             // pN1Label
             // 
             pN1Label.AutoSize = true;
-            pN1Label.Location = new System.Drawing.Point(512, 162);
+            pN1Label.Location = new System.Drawing.Point(597, 150);
             pN1Label.Name = "pN1Label";
-            pN1Label.Size = new System.Drawing.Size(48, 13);
+            pN1Label.Size = new System.Drawing.Size(45, 12);
             pN1Label.TabIndex = 19;
             pN1Label.Text = "P / N 1 :";
             // 
             // mERK1Label
             // 
             mERK1Label.AutoSize = true;
-            mERK1Label.Location = new System.Drawing.Point(18, 269);
+            mERK1Label.Location = new System.Drawing.Point(21, 248);
             mERK1Label.Name = "mERK1Label";
-            mERK1Label.Size = new System.Drawing.Size(46, 13);
+            mERK1Label.Size = new System.Drawing.Size(48, 12);
             mERK1Label.TabIndex = 21;
             mERK1Label.Text = "Merk 1 :";
             // 
             // mERK2Label
             // 
             mERK2Label.AutoSize = true;
-            mERK2Label.Location = new System.Drawing.Point(292, 268);
+            mERK2Label.Location = new System.Drawing.Point(341, 247);
             mERK2Label.Name = "mERK2Label";
-            mERK2Label.Size = new System.Drawing.Size(46, 13);
+            mERK2Label.Size = new System.Drawing.Size(48, 12);
             mERK2Label.TabIndex = 23;
             mERK2Label.Text = "Merk 2 :";
             // 
             // mERK3Label
             // 
             mERK3Label.AutoSize = true;
-            mERK3Label.Location = new System.Drawing.Point(514, 267);
+            mERK3Label.Location = new System.Drawing.Point(600, 246);
             mERK3Label.Name = "mERK3Label";
-            mERK3Label.Size = new System.Drawing.Size(46, 13);
+            mERK3Label.Size = new System.Drawing.Size(48, 12);
             mERK3Label.TabIndex = 25;
             mERK3Label.Text = "Merk 3 :";
             // 
             // kETERANGANLabel
             // 
             kETERANGANLabel.AutoSize = true;
-            kETERANGANLabel.Location = new System.Drawing.Point(18, 314);
+            kETERANGANLabel.Location = new System.Drawing.Point(21, 290);
             kETERANGANLabel.Name = "kETERANGANLabel";
-            kETERANGANLabel.Size = new System.Drawing.Size(36, 13);
+            kETERANGANLabel.Size = new System.Drawing.Size(37, 12);
             kETERANGANLabel.TabIndex = 27;
             kETERANGANLabel.Text = "Note :";
             // 
             // dESCRIPTIONLabel
             // 
             dESCRIPTIONLabel.AutoSize = true;
-            dESCRIPTIONLabel.Location = new System.Drawing.Point(15, 135);
+            dESCRIPTIONLabel.Location = new System.Drawing.Point(17, 125);
             dESCRIPTIONLabel.Name = "dESCRIPTIONLabel";
-            dESCRIPTIONLabel.Size = new System.Drawing.Size(78, 13);
+            dESCRIPTIONLabel.Size = new System.Drawing.Size(87, 12);
             dESCRIPTIONLabel.TabIndex = 7;
             dESCRIPTIONLabel.Text = "Nama Barang :";
             // 
             // kODETextBox
             // 
             this.kODETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "KODE", true));
-            this.kODETextBox.Location = new System.Drawing.Point(108, 158);
+            this.kODETextBox.Location = new System.Drawing.Point(126, 146);
             this.kODETextBox.Name = "kODETextBox";
-            this.kODETextBox.Size = new System.Drawing.Size(143, 20);
+            this.kODETextBox.Size = new System.Drawing.Size(166, 20);
             this.kODETextBox.TabIndex = 4;
-            // 
-            // pART_NOTextBox
-            // 
-            this.pART_NOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PART_NO", true));
-            this.pART_NOTextBox.Location = new System.Drawing.Point(342, 158);
-            this.pART_NOTextBox.Name = "pART_NOTextBox";
-            this.pART_NOTextBox.Size = new System.Drawing.Size(143, 20);
-            this.pART_NOTextBox.TabIndex = 6;
-            // 
-            // uNIT_PRICETextBox
-            // 
-            this.uNIT_PRICETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "UNIT_PRICE", true));
-            this.uNIT_PRICETextBox.Location = new System.Drawing.Point(108, 188);
-            this.uNIT_PRICETextBox.Name = "uNIT_PRICETextBox";
-            this.uNIT_PRICETextBox.Size = new System.Drawing.Size(143, 20);
-            this.uNIT_PRICETextBox.TabIndex = 10;
-            // 
-            // uNITTextBox
-            // 
-            this.uNITTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "UNIT", true));
-            this.uNITTextBox.Location = new System.Drawing.Point(344, 188);
-            this.uNITTextBox.Name = "uNITTextBox";
-            this.uNITTextBox.Size = new System.Drawing.Size(23, 20);
-            this.uNITTextBox.TabIndex = 12;
-            // 
-            // sTAMPINGTextBox
-            // 
-            this.sTAMPINGTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "STAMPING", true));
-            this.sTAMPINGTextBox.Location = new System.Drawing.Point(108, 240);
-            this.sTAMPINGTextBox.Name = "sTAMPINGTextBox";
-            this.sTAMPINGTextBox.Size = new System.Drawing.Size(143, 20);
-            this.sTAMPINGTextBox.TabIndex = 14;
-            // 
-            // dATA_FISIKTextBox
-            // 
-            this.dATA_FISIKTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "DATA_FISIK", true));
-            this.dATA_FISIKTextBox.Location = new System.Drawing.Point(345, 239);
-            this.dATA_FISIKTextBox.Name = "dATA_FISIKTextBox";
-            this.dATA_FISIKTextBox.Size = new System.Drawing.Size(140, 20);
-            this.dATA_FISIKTextBox.TabIndex = 16;
-            // 
-            // pERSAMAANTextBox
-            // 
-            this.pERSAMAANTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PERSAMAAN", true));
-            this.pERSAMAANTextBox.Location = new System.Drawing.Point(567, 238);
-            this.pERSAMAANTextBox.Name = "pERSAMAANTextBox";
-            this.pERSAMAANTextBox.Size = new System.Drawing.Size(143, 20);
-            this.pERSAMAANTextBox.TabIndex = 18;
-            // 
-            // pN1TextBox
-            // 
-            this.pN1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PN1", true));
-            this.pN1TextBox.Location = new System.Drawing.Point(566, 158);
-            this.pN1TextBox.Name = "pN1TextBox";
-            this.pN1TextBox.Size = new System.Drawing.Size(144, 20);
-            this.pN1TextBox.TabIndex = 20;
-            // 
-            // mERK1TextBox
-            // 
-            this.mERK1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK1", true));
-            this.mERK1TextBox.Location = new System.Drawing.Point(108, 265);
-            this.mERK1TextBox.Name = "mERK1TextBox";
-            this.mERK1TextBox.Size = new System.Drawing.Size(143, 20);
-            this.mERK1TextBox.TabIndex = 22;
-            // 
-            // mERK2TextBox
-            // 
-            this.mERK2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK2", true));
-            this.mERK2TextBox.Location = new System.Drawing.Point(345, 264);
-            this.mERK2TextBox.Name = "mERK2TextBox";
-            this.mERK2TextBox.Size = new System.Drawing.Size(140, 20);
-            this.mERK2TextBox.TabIndex = 24;
-            // 
-            // mERK3TextBox
-            // 
-            this.mERK3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK3", true));
-            this.mERK3TextBox.Location = new System.Drawing.Point(567, 263);
-            this.mERK3TextBox.Name = "mERK3TextBox";
-            this.mERK3TextBox.Size = new System.Drawing.Size(143, 20);
-            this.mERK3TextBox.TabIndex = 26;
-            // 
-            // kETERANGANTextBox
-            // 
-            this.kETERANGANTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "KETERANGAN", true));
-            this.kETERANGANTextBox.Location = new System.Drawing.Point(108, 311);
-            this.kETERANGANTextBox.Name = "kETERANGANTextBox";
-            this.kETERANGANTextBox.Size = new System.Drawing.Size(301, 20);
-            this.kETERANGANTextBox.TabIndex = 28;
-            // 
-            // dESCRIPTIONTextBox
-            // 
-            this.dESCRIPTIONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "DESCRIPTION", true));
-            this.dESCRIPTIONTextBox.Location = new System.Drawing.Point(108, 132);
-            this.dESCRIPTIONTextBox.Name = "dESCRIPTIONTextBox";
-            this.dESCRIPTIONTextBox.Size = new System.Drawing.Size(143, 20);
-            this.dESCRIPTIONTextBox.TabIndex = 8;
             // 
             // m_barangBindingSource
             // 
@@ -326,6 +230,102 @@ namespace PCSUAS
             // 
             this.dbProjectUasDataSet.DataSetName = "dbProjectUasDataSet";
             this.dbProjectUasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pART_NOTextBox
+            // 
+            this.pART_NOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PART_NO", true));
+            this.pART_NOTextBox.Location = new System.Drawing.Point(399, 146);
+            this.pART_NOTextBox.Name = "pART_NOTextBox";
+            this.pART_NOTextBox.Size = new System.Drawing.Size(166, 20);
+            this.pART_NOTextBox.TabIndex = 6;
+            // 
+            // uNIT_PRICETextBox
+            // 
+            this.uNIT_PRICETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "UNIT_PRICE", true));
+            this.uNIT_PRICETextBox.Location = new System.Drawing.Point(126, 174);
+            this.uNIT_PRICETextBox.Name = "uNIT_PRICETextBox";
+            this.uNIT_PRICETextBox.Size = new System.Drawing.Size(166, 20);
+            this.uNIT_PRICETextBox.TabIndex = 10;
+            // 
+            // uNITTextBox
+            // 
+            this.uNITTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "UNIT", true));
+            this.uNITTextBox.Location = new System.Drawing.Point(401, 174);
+            this.uNITTextBox.Name = "uNITTextBox";
+            this.uNITTextBox.Size = new System.Drawing.Size(26, 20);
+            this.uNITTextBox.TabIndex = 12;
+            // 
+            // sTAMPINGTextBox
+            // 
+            this.sTAMPINGTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "STAMPING", true));
+            this.sTAMPINGTextBox.Location = new System.Drawing.Point(126, 222);
+            this.sTAMPINGTextBox.Name = "sTAMPINGTextBox";
+            this.sTAMPINGTextBox.Size = new System.Drawing.Size(166, 20);
+            this.sTAMPINGTextBox.TabIndex = 14;
+            // 
+            // dATA_FISIKTextBox
+            // 
+            this.dATA_FISIKTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "DATA_FISIK", true));
+            this.dATA_FISIKTextBox.Location = new System.Drawing.Point(402, 221);
+            this.dATA_FISIKTextBox.Name = "dATA_FISIKTextBox";
+            this.dATA_FISIKTextBox.Size = new System.Drawing.Size(163, 20);
+            this.dATA_FISIKTextBox.TabIndex = 16;
+            // 
+            // pERSAMAANTextBox
+            // 
+            this.pERSAMAANTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PERSAMAAN", true));
+            this.pERSAMAANTextBox.Location = new System.Drawing.Point(661, 220);
+            this.pERSAMAANTextBox.Name = "pERSAMAANTextBox";
+            this.pERSAMAANTextBox.Size = new System.Drawing.Size(166, 20);
+            this.pERSAMAANTextBox.TabIndex = 18;
+            // 
+            // pN1TextBox
+            // 
+            this.pN1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "PN1", true));
+            this.pN1TextBox.Location = new System.Drawing.Point(660, 146);
+            this.pN1TextBox.Name = "pN1TextBox";
+            this.pN1TextBox.Size = new System.Drawing.Size(167, 20);
+            this.pN1TextBox.TabIndex = 20;
+            // 
+            // mERK1TextBox
+            // 
+            this.mERK1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK1", true));
+            this.mERK1TextBox.Location = new System.Drawing.Point(126, 245);
+            this.mERK1TextBox.Name = "mERK1TextBox";
+            this.mERK1TextBox.Size = new System.Drawing.Size(166, 20);
+            this.mERK1TextBox.TabIndex = 22;
+            // 
+            // mERK2TextBox
+            // 
+            this.mERK2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK2", true));
+            this.mERK2TextBox.Location = new System.Drawing.Point(402, 244);
+            this.mERK2TextBox.Name = "mERK2TextBox";
+            this.mERK2TextBox.Size = new System.Drawing.Size(163, 20);
+            this.mERK2TextBox.TabIndex = 24;
+            // 
+            // mERK3TextBox
+            // 
+            this.mERK3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK3", true));
+            this.mERK3TextBox.Location = new System.Drawing.Point(661, 243);
+            this.mERK3TextBox.Name = "mERK3TextBox";
+            this.mERK3TextBox.Size = new System.Drawing.Size(166, 20);
+            this.mERK3TextBox.TabIndex = 26;
+            // 
+            // kETERANGANTextBox
+            // 
+            this.kETERANGANTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "KETERANGAN", true));
+            this.kETERANGANTextBox.Location = new System.Drawing.Point(126, 287);
+            this.kETERANGANTextBox.Name = "kETERANGANTextBox";
+            this.kETERANGANTextBox.Size = new System.Drawing.Size(350, 20);
+            this.kETERANGANTextBox.TabIndex = 28;
+            // 
+            // dESCRIPTIONTextBox
+            // 
+            this.dESCRIPTIONTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "DESCRIPTION", true));
+            this.dESCRIPTIONTextBox.Location = new System.Drawing.Point(126, 122);
+            this.dESCRIPTIONTextBox.Name = "dESCRIPTIONTextBox";
+            this.dESCRIPTIONTextBox.Size = new System.Drawing.Size(166, 20);
+            this.dESCRIPTIONTextBox.TabIndex = 8;
             // 
             // m_barangTableAdapter
             // 
@@ -387,8 +387,9 @@ namespace PCSUAS
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(58, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -481,7 +482,7 @@ namespace PCSUAS
             this.m_barangBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.m_barangBindingNavigator.Name = "m_barangBindingNavigator";
             this.m_barangBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.m_barangBindingNavigator.Size = new System.Drawing.Size(805, 25);
+            this.m_barangBindingNavigator.Size = new System.Drawing.Size(939, 25);
             this.m_barangBindingNavigator.TabIndex = 0;
             this.m_barangBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -489,7 +490,7 @@ namespace PCSUAS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(218, 51);
+            this.label1.Location = new System.Drawing.Point(254, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(400, 40);
             this.label1.TabIndex = 32;
@@ -497,9 +498,9 @@ namespace PCSUAS
             // 
             // MasterBarang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 372);
+            this.ClientSize = new System.Drawing.Size(939, 343);
             this.Controls.Add(this.label1);
             this.Controls.Add(kODELabel);
             this.Controls.Add(this.kODETextBox);
@@ -528,6 +529,7 @@ namespace PCSUAS
             this.Controls.Add(kETERANGANLabel);
             this.Controls.Add(this.kETERANGANTextBox);
             this.Controls.Add(this.m_barangBindingNavigator);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterBarang";
             this.Text = "Master Barang";
             this.Load += new System.EventHandler(this.MasterBarang_Load);

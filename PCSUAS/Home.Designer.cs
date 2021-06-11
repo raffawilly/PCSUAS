@@ -50,92 +50,103 @@ namespace PCSUAS
             // 
             // btnMasterBarang
             // 
-            this.btnMasterBarang.Location = new System.Drawing.Point(263, 104);
+            this.btnMasterBarang.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnMasterBarang.Location = new System.Drawing.Point(252, 98);
             this.btnMasterBarang.Name = "btnMasterBarang";
-            this.btnMasterBarang.Size = new System.Drawing.Size(112, 23);
+            this.btnMasterBarang.Size = new System.Drawing.Size(131, 34);
             this.btnMasterBarang.TabIndex = 0;
             this.btnMasterBarang.Text = "Master Barang";
-            this.btnMasterBarang.UseVisualStyleBackColor = true;
+            this.btnMasterBarang.UseVisualStyleBackColor = false;
             this.btnMasterBarang.Click += new System.EventHandler(this.btnMasterBarang_Click);
+            this.btnMasterBarang.MouseLeave += new System.EventHandler(this.btnMasterBarang_MouseLeave);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(263, 133);
+            this.button2.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button2.Location = new System.Drawing.Point(252, 138);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 23);
+            this.button2.Size = new System.Drawing.Size(131, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "Master Users";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(381, 104);
+            this.button3.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button3.Location = new System.Drawing.Point(389, 98);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 23);
+            this.button3.Size = new System.Drawing.Size(131, 34);
             this.button3.TabIndex = 2;
             this.button3.Text = "Master Supplier";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnMasterPelanggan
             // 
-            this.btnMasterPelanggan.Location = new System.Drawing.Point(381, 133);
+            this.btnMasterPelanggan.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnMasterPelanggan.Location = new System.Drawing.Point(389, 138);
             this.btnMasterPelanggan.Name = "btnMasterPelanggan";
-            this.btnMasterPelanggan.Size = new System.Drawing.Size(112, 23);
+            this.btnMasterPelanggan.Size = new System.Drawing.Size(131, 35);
             this.btnMasterPelanggan.TabIndex = 3;
             this.btnMasterPelanggan.Text = "Master Pelanggan";
-            this.btnMasterPelanggan.UseVisualStyleBackColor = true;
+            this.btnMasterPelanggan.UseVisualStyleBackColor = false;
             this.btnMasterPelanggan.Click += new System.EventHandler(this.btnMasterPelanggan_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(381, 162);
+            this.button5.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button5.Location = new System.Drawing.Point(389, 179);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 23);
+            this.button5.Size = new System.Drawing.Size(131, 31);
             this.button5.TabIndex = 4;
             this.button5.Text = "Master Hak Akses";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(263, 162);
+            this.button6.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button6.Location = new System.Drawing.Point(252, 179);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(112, 23);
+            this.button6.Size = new System.Drawing.Size(131, 31);
             this.button6.TabIndex = 5;
             this.button6.Text = "Master Group User";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(381, 191);
+            this.button7.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button7.Location = new System.Drawing.Point(389, 216);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(112, 23);
+            this.button7.Size = new System.Drawing.Size(131, 29);
             this.button7.TabIndex = 6;
             this.button7.Text = "Master Model";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(263, 191);
+            this.button8.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button8.Location = new System.Drawing.Point(252, 216);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(112, 23);
+            this.button8.Size = new System.Drawing.Size(131, 29);
             this.button8.TabIndex = 7;
             this.button8.Text = "Master Merk";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(324, 220);
+            this.button9.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.button9.Location = new System.Drawing.Point(325, 251);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(112, 23);
+            this.button9.Size = new System.Drawing.Size(131, 32);
             this.button9.TabIndex = 8;
             this.button9.Text = "Master Kota";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(261, 45);
+            this.label1.Location = new System.Drawing.Point(271, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 40);
             this.label1.TabIndex = 9;
@@ -143,10 +154,10 @@ namespace PCSUAS
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 415);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -157,9 +168,11 @@ namespace PCSUAS
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnMasterBarang);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Home";
             this.Text = " ";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseHover += new System.EventHandler(this.Home_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

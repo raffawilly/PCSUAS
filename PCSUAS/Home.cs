@@ -49,5 +49,20 @@ namespace PCSUAS
             MasterPelanggan mPlngn = new MasterPelanggan();
             mPlngn.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MasterSupplier mSplr = new MasterSupplier();
+            mSplr.Show();
+        }
+
+        private void Home_MouseHover(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void btnMasterBarang_MouseLeave(object sender, EventArgs e)
+        {
+        }
     }
 }

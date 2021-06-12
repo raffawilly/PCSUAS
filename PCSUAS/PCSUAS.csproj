@@ -35,6 +35,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +56,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MasterMerk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterMerk.Designer.cs">
+      <DependentUpon>MasterMerk.cs</DependentUpon>
     </Compile>
     <Compile Include="MasterBarang.cs">
       <SubType>Form</SubType>
@@ -86,6 +95,9 @@
     <EmbeddedResource Include="MasterBarang.resx">
       <DependentUpon>MasterBarang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MasterMerk.resx">
+      <DependentUpon>MasterMerk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MasterPelanggan.resx">
       <DependentUpon>MasterPelanggan.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +125,7 @@
     <None Include="dbProjectUasDataSet.xss">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

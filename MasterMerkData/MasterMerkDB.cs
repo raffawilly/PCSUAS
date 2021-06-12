@@ -9,13 +9,10 @@ namespace MasterMerkData
         public static List<MasterMerk> get()
         {
             List<MasterMerk> merkList = new List<MasterMerk>();
-            SqlConnection connection = PayablesDB.GetConnection();
+            SqlConnection connection = dbProjectUas.GetConnection();
             string selectStatement =
-                "SELECT InvoiceNumber, InvoiceDate, InvoiceTotal, " +
-                "PaymentTotal, CreditTotal, DueDate " +
-                "FROM Invoices " +
-                "WHERE InvoiceTotal - PaymentTotal - CreditTotal > 0 " +
-                "ORDER BY DueDate";
+                "SELECT ID, MERK_CODE, MERK_DESC, " +
+                "FROM m_merk ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             try
             {
@@ -23,14 +20,11 @@ namespace MasterMerkData
                 SqlDataReader reader = selectCommand.ExecuteReader();
                 while (reader.Read())
                 {
-                    Invoice invoice = new Invoice();
-                    invoice.InvoiceNumber = reader["InvoiceNumber"].ToString();
-                    invoice.InvoiceDate = (DateTime)reader["InvoiceDate"];
-                    invoice.InvoiceTotal = (decimal)reader["InvoiceTotal"];
-                    invoice.PaymentTotal = (decimal)reader["PaymentTotal"];
-                    invoice.CreditTotal = (decimal)reader["CreditTotal"];
-                    invoice.DueDate = (DateTime)reader["DueDate"];
-                    invoiceList.Add(invoice);
+                    MasterMerk mastermerk = new MasterMerk();
+                    mastermerk.Id = (int)reader["ID"];
+                    mastermerk.Merk_code = reader["MERK_CODE"].ToString();
+                    mastermerk.Merk_desc = reader["MERK_DESC"].ToString();
+                    merkList.Add(mastermerk);
                 }
                 reader.Close();
             }
@@ -42,7 +36,7 @@ namespace MasterMerkData
             {
                 connection.Close();
             }
-            return invoiceList;
+            return merkList;
         }
     }
 }

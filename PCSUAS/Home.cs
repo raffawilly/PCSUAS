@@ -63,5 +63,17 @@ namespace PCSUAS
         private void btnMasterBarang_MouseLeave(object sender, EventArgs e)
         {
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            MasterGroupUser mGU = new MasterGroupUser();
+            mGU.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MasterHakAkses mHA = new MasterHakAkses();
+            mHA.Show();
+        }
     }
 }

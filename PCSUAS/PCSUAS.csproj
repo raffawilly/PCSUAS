@@ -57,6 +57,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MasterGroupUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterGroupUser.Designer.cs">
+      <DependentUpon>MasterGroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterHakAkses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterHakAkses.Designer.cs">
+      <DependentUpon>MasterHakAkses.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterMerk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterBarang.resx">
       <DependentUpon>MasterBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterGroupUser.resx">
+      <DependentUpon>MasterGroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterHakAkses.resx">
+      <DependentUpon>MasterHakAkses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterMerk.resx">
       <DependentUpon>MasterMerk.cs</DependentUpon>

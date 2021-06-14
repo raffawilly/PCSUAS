@@ -54,9 +54,6 @@ namespace PCSUAS
             this.dATA_FISIKTextBox = new System.Windows.Forms.TextBox();
             this.pERSAMAANTextBox = new System.Windows.Forms.TextBox();
             this.pN1TextBox = new System.Windows.Forms.TextBox();
-            this.mERK1TextBox = new System.Windows.Forms.TextBox();
-            this.mERK2TextBox = new System.Windows.Forms.TextBox();
-            this.mERK3TextBox = new System.Windows.Forms.TextBox();
             this.kETERANGANTextBox = new System.Windows.Forms.TextBox();
             this.dESCRIPTIONTextBox = new System.Windows.Forms.TextBox();
             this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
@@ -75,6 +72,14 @@ namespace PCSUAS
             this.m_barangBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.m_barangBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.mERK1ComboBox = new System.Windows.Forms.ComboBox();
+            this.mERK2ComboBox = new System.Windows.Forms.ComboBox();
+            this.mERK3ComboBox = new System.Windows.Forms.ComboBox();
+            this.mmerkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
+            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mmerkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.mmerkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             kODELabel = new System.Windows.Forms.Label();
             pART_NOLabel = new System.Windows.Forms.Label();
             uNIT_PRICELabel = new System.Windows.Forms.Label();
@@ -92,6 +97,10 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_barangBindingNavigator)).BeginInit();
             this.m_barangBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // kODELabel
@@ -179,7 +188,7 @@ namespace PCSUAS
             // mERK2Label
             // 
             mERK2Label.AutoSize = true;
-            mERK2Label.Location = new System.Drawing.Point(341, 247);
+            mERK2Label.Location = new System.Drawing.Point(342, 251);
             mERK2Label.Name = "mERK2Label";
             mERK2Label.Size = new System.Drawing.Size(48, 12);
             mERK2Label.TabIndex = 23;
@@ -188,7 +197,7 @@ namespace PCSUAS
             // mERK3Label
             // 
             mERK3Label.AutoSize = true;
-            mERK3Label.Location = new System.Drawing.Point(600, 246);
+            mERK3Label.Location = new System.Drawing.Point(602, 256);
             mERK3Label.Name = "mERK3Label";
             mERK3Label.Size = new System.Drawing.Size(48, 12);
             mERK3Label.TabIndex = 25;
@@ -286,30 +295,6 @@ namespace PCSUAS
             this.pN1TextBox.Name = "pN1TextBox";
             this.pN1TextBox.Size = new System.Drawing.Size(167, 20);
             this.pN1TextBox.TabIndex = 20;
-            // 
-            // mERK1TextBox
-            // 
-            this.mERK1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK1", true));
-            this.mERK1TextBox.Location = new System.Drawing.Point(126, 245);
-            this.mERK1TextBox.Name = "mERK1TextBox";
-            this.mERK1TextBox.Size = new System.Drawing.Size(166, 20);
-            this.mERK1TextBox.TabIndex = 22;
-            // 
-            // mERK2TextBox
-            // 
-            this.mERK2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK2", true));
-            this.mERK2TextBox.Location = new System.Drawing.Point(402, 244);
-            this.mERK2TextBox.Name = "mERK2TextBox";
-            this.mERK2TextBox.Size = new System.Drawing.Size(163, 20);
-            this.mERK2TextBox.TabIndex = 24;
-            // 
-            // mERK3TextBox
-            // 
-            this.mERK3TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK3", true));
-            this.mERK3TextBox.Location = new System.Drawing.Point(661, 243);
-            this.mERK3TextBox.Name = "mERK3TextBox";
-            this.mERK3TextBox.Size = new System.Drawing.Size(166, 20);
-            this.mERK3TextBox.TabIndex = 26;
             // 
             // kETERANGANTextBox
             // 
@@ -490,17 +475,80 @@ namespace PCSUAS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(254, 47);
+            this.label1.Location = new System.Drawing.Point(267, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 40);
+            this.label1.Size = new System.Drawing.Size(328, 40);
             this.label1.TabIndex = 32;
-            this.label1.Text = "MASTER PELANGGAN";
+            this.label1.Text = "MASTER BARANG";
+            // 
+            // mERK1ComboBox
+            // 
+            this.mERK1ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK1", true));
+            this.mERK1ComboBox.DataSource = this.mmerkBindingSource;
+            this.mERK1ComboBox.DisplayMember = "MERK_CODE";
+            this.mERK1ComboBox.FormattingEnabled = true;
+            this.mERK1ComboBox.Location = new System.Drawing.Point(126, 248);
+            this.mERK1ComboBox.Name = "mERK1ComboBox";
+            this.mERK1ComboBox.Size = new System.Drawing.Size(166, 20);
+            this.mERK1ComboBox.TabIndex = 33;
+            this.mERK1ComboBox.ValueMember = "ID";
+            // 
+            // mERK2ComboBox
+            // 
+            this.mERK2ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK2", true));
+            this.mERK2ComboBox.DataSource = this.mmerkBindingSource1;
+            this.mERK2ComboBox.DisplayMember = "MERK_CODE";
+            this.mERK2ComboBox.FormattingEnabled = true;
+            this.mERK2ComboBox.Location = new System.Drawing.Point(402, 248);
+            this.mERK2ComboBox.Name = "mERK2ComboBox";
+            this.mERK2ComboBox.Size = new System.Drawing.Size(163, 20);
+            this.mERK2ComboBox.TabIndex = 34;
+            this.mERK2ComboBox.ValueMember = "ID";
+            // 
+            // mERK3ComboBox
+            // 
+            this.mERK3ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK3", true));
+            this.mERK3ComboBox.DataSource = this.mmerkBindingSource2;
+            this.mERK3ComboBox.DisplayMember = "MERK_CODE";
+            this.mERK3ComboBox.FormattingEnabled = true;
+            this.mERK3ComboBox.Location = new System.Drawing.Point(661, 251);
+            this.mERK3ComboBox.Name = "mERK3ComboBox";
+            this.mERK3ComboBox.Size = new System.Drawing.Size(166, 20);
+            this.mERK3ComboBox.TabIndex = 35;
+            this.mERK3ComboBox.ValueMember = "ID";
+            // 
+            // mmerkBindingSource
+            // 
+            this.mmerkBindingSource.DataMember = "m_merk";
+            this.mmerkBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
+            // m_merkTableAdapter
+            // 
+            this.m_merkTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbProjectUasDataSetBindingSource
+            // 
+            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
+            this.dbProjectUasDataSetBindingSource.Position = 0;
+            // 
+            // mmerkBindingSource1
+            // 
+            this.mmerkBindingSource1.DataMember = "m_merk";
+            this.mmerkBindingSource1.DataSource = this.dbProjectUasDataSetBindingSource;
+            // 
+            // mmerkBindingSource2
+            // 
+            this.mmerkBindingSource2.DataMember = "m_merk";
+            this.mmerkBindingSource2.DataSource = this.dbProjectUasDataSetBindingSource;
             // 
             // MasterBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 343);
+            this.ClientSize = new System.Drawing.Size(939, 350);
+            this.Controls.Add(this.mERK3ComboBox);
+            this.Controls.Add(this.mERK2ComboBox);
+            this.Controls.Add(this.mERK1ComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(kODELabel);
             this.Controls.Add(this.kODETextBox);
@@ -521,11 +569,8 @@ namespace PCSUAS
             this.Controls.Add(pN1Label);
             this.Controls.Add(this.pN1TextBox);
             this.Controls.Add(mERK1Label);
-            this.Controls.Add(this.mERK1TextBox);
             this.Controls.Add(mERK2Label);
-            this.Controls.Add(this.mERK2TextBox);
             this.Controls.Add(mERK3Label);
-            this.Controls.Add(this.mERK3TextBox);
             this.Controls.Add(kETERANGANLabel);
             this.Controls.Add(this.kETERANGANTextBox);
             this.Controls.Add(this.m_barangBindingNavigator);
@@ -538,6 +583,10 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.m_barangBindingNavigator)).EndInit();
             this.m_barangBindingNavigator.ResumeLayout(false);
             this.m_barangBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,9 +606,6 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox dATA_FISIKTextBox;
         private System.Windows.Forms.TextBox pERSAMAANTextBox;
         private System.Windows.Forms.TextBox pN1TextBox;
-        private System.Windows.Forms.TextBox mERK1TextBox;
-        private System.Windows.Forms.TextBox mERK2TextBox;
-        private System.Windows.Forms.TextBox mERK3TextBox;
         private System.Windows.Forms.TextBox kETERANGANTextBox;
         private System.Windows.Forms.TextBox dESCRIPTIONTextBox;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -576,5 +622,13 @@ namespace PCSUAS
         private System.Windows.Forms.ToolStripButton m_barangBindingNavigatorSaveItem;
         private System.Windows.Forms.BindingNavigator m_barangBindingNavigator;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox mERK1ComboBox;
+        private System.Windows.Forms.ComboBox mERK2ComboBox;
+        private System.Windows.Forms.ComboBox mERK3ComboBox;
+        private System.Windows.Forms.BindingSource mmerkBindingSource;
+        private dbProjectUasDataSetTableAdapters.m_merkTableAdapter m_merkTableAdapter;
+        private System.Windows.Forms.BindingSource mmerkBindingSource1;
+        private System.Windows.Forms.BindingSource dbProjectUasDataSetBindingSource;
+        private System.Windows.Forms.BindingSource mmerkBindingSource2;
     }
 }

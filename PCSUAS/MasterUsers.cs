@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace PCSUAS
 {
-    public partial class MasterModel : Form
+    public partial class MasterUsers : Form
     {
         SqlConnection conn;
-        public MasterModel()
+        public MasterUsers()
         {
             InitializeComponent();
             try
@@ -22,15 +22,24 @@ namespace PCSUAS
                 conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
                 conn.Open();
                 DataSet ds = new DataSet();
-                String query = $"SELECT MODEL_ID, DESCRIPTION " +
-                               $"FROM m_model";
+                String query = $"SELECT USERNAME, PASSWORD,NAMAGROUPUSER " +
+                               $"FROM m_users";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+               
 
-
+                DataSet role = new DataSet();
+                String dataRole = $"SELECT * " +
+                              $"FROM m_groupuser";
+                SqlCommand cmdRole = new SqlCommand(dataRole, conn);
+                SqlDataAdapter adapterRole = new SqlDataAdapter(cmdRole);
+                adapterRole.Fill(role);
+                cbGroupUser.DataSource = role.Tables[0];
+                cbGroupUser.DisplayMember = "namagroupuser";
+                cbGroupUser.ValueMember = "namagroupuser";
                 conn.Close();
             }
             catch (Exception ex)
@@ -40,63 +49,89 @@ namespace PCSUAS
             }
         }
 
-
         private bool cekKosong()
         {
-            if (tbModelDesc.Text.Length== 0)
+            if (tbUsername.Text.Length == 0|| tbPassword.Text.Length==0)
             {
                 MessageBox.Show("Isi Data Dengan Benar!");
                 return false;
             }
             return true;
         }
-
+        private void clear()
+        {
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+        }
         private void refreshData()
         {
             conn.Open();
             DataSet ds = new DataSet();
-            String query2 = $"SELECT MODEL_ID, DESCRIPTION " +
-                           $"FROM m_model";
-            SqlCommand cmd = new SqlCommand(query2, conn);
+            String query = $"SELECT USERNAME, PASSWORD,NAMAGROUPUSER " +
+                           $"FROM m_users";
+            SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             conn.Close();
         }
+        private void MasterUsers_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String username = tbUsername.Text;
+            String query = $"delete from m_users where username like '{username}'";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            MessageBox.Show("Berhasil Menghapus");
+            conn.Close();
+            clear();
+            btnInsert.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            tbUsername.Enabled = true;
+
+            //REFRESH DATA
+            refreshData();
+        }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            
-            if(cekKosong())
+            if (cekKosong())
             {
                 conn.Open();
-                String desc = tbModelDesc.Text;
+                String username = tbUsername.Text;
+                String password = tbPassword.Text;
+                String namagroup = cbGroupUser.SelectedValue.ToString();
 
                 String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
-                              $"FROM m_model mdl " +
-                              $"WHERE DESCRIPTION = '{desc}'";
+                              $"FROM m_users " +
+                              $"WHERE username = '{username}' ";
                 SqlCommand comm = new SqlCommand(count, conn);
                 int jmlh = Convert.ToInt32(comm.ExecuteScalar().ToString());
                 conn.Close();
                 if (jmlh == 0)
                 {
                     conn.Open();
-                    String query = $"Insert into m_model (DESCRIPTION) values('{desc}')";
+                    String query = $"Insert into m_users  values('{username}','{password}','{namagroup}')";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
                     //CLEAR TEXTBO
-                    tbModelDesc.Text = "";
+                    clear();
                     //REFRESH DATA
                     refreshData();
                 }
                 else
                 {
-                    MessageBox.Show("ID Model atau Description sudah ada di database");
+                    MessageBox.Show("Username sudah ada di database");
                 }
             }
-           
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -104,9 +139,10 @@ namespace PCSUAS
             btnInsert.Enabled = false;
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
-
-            tbModelID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tbModelDesc.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tbUsername.Enabled = false;
+            tbUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            cbGroupUser.SelectedValue= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -114,57 +150,24 @@ namespace PCSUAS
             if (cekKosong())
             {
                 conn.Open();
-                String desc = tbModelDesc.Text;
-
-                String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
-                              $"FROM m_model mdl " +
-                              $"WHERE DESCRIPTION = '{desc}'";
-                SqlCommand comm = new SqlCommand(count, conn);
-                int jmlh = Convert.ToInt32(comm.ExecuteScalar().ToString());
+                String username = tbUsername.Text;
+                String password = tbPassword.Text;
+                String namagroup = cbGroupUser.SelectedValue.ToString();
                 conn.Close();
-                if (jmlh == 0)
-                {
                     conn.Open();
-                    String query = $"update m_model set DESCRIPTION = '{desc}' where MODEL_ID= {tbModelID.Text}";
+                    String query = $"update m_users set username = '{username}',password = '{password} ',namagroupuser='{namagroup}' where username= '{username}'";
                     SqlCommand comm2 = new SqlCommand(query, conn);
                     comm2.ExecuteNonQuery();
                     MessageBox.Show("Berhasil Update!");
                     conn.Close();
-
-                    tbModelID.Text = "";
-                    tbModelDesc.Text = "";
+                    clear();
                     btnInsert.Enabled = true;
                     btnUpdate.Enabled = false;
                     btnDelete.Enabled = false;
-
+                    tbUsername.Enabled = true;
                     //REFRESH DATA
                     refreshData();
-                }
-                else
-                {
-                    MessageBox.Show("ID Model atau Description sudah ada di database");
-                }
             }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-            int id = Convert.ToInt32(tbModelID.Text);
-            String query = $"delete from m_model where MODEL_ID like {id}";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Menghapus");
-            conn.Close();
-
-            tbModelID.Text = "";
-            tbModelDesc.Text = "";
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
-
-            //REFRESH DATA
-            refreshData();
         }
     }
 }

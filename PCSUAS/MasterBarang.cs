@@ -28,6 +28,8 @@ namespace PCSUAS
 
         private void MasterBarang_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_merk' table. You can move, or remove it, as needed.
+            this.m_merkTableAdapter.Fill(this.dbProjectUasDataSet.m_merk);
             this.m_barangTableAdapter.Fill(this.dbProjectUasDataSet.m_barang);
 
         }
@@ -61,7 +63,6 @@ namespace PCSUAS
         {
                 try
                 {
-
                     //this.Validate();
                     this.m_barangBindingSource.EndEdit();
                     this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);

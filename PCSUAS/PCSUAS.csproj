@@ -105,6 +105,12 @@
     <Compile Include="MasterSupplier.Designer.cs">
       <DependentUpon>MasterSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterUsers.Designer.cs">
+      <DependentUpon>MasterUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterSupplier.resx">
       <DependentUpon>MasterSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterUsers.resx">
+      <DependentUpon>MasterUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

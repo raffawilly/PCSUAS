@@ -87,6 +87,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterModel.Designer.cs">
+      <DependentUpon>MasterModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterPelanggan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterMerk.resx">
       <DependentUpon>MasterMerk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterModel.resx">
+      <DependentUpon>MasterModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterPelanggan.resx">
       <DependentUpon>MasterPelanggan.cs</DependentUpon>

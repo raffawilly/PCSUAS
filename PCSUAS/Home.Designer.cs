@@ -123,6 +123,7 @@ namespace PCSUAS
             this.button7.TabIndex = 6;
             this.button7.Text = "Master Model";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 

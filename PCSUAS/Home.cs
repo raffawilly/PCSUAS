@@ -75,5 +75,11 @@ namespace PCSUAS
             MasterHakAkses mHA = new MasterHakAkses();
             mHA.Show();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            MasterModel mMdl = new MasterModel();
+            mMdl.Show();
+        }
     }
 }

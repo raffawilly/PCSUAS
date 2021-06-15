@@ -30,35 +30,48 @@ namespace PCSUAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label nAMAGROUPUSERLabel;
             System.Windows.Forms.Label nAMAMENULabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterHakAkses));
+            System.Windows.Forms.Label nAMAGROUPUSERLabel;
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_hakaksesgroupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_hakaksesgroupuserTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
             this.m_hakaksesgroupuserBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.nAMAGROUPUSERTextBox = new System.Windows.Forms.TextBox();
-            this.nAMAMENUTextBox = new System.Windows.Forms.TextBox();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.m_hakaksesgroupuserBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
+            this.nAMAMENUTextBox = new System.Windows.Forms.TextBox();
+            this.nAMAGROUPUSERComboBox = new System.Windows.Forms.ComboBox();
+            this.mgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.m_groupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
             nAMAMENULabel = new System.Windows.Forms.Label();
+            nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingNavigator)).BeginInit();
             this.m_hakaksesgroupuserBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nAMAMENULabel
+            // 
+            nAMAMENULabel.AutoSize = true;
+            nAMAMENULabel.Location = new System.Drawing.Point(162, 125);
+            nAMAMENULabel.Name = "nAMAMENULabel";
+            nAMAMENULabel.Size = new System.Drawing.Size(73, 12);
+            nAMAMENULabel.TabIndex = 3;
+            nAMAMENULabel.Text = "NAMAMENU:";
             // 
             // dbProjectUasDataSet
             // 
@@ -127,75 +140,9 @@ namespace PCSUAS
             this.m_hakaksesgroupuserBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.m_hakaksesgroupuserBindingNavigator.Name = "m_hakaksesgroupuserBindingNavigator";
             this.m_hakaksesgroupuserBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.m_hakaksesgroupuserBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.m_hakaksesgroupuserBindingNavigator.Size = new System.Drawing.Size(538, 25);
             this.m_hakaksesgroupuserBindingNavigator.TabIndex = 0;
             this.m_hakaksesgroupuserBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // nAMAGROUPUSERLabel
-            // 
-            nAMAGROUPUSERLabel.AutoSize = true;
-            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(47, 77);
-            nAMAGROUPUSERLabel.Name = "nAMAGROUPUSERLabel";
-            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(110, 13);
-            nAMAGROUPUSERLabel.TabIndex = 1;
-            nAMAGROUPUSERLabel.Text = "NAMAGROUPUSER:";
-            // 
-            // nAMAGROUPUSERTextBox
-            // 
-            this.nAMAGROUPUSERTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
-            this.nAMAGROUPUSERTextBox.Location = new System.Drawing.Point(163, 74);
-            this.nAMAGROUPUSERTextBox.Name = "nAMAGROUPUSERTextBox";
-            this.nAMAGROUPUSERTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nAMAGROUPUSERTextBox.TabIndex = 2;
-            // 
-            // nAMAMENULabel
-            // 
-            nAMAMENULabel.AutoSize = true;
-            nAMAMENULabel.Location = new System.Drawing.Point(47, 103);
-            nAMAMENULabel.Name = "nAMAMENULabel";
-            nAMAMENULabel.Size = new System.Drawing.Size(73, 13);
-            nAMAMENULabel.TabIndex = 3;
-            nAMAMENULabel.Text = "NAMAMENU:";
-            // 
-            // nAMAMENUTextBox
-            // 
-            this.nAMAMENUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAMENU", true));
-            this.nAMAMENUTextBox.Location = new System.Drawing.Point(163, 100);
-            this.nAMAMENUTextBox.Name = "nAMAMENUTextBox";
-            this.nAMAMENUTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nAMAMENUTextBox.TabIndex = 4;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -205,6 +152,13 @@ namespace PCSUAS
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -233,6 +187,25 @@ namespace PCSUAS
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -251,6 +224,11 @@ namespace PCSUAS
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // m_hakaksesgroupuserBindingNavigatorSaveItem
             // 
             this.m_hakaksesgroupuserBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -260,16 +238,66 @@ namespace PCSUAS
             this.m_hakaksesgroupuserBindingNavigatorSaveItem.Text = "Save Data";
             this.m_hakaksesgroupuserBindingNavigatorSaveItem.Click += new System.EventHandler(this.m_hakaksesgroupuserBindingNavigatorSaveItem_Click);
             // 
+            // nAMAMENUTextBox
+            // 
+            this.nAMAMENUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAMENU", true));
+            this.nAMAMENUTextBox.Location = new System.Drawing.Point(254, 122);
+            this.nAMAMENUTextBox.Name = "nAMAMENUTextBox";
+            this.nAMAMENUTextBox.Size = new System.Drawing.Size(140, 20);
+            this.nAMAMENUTextBox.TabIndex = 4;
+            // 
+            // nAMAGROUPUSERLabel
+            // 
+            nAMAGROUPUSERLabel.AutoSize = true;
+            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(119, 100);
+            nAMAGROUPUSERLabel.Name = "nAMAGROUPUSERLabel";
+            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(112, 12);
+            nAMAGROUPUSERLabel.TabIndex = 4;
+            nAMAGROUPUSERLabel.Text = "NAMAGROUPUSER:";
+            // 
+            // nAMAGROUPUSERComboBox
+            // 
+            this.nAMAGROUPUSERComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
+            this.nAMAGROUPUSERComboBox.DataSource = this.mgroupuserBindingSource;
+            this.nAMAGROUPUSERComboBox.DisplayMember = "NAMAGROUPUSER";
+            this.nAMAGROUPUSERComboBox.FormattingEnabled = true;
+            this.nAMAGROUPUSERComboBox.Location = new System.Drawing.Point(254, 97);
+            this.nAMAGROUPUSERComboBox.Name = "nAMAGROUPUSERComboBox";
+            this.nAMAGROUPUSERComboBox.Size = new System.Drawing.Size(140, 20);
+            this.nAMAGROUPUSERComboBox.TabIndex = 5;
+            this.nAMAGROUPUSERComboBox.ValueMember = "NAMAGROUPUSER";
+            // 
+            // mgroupuserBindingSource
+            // 
+            this.mgroupuserBindingSource.DataMember = "m_groupuser";
+            this.mgroupuserBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
+            // m_groupuserTableAdapter
+            // 
+            this.m_groupuserTableAdapter.ClearBeforeFill = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(79, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(380, 40);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "MASTER HAK AKSES";
+            // 
             // MasterHakAkses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(538, 215);
+            this.Controls.Add(this.label1);
             this.Controls.Add(nAMAGROUPUSERLabel);
-            this.Controls.Add(this.nAMAGROUPUSERTextBox);
+            this.Controls.Add(this.nAMAGROUPUSERComboBox);
             this.Controls.Add(nAMAMENULabel);
             this.Controls.Add(this.nAMAMENUTextBox);
             this.Controls.Add(this.m_hakaksesgroupuserBindingNavigator);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterHakAkses";
             this.Text = "MasterHakAkses";
             this.Load += new System.EventHandler(this.MasterHakAkses_Load);
@@ -278,6 +306,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingNavigator)).EndInit();
             this.m_hakaksesgroupuserBindingNavigator.ResumeLayout(false);
             this.m_hakaksesgroupuserBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,7 +331,10 @@ namespace PCSUAS
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton m_hakaksesgroupuserBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox nAMAGROUPUSERTextBox;
         private System.Windows.Forms.TextBox nAMAMENUTextBox;
+        private System.Windows.Forms.ComboBox nAMAGROUPUSERComboBox;
+        private System.Windows.Forms.BindingSource mgroupuserBindingSource;
+        private dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter m_groupuserTableAdapter;
+        private System.Windows.Forms.Label label1;
     }
 }

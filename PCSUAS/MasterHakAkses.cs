@@ -27,6 +27,8 @@ namespace PCSUAS
 
         private void MasterHakAkses_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_groupuser' table. You can move, or remove it, as needed.
+            this.m_groupuserTableAdapter.Fill(this.dbProjectUasDataSet.m_groupuser);
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_hakaksesgroupuser' table. You can move, or remove it, as needed.
             this.m_hakaksesgroupuserTableAdapter.Fill(this.dbProjectUasDataSet.m_hakaksesgroupuser);
 

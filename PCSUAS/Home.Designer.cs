@@ -135,6 +135,7 @@ namespace PCSUAS
             this.button8.TabIndex = 7;
             this.button8.Text = "Master Merk";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -145,6 +146,7 @@ namespace PCSUAS
             this.button9.TabIndex = 8;
             this.button9.Text = "Master Kota";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label1
             // 

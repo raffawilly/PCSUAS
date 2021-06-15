@@ -91,5 +91,16 @@ namespace PCSUAS
             MasterUsers mUsers = new MasterUsers();
             mUsers.Show();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            MasterKota mKota = new MasterKota();
+            mKota.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

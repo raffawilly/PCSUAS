@@ -46,9 +46,9 @@ namespace PCSUAS
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 95);
+            this.listView1.Location = new System.Drawing.Point(14, 88);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(744, 273);
+            this.listView1.Size = new System.Drawing.Size(867, 252);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -71,7 +71,7 @@ namespace PCSUAS
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(788, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(919, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -87,11 +87,12 @@ namespace PCSUAS
             // 
             // MasterMerk
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 450);
+            this.ClientSize = new System.Drawing.Size(919, 415);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.listView1);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterMerk";
             this.Text = "MasterMerk";
             this.Load += new System.EventHandler(this.MasterMerk_Load);

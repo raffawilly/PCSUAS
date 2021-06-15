@@ -54,6 +54,7 @@ namespace PCSUAS
             this.nAMAGROUPUSERTextBox = new System.Windows.Forms.TextBox();
             this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_groupuserBindingSource)).BeginInit();
@@ -66,9 +67,9 @@ namespace PCSUAS
             // nAMAGROUPUSERLabel
             // 
             nAMAGROUPUSERLabel.AutoSize = true;
-            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(40, 59);
+            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(151, 104);
             nAMAGROUPUSERLabel.Name = "nAMAGROUPUSERLabel";
-            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(110, 13);
+            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(112, 12);
             nAMAGROUPUSERLabel.TabIndex = 1;
             nAMAGROUPUSERLabel.Text = "NAMAGROUPUSER:";
             // 
@@ -147,7 +148,7 @@ namespace PCSUAS
             this.m_groupuserBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.m_groupuserBindingNavigator.Name = "m_groupuserBindingNavigator";
             this.m_groupuserBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.m_groupuserBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.m_groupuserBindingNavigator.Size = new System.Drawing.Size(562, 25);
             this.m_groupuserBindingNavigator.TabIndex = 0;
             this.m_groupuserBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -249,9 +250,9 @@ namespace PCSUAS
             // nAMAGROUPUSERTextBox
             // 
             this.nAMAGROUPUSERTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_groupuserBindingSource, "NAMAGROUPUSER", true));
-            this.nAMAGROUPUSERTextBox.Location = new System.Drawing.Point(156, 56);
+            this.nAMAGROUPUSERTextBox.Location = new System.Drawing.Point(287, 101);
             this.nAMAGROUPUSERTextBox.Name = "nAMAGROUPUSERTextBox";
-            this.nAMAGROUPUSERTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nAMAGROUPUSERTextBox.Size = new System.Drawing.Size(116, 20);
             this.nAMAGROUPUSERTextBox.TabIndex = 2;
             // 
             // m_hakaksesgroupuserBindingSource
@@ -264,14 +265,26 @@ namespace PCSUAS
             this.m_usersBindingSource.DataMember = "FK_USERS_GROUPUSERS";
             this.m_usersBindingSource.DataSource = this.m_groupuserBindingSource;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(71, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(411, 40);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "MASTER GROUP USER";
+            // 
             // MasterGroupUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(562, 179);
+            this.Controls.Add(this.label1);
             this.Controls.Add(nAMAGROUPUSERLabel);
             this.Controls.Add(this.nAMAGROUPUSERTextBox);
             this.Controls.Add(this.m_groupuserBindingNavigator);
+            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterGroupUser";
             this.Text = "MasterGroupUser";
             this.Load += new System.EventHandler(this.MasterGroupUser_Load);
@@ -311,5 +324,6 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource m_hakaksesgroupuserBindingSource;
         private dbProjectUasDataSetTableAdapters.m_usersTableAdapter m_usersTableAdapter;
         private System.Windows.Forms.BindingSource m_usersBindingSource;
+        private System.Windows.Forms.Label label1;
     }
 }

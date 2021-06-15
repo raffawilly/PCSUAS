@@ -73,13 +73,13 @@ namespace PCSUAS
             this.m_barangBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.mERK1ComboBox = new System.Windows.Forms.ComboBox();
-            this.mERK2ComboBox = new System.Windows.Forms.ComboBox();
-            this.mERK3ComboBox = new System.Windows.Forms.ComboBox();
             this.mmerkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
-            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mERK2ComboBox = new System.Windows.Forms.ComboBox();
             this.mmerkBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mERK3ComboBox = new System.Windows.Forms.ComboBox();
             this.mmerkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
             kODELabel = new System.Windows.Forms.Label();
             pART_NOLabel = new System.Windows.Forms.Label();
             uNIT_PRICELabel = new System.Windows.Forms.Label();
@@ -98,8 +98,8 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.m_barangBindingNavigator)).BeginInit();
             this.m_barangBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -493,6 +493,11 @@ namespace PCSUAS
             this.mERK1ComboBox.TabIndex = 33;
             this.mERK1ComboBox.ValueMember = "ID";
             // 
+            // mmerkBindingSource
+            // 
+            this.mmerkBindingSource.DataMember = "m_merk";
+            this.mmerkBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
             // mERK2ComboBox
             // 
             this.mERK2ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_barangBindingSource, "MERK2", true));
@@ -504,6 +509,16 @@ namespace PCSUAS
             this.mERK2ComboBox.Size = new System.Drawing.Size(163, 20);
             this.mERK2ComboBox.TabIndex = 34;
             this.mERK2ComboBox.ValueMember = "ID";
+            // 
+            // mmerkBindingSource1
+            // 
+            this.mmerkBindingSource1.DataMember = "m_merk";
+            this.mmerkBindingSource1.DataSource = this.dbProjectUasDataSetBindingSource;
+            // 
+            // dbProjectUasDataSetBindingSource
+            // 
+            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
+            this.dbProjectUasDataSetBindingSource.Position = 0;
             // 
             // mERK3ComboBox
             // 
@@ -517,29 +532,14 @@ namespace PCSUAS
             this.mERK3ComboBox.TabIndex = 35;
             this.mERK3ComboBox.ValueMember = "ID";
             // 
-            // mmerkBindingSource
-            // 
-            this.mmerkBindingSource.DataMember = "m_merk";
-            this.mmerkBindingSource.DataSource = this.dbProjectUasDataSet;
-            // 
-            // m_merkTableAdapter
-            // 
-            this.m_merkTableAdapter.ClearBeforeFill = true;
-            // 
-            // dbProjectUasDataSetBindingSource
-            // 
-            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
-            this.dbProjectUasDataSetBindingSource.Position = 0;
-            // 
-            // mmerkBindingSource1
-            // 
-            this.mmerkBindingSource1.DataMember = "m_merk";
-            this.mmerkBindingSource1.DataSource = this.dbProjectUasDataSetBindingSource;
-            // 
             // mmerkBindingSource2
             // 
             this.mmerkBindingSource2.DataMember = "m_merk";
             this.mmerkBindingSource2.DataSource = this.dbProjectUasDataSetBindingSource;
+            // 
+            // m_merkTableAdapter
+            // 
+            this.m_merkTableAdapter.ClearBeforeFill = true;
             // 
             // MasterBarang
             // 
@@ -584,8 +584,8 @@ namespace PCSUAS
             this.m_barangBindingNavigator.ResumeLayout(false);
             this.m_barangBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

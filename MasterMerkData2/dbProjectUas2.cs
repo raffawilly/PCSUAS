@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-namespace MasterMerkData2;
+using System.Threading.Tasks;
+
+namespace MasterMerkData2
 {
-    public static class dbProjectUas
+    public static class dbProjectUas2
     {
         public static SqlConnection GetConnection()
         {

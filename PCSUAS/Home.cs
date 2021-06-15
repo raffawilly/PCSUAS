@@ -100,7 +100,8 @@ namespace PCSUAS
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            MasterMerk mMerk = new MasterMerk();
+            mMerk.Show();
         }
     }
 }

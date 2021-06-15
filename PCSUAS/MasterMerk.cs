@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using MasterMerkData;
-
+using MasterMerkData2;
 namespace PCSUAS
 {
     public partial class MasterMerk : Form
@@ -25,40 +24,40 @@ namespace PCSUAS
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            //listView1.Items.Clear();
-            //List<MasterMerk> merkList;
-            //try
-            //{
-            //    merkList = masterMerk
-            //    if (invoiceList.Count > 0)
-            //    {
-            //        Invoice invoice;
-            //        for (int i = 0; i < invoiceList.Count; i++)
-            //        {
-            //            invoice = invoiceList[i];
-            //            lvInvoices.Items.Add(invoice.InvoiceNumber);
-            //            lvInvoices.Items[i].SubItems.Add(invoice.InvoiceDate.ToShortDateString());
-            //            lvInvoices.Items[i].SubItems.Add(invoice.InvoiceTotal.ToString("c"));
-            //            lvInvoices.Items[i].SubItems.Add(invoice.PaymentTotal.ToString("c"));
-            //            lvInvoices.Items[i].SubItems.Add(invoice.CreditTotal.ToString("c"));
-            //            lvInvoices.Items[i].SubItems.Add(invoice.BalanceDue().ToString("c"));
-            //            lvInvoices.Items[i].SubItems.Add(invoice.DueDate.ToShortDateString());
-            //        }
-            //        decimal totalBalanceDue = InvoiceDB.GetTotalBalanceDue();
-            //        txtTotalBalanceDue.Text = totalBalanceDue.ToString("c");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("All invoices are paid in full.",
-            //            "No Balance Due");
-            //        this.Close();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //    this.Close();
-            //}
+            listView1.Items.Clear();
+            List<MasterMerk2> merkList;
+            try
+            {
+                merkList = MasterMerkDB2.get();
+                if (merkList.Count > 0)
+                {
+                    MasterMerk2 masterMerk;
+                    for (int i = 0; i < merkList.Count; i++)
+                    {
+                        masterMerk = merkList[i];
+                        listView1.Items[i].SubItems.Add(masterMerk.Id.ToString("c"));
+                        listView1.Items[i].SubItems.Add(masterMerk.Merk_code);
+                        listView1.Items[i].SubItems.Add(masterMerk.Merk_desc);
+
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("All invoices are paid in full.",
+                    //    "No Balance Due");
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

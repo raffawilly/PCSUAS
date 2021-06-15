@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MasterMerkData">
+      <HintPath>..\MasterMerkData\obj\Debug\netcoreapp3.1\MasterMerkData.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -186,6 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MasterMerkData2\MasterMerkData2.csproj">
+      <Project>{7f3b6ae6-9c35-46d4-9217-ac210efa37d6}</Project>
+      <Name>MasterMerkData2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

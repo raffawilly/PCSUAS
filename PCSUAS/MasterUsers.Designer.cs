@@ -124,6 +124,7 @@ namespace PCSUAS
             // 
             // btnDelete
             // 
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(710, 336);
             this.btnDelete.Name = "btnDelete";
@@ -135,6 +136,7 @@ namespace PCSUAS
             // 
             // btnInsert
             // 
+            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInsert.Location = new System.Drawing.Point(566, 308);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(285, 21);
@@ -145,6 +147,7 @@ namespace PCSUAS
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(566, 336);
             this.btnUpdate.Name = "btnUpdate";
@@ -197,6 +200,7 @@ namespace PCSUAS
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Location = new System.Drawing.Point(701, 159);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(147, 23);
@@ -271,6 +275,7 @@ namespace PCSUAS
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterUsers";
             this.Text = "MasterUsers";

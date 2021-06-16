@@ -41,5 +41,73 @@ namespace MasterMerkData2
             }
             return merkList;
         }
+
+        public static List<MasterMerk2> getByMerkCode(String code)
+        {
+            List<MasterMerk2> merkList = new List<MasterMerk2>();
+            SqlConnection connection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
+            string selectStatement =
+                "SELECT ID, MERK_CODE, MERK_DESC " +
+                "FROM m_merk "+
+                "where merk_code like'%"+code+"%'";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    MasterMerk2 mastermerk = new MasterMerk2();
+                    mastermerk.Id = (int)reader["ID"];
+                    mastermerk.Merk_code = reader["MERK_CODE"].ToString();
+                    mastermerk.Merk_desc = reader["MERK_DESC"].ToString();
+                    merkList.Add(mastermerk);
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return merkList;
+        }
+
+        public static List<MasterMerk2> getByMerkDesc(String desc)
+        {
+            List<MasterMerk2> merkList = new List<MasterMerk2>();
+            SqlConnection connection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
+            string selectStatement =
+                "SELECT ID, MERK_CODE, MERK_DESC " +
+                "FROM m_merk " +
+                "where merk_desc like'%" + desc + "%'";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    MasterMerk2 mastermerk = new MasterMerk2();
+                    mastermerk.Id = (int)reader["ID"];
+                    mastermerk.Merk_code = reader["MERK_CODE"].ToString();
+                    mastermerk.Merk_desc = reader["MERK_DESC"].ToString();
+                    merkList.Add(mastermerk);
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return merkList;
+        }
     }
 }

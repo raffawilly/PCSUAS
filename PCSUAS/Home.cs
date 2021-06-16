@@ -24,71 +24,10 @@ namespace PCSUAS
         }
 
 
-        private void btnMasterBarang_Click(object sender, EventArgs e)
-        {
-            MasterBarang mBrg = new MasterBarang();
-            mBrg.Show();
-        }
-
-        private void btnMasterPelanggan_Click(object sender, EventArgs e)
-        {
-            MasterPelanggan mPlngn = new MasterPelanggan();
-            mPlngn.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            MasterSupplier mSplr = new MasterSupplier();
-            mSplr.Show();
-        }
-
+        
         private void Home_MouseHover(object sender, EventArgs e)
         {
   
-        }
-
-        private void btnMasterBarang_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MasterGroupUser mGU = new MasterGroupUser();
-            mGU.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            MasterHakAkses mHA = new MasterHakAkses();
-            mHA.Show();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            MasterModel mMdl = new MasterModel();
-            mMdl.Show();
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            MasterUsers mUsers = new MasterUsers();
-            mUsers.Show();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            MasterKota mKota = new MasterKota();
-            mKota.Show();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            MasterMerk mMerk = new MasterMerk();
-            mMerk.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -117,7 +56,8 @@ namespace PCSUAS
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-
+            MasterMerk mMerk = new MasterMerk();
+            mMerk.Show();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)

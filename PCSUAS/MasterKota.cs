@@ -32,13 +32,6 @@ namespace PCSUAS
 
         }
 
-        private void m_kotaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.m_kotaBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
-
-        }
         private bool cekKosong()
         {
             if (tbNamaKota.Text.Length == 0 )
@@ -64,12 +57,6 @@ namespace PCSUAS
             dataGridView1.DataSource = ds.Tables[0];
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             conn.Close();
-        }
-        private void MasterKota_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_kota' table. You can move, or remove it, as needed.
-            this.m_kotaTableAdapter.Fill(this.dbProjectUasDataSet.m_kota);
-
         }
        
         private void btnAdd_Click(object sender, EventArgs e)
@@ -98,27 +85,6 @@ namespace PCSUAS
             btnDelete.Enabled = true;
             btnAdd.Enabled = false;
             tbNamaKota.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (cekKosong())
-            {
-                conn.Open();
-                String kota = tbNamaKota.Text;
-                conn.Close();
-                conn.Open();
-                String query = $"update m_kota set namakota = '{kota}' where namakota= '{kota}'";
-                SqlCommand comm2 = new SqlCommand(query, conn);
-                comm2.ExecuteNonQuery();
-                MessageBox.Show("Berhasil Update!");
-                conn.Close();
-                clear();
-                btnDelete.Enabled = false;
-                btnAdd.Enabled = true;
-                //REFRESH DATA
-                refreshData();
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

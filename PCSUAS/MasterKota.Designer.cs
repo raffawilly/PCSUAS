@@ -51,6 +51,24 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(48, 127);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(92, 12);
+            label2.TabIndex = 12;
+            label2.Text = "Daftar List Kota";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(88, 81);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(63, 12);
+            label4.TabIndex = 18;
+            label4.Text = "Cari Kota :";
+            // 
             // dbProjectUasDataSet
             // 
             this.dbProjectUasDataSet.DataSetName = "dbProjectUasDataSet";
@@ -112,15 +130,6 @@ namespace PCSUAS
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(48, 127);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(92, 12);
-            label2.TabIndex = 12;
-            label2.Text = "Daftar List Kota";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -160,15 +169,6 @@ namespace PCSUAS
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(88, 81);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(63, 12);
-            label4.TabIndex = 18;
-            label4.Text = "Cari Kota :";
-            // 
             // tbCari
             // 
             this.tbCari.Location = new System.Drawing.Point(161, 78);
@@ -205,7 +205,6 @@ namespace PCSUAS
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterKota";
             this.Text = "MasterKota";
-            this.Load += new System.EventHandler(this.MasterKota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_kotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

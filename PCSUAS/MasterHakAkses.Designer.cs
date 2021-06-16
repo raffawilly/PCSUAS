@@ -30,48 +30,65 @@ namespace PCSUAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label nAMAMENULabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterHakAkses));
             System.Windows.Forms.Label nAMAGROUPUSERLabel;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label5;
+            this.label4 = new System.Windows.Forms.Label();
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_hakaksesgroupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_hakaksesgroupuserTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
-            this.m_hakaksesgroupuserBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.nAMAMENUTextBox = new System.Windows.Forms.TextBox();
-            this.nAMAGROUPUSERComboBox = new System.Windows.Forms.ComboBox();
+            this.CBGroupUser = new System.Windows.Forms.ComboBox();
             this.mgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_groupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            nAMAMENULabel = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.NmMenuTxt = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NmMenuInstxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CBGroupUserIns = new System.Windows.Forms.ComboBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.rbMenu = new System.Windows.Forms.RadioButton();
+            this.rbGroupUser = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingNavigator)).BeginInit();
-            this.m_hakaksesgroupuserBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // nAMAMENULabel
+            // nAMAGROUPUSERLabel
             // 
-            nAMAMENULabel.AutoSize = true;
-            nAMAMENULabel.Location = new System.Drawing.Point(162, 125);
-            nAMAMENULabel.Name = "nAMAMENULabel";
-            nAMAMENULabel.Size = new System.Drawing.Size(73, 12);
-            nAMAMENULabel.TabIndex = 3;
-            nAMAMENULabel.Text = "NAMAMENU:";
+            nAMAGROUPUSERLabel.AutoSize = true;
+            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(385, 137);
+            nAMAGROUPUSERLabel.Name = "nAMAGROUPUSERLabel";
+            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(79, 12);
+            nAMAGROUPUSERLabel.TabIndex = 4;
+            nAMAGROUPUSERLabel.Text = "Nama Menu : ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(351, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 12);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Nama Group User :";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(101, 100);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(107, 12);
+            label2.TabIndex = 32;
+            label2.Text = "Daftar Group User";
             // 
             // dbProjectUasDataSet
             // 
@@ -114,158 +131,14 @@ namespace PCSUAS
             this.tableAdapterManager.t_penawaran_headerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // m_hakaksesgroupuserBindingNavigator
+            // CBGroupUser
             // 
-            this.m_hakaksesgroupuserBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.m_hakaksesgroupuserBindingNavigator.BindingSource = this.m_hakaksesgroupuserBindingSource;
-            this.m_hakaksesgroupuserBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.m_hakaksesgroupuserBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.m_hakaksesgroupuserBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem});
-            this.m_hakaksesgroupuserBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.m_hakaksesgroupuserBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.m_hakaksesgroupuserBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.m_hakaksesgroupuserBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.m_hakaksesgroupuserBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.m_hakaksesgroupuserBindingNavigator.Name = "m_hakaksesgroupuserBindingNavigator";
-            this.m_hakaksesgroupuserBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.m_hakaksesgroupuserBindingNavigator.Size = new System.Drawing.Size(538, 25);
-            this.m_hakaksesgroupuserBindingNavigator.TabIndex = 0;
-            this.m_hakaksesgroupuserBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // m_hakaksesgroupuserBindingNavigatorSaveItem
-            // 
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("m_hakaksesgroupuserBindingNavigatorSaveItem.Image")));
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.Name = "m_hakaksesgroupuserBindingNavigatorSaveItem";
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.Text = "Save Data";
-            this.m_hakaksesgroupuserBindingNavigatorSaveItem.Click += new System.EventHandler(this.m_hakaksesgroupuserBindingNavigatorSaveItem_Click);
-            // 
-            // nAMAMENUTextBox
-            // 
-            this.nAMAMENUTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAMENU", true));
-            this.nAMAMENUTextBox.Location = new System.Drawing.Point(254, 122);
-            this.nAMAMENUTextBox.Name = "nAMAMENUTextBox";
-            this.nAMAMENUTextBox.Size = new System.Drawing.Size(140, 20);
-            this.nAMAMENUTextBox.TabIndex = 4;
-            // 
-            // nAMAGROUPUSERLabel
-            // 
-            nAMAGROUPUSERLabel.AutoSize = true;
-            nAMAGROUPUSERLabel.Location = new System.Drawing.Point(119, 100);
-            nAMAGROUPUSERLabel.Name = "nAMAGROUPUSERLabel";
-            nAMAGROUPUSERLabel.Size = new System.Drawing.Size(112, 12);
-            nAMAGROUPUSERLabel.TabIndex = 4;
-            nAMAGROUPUSERLabel.Text = "NAMAGROUPUSER:";
-            // 
-            // nAMAGROUPUSERComboBox
-            // 
-            this.nAMAGROUPUSERComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
-            this.nAMAGROUPUSERComboBox.DataSource = this.mgroupuserBindingSource;
-            this.nAMAGROUPUSERComboBox.DisplayMember = "NAMAGROUPUSER";
-            this.nAMAGROUPUSERComboBox.FormattingEnabled = true;
-            this.nAMAGROUPUSERComboBox.Location = new System.Drawing.Point(254, 97);
-            this.nAMAGROUPUSERComboBox.Name = "nAMAGROUPUSERComboBox";
-            this.nAMAGROUPUSERComboBox.Size = new System.Drawing.Size(140, 20);
-            this.nAMAGROUPUSERComboBox.TabIndex = 5;
-            this.nAMAGROUPUSERComboBox.ValueMember = "NAMAGROUPUSER";
+            this.CBGroupUser.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
+            this.CBGroupUser.FormattingEnabled = true;
+            this.CBGroupUser.Location = new System.Drawing.Point(462, 108);
+            this.CBGroupUser.Name = "CBGroupUser";
+            this.CBGroupUser.Size = new System.Drawing.Size(125, 20);
+            this.CBGroupUser.TabIndex = 5;
             // 
             // mgroupuserBindingSource
             // 
@@ -280,33 +153,165 @@ namespace PCSUAS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 37);
+            this.label1.Location = new System.Drawing.Point(128, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(380, 40);
             this.label1.TabIndex = 10;
             this.label1.Text = "MASTER HAK AKSES";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Location = new System.Drawing.Point(462, 160);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(125, 25);
+            this.btnSearch.TabIndex = 39;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // NmMenuTxt
+            // 
+            this.NmMenuTxt.Enabled = false;
+            this.NmMenuTxt.Location = new System.Drawing.Point(462, 134);
+            this.NmMenuTxt.Name = "NmMenuTxt";
+            this.NmMenuTxt.Size = new System.Drawing.Size(125, 20);
+            this.NmMenuTxt.TabIndex = 38;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(481, 288);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(81, 23);
+            this.btnDelete.TabIndex = 36;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Location = new System.Drawing.Point(382, 288);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(81, 23);
+            this.btnAdd.TabIndex = 35;
+            this.btnAdd.Text = "Insert";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 115);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(284, 215);
+            this.dataGridView1.TabIndex = 31;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            // 
+            // NmMenuInstxt
+            // 
+            this.NmMenuInstxt.Location = new System.Drawing.Point(462, 254);
+            this.NmMenuInstxt.Name = "NmMenuInstxt";
+            this.NmMenuInstxt.Size = new System.Drawing.Size(125, 20);
+            this.NmMenuInstxt.TabIndex = 43;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(351, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 12);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Nama Group User :";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(385, 257);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(79, 12);
+            label5.TabIndex = 40;
+            label5.Text = "Nama Menu : ";
+            // 
+            // CBGroupUserIns
+            // 
+            this.CBGroupUserIns.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
+            this.CBGroupUserIns.FormattingEnabled = true;
+            this.CBGroupUserIns.Location = new System.Drawing.Point(462, 228);
+            this.CBGroupUserIns.Name = "CBGroupUserIns";
+            this.CBGroupUserIns.Size = new System.Drawing.Size(125, 20);
+            this.CBGroupUserIns.TabIndex = 41;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(352, 201);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(234, 10);
+            this.progressBar1.TabIndex = 44;
+            // 
+            // rbMenu
+            // 
+            this.rbMenu.AutoSize = true;
+            this.rbMenu.Location = new System.Drawing.Point(331, 139);
+            this.rbMenu.Name = "rbMenu";
+            this.rbMenu.Size = new System.Drawing.Size(14, 13);
+            this.rbMenu.TabIndex = 45;
+            this.rbMenu.UseVisualStyleBackColor = true;
+            this.rbMenu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbMenu_MouseClick);
+            // 
+            // rbGroupUser
+            // 
+            this.rbGroupUser.AutoSize = true;
+            this.rbGroupUser.Checked = true;
+            this.rbGroupUser.Location = new System.Drawing.Point(331, 115);
+            this.rbGroupUser.Name = "rbGroupUser";
+            this.rbGroupUser.Size = new System.Drawing.Size(14, 13);
+            this.rbGroupUser.TabIndex = 46;
+            this.rbGroupUser.TabStop = true;
+            this.rbGroupUser.UseVisualStyleBackColor = true;
+            this.rbGroupUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbGroupUser_MouseClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(331, 115);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(14, 42);
+            this.groupBox1.TabIndex = 47;
+            this.groupBox1.TabStop = false;
+            // 
             // MasterHakAkses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 215);
+            this.ClientSize = new System.Drawing.Size(625, 413);
+            this.Controls.Add(this.rbMenu);
+            this.Controls.Add(this.rbGroupUser);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.NmMenuInstxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(label5);
+            this.Controls.Add(this.CBGroupUserIns);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.NmMenuTxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(label2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(nAMAGROUPUSERLabel);
-            this.Controls.Add(this.nAMAGROUPUSERComboBox);
-            this.Controls.Add(nAMAMENULabel);
-            this.Controls.Add(this.nAMAMENUTextBox);
-            this.Controls.Add(this.m_hakaksesgroupuserBindingNavigator);
+            this.Controls.Add(this.CBGroupUser);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MasterHakAkses";
             this.Text = "MasterHakAkses";
-            this.Load += new System.EventHandler(this.MasterHakAkses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingNavigator)).EndInit();
-            this.m_hakaksesgroupuserBindingNavigator.ResumeLayout(false);
-            this.m_hakaksesgroupuserBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,23 +323,22 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource m_hakaksesgroupuserBindingSource;
         private dbProjectUasDataSetTableAdapters.m_hakaksesgroupuserTableAdapter m_hakaksesgroupuserTableAdapter;
         private dbProjectUasDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator m_hakaksesgroupuserBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton m_hakaksesgroupuserBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox nAMAMENUTextBox;
-        private System.Windows.Forms.ComboBox nAMAGROUPUSERComboBox;
+        private System.Windows.Forms.ComboBox CBGroupUser;
         private System.Windows.Forms.BindingSource mgroupuserBindingSource;
         private dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter m_groupuserTableAdapter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox NmMenuTxt;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox NmMenuInstxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CBGroupUserIns;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.RadioButton rbMenu;
+        private System.Windows.Forms.RadioButton rbGroupUser;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

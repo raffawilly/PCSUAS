@@ -40,15 +40,36 @@ namespace PCSUAS
             }
         }
 
-
         private bool cekKosong()
         {
-            if (tbModelDesc.Text.Length== 0)
+            if (tbModelDesc.Text.Length == 0)
             {
                 MessageBox.Show("Isi Data Dengan Benar!");
                 return false;
             }
             return true;
+        }
+
+        private bool cekKosongCari()
+        {
+            if (rbDesc.Checked)
+            {
+                if (tbDescCari.Text.Length == 0)
+                {
+                    MessageBox.Show("Isi Data Dengan Benar!");
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                if (tbModelIDCari.Text.Length == 0)
+                {
+                    MessageBox.Show("Isi Data Dengan Benar!");
+                    return false;
+                }
+                return true;
+            }
         }
 
         private void refreshData()
@@ -115,7 +136,6 @@ namespace PCSUAS
             {
                 conn.Open();
                 String desc = tbModelDesc.Text;
-
                 String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
                               $"FROM m_model mdl " +
                               $"WHERE DESCRIPTION = '{desc}'";
@@ -165,6 +185,65 @@ namespace PCSUAS
 
             //REFRESH DATA
             refreshData();
+        }
+
+        private void radioButton2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            tbDescCari.Enabled = false;
+            tbModelIDCari.Enabled = true;
+            tbDescCari.Text = "";
+        }
+
+        private void Description_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbDescCari.Enabled = true;
+            tbModelIDCari.Enabled = false;
+            tbModelIDCari.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (rbDesc.Checked)
+            {
+                    conn.Open();
+                    DataSet ds = new DataSet();
+                    String query = $"SELECT *" +
+                                  $"FROM m_model mdl " +
+                                  $"WHERE DESCRIPTION like '%{tbDescCari.Text}%'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+                    dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    conn.Close();
+                
+            }
+            else
+            {
+                    conn.Open();
+                    DataSet ds = new DataSet();
+                    String query = $"SELECT *" +
+                                  $"FROM m_model mdl " +
+                                  $"WHERE model_id like '%{tbModelIDCari.Text}%'";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+                    dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    conn.Close();
+               
+            }
+        }
+
+        private void MasterModel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbModel_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

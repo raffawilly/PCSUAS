@@ -169,5 +169,58 @@ namespace PCSUAS
                     refreshData();
             }
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbDesc_CheckedChanged(object sender, EventArgs e)
+        {
+            tbUsernameCari.Enabled = false;
+            tbNamaGroupCari.Enabled = true;
+            tbUsernameCari.Text = "";
+        }
+
+        private void rbModel_CheckedChanged(object sender, EventArgs e)
+        {
+            tbUsernameCari.Enabled = true;
+            tbNamaGroupCari.Enabled = false;
+            tbNamaGroupCari.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (rbNamaGroup.Checked)
+            {
+                conn.Open();
+                DataSet ds = new DataSet();
+                String query = $"SELECT *" +
+                              $"FROM m_users " +
+                              $"WHERE namagroupUser like '%{tbNamaGroupCari.Text}%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                conn.Close();
+
+            }
+            else
+            {
+                conn.Open();
+                DataSet ds = new DataSet();
+                String query = $"SELECT *" +
+                              $"FROM m_users " +
+                              $"WHERE username like '%{tbUsernameCari.Text}%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                conn.Close();
+
+            }
+        }
     }
 }

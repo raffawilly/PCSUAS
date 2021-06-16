@@ -169,22 +169,28 @@ namespace PCSUAS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            int id = Convert.ToInt32(tbModelID.Text);
-            String query = $"delete from m_model where MODEL_ID like {id}";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Menghapus");
-            conn.Close();
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            tbModelID.Text = "";
-            tbModelDesc.Text = "";
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                int id = Convert.ToInt32(tbModelID.Text);
+                String query = $"delete from m_model where MODEL_ID like {id}";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
 
-            //REFRESH DATA
-            refreshData();
+                tbModelID.Text = "";
+                tbModelDesc.Text = "";
+                btnInsert.Enabled = true;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+
+                //REFRESH DATA
+                refreshData();
+            }
+             
         }
 
         private void radioButton2_MouseClick(object sender, MouseEventArgs e)

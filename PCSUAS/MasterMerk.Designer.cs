@@ -66,10 +66,12 @@ namespace PCSUAS
             // columnHeader2
             // 
             this.columnHeader2.Text = "MERK_CODE";
+            this.columnHeader2.Width = 120;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "MERK_DESC";
+            this.columnHeader3.Width = 120;
             // 
             // toolStrip1
             // 

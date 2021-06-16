@@ -103,19 +103,25 @@ namespace PCSUAS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            String Menu = NmMenuInstxt.Text;
-            String query = $"delete from m_hakaksesgroupuser where namamenu like '{Menu}'";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Menghapus");
-            conn.Close();
-            clear();
-            btnDelete.Enabled = false;
-            btnAdd.Enabled = true;
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            //REFRESH DATA
-            refreshData();
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String Menu = NmMenuInstxt.Text;
+                String query = $"delete from m_hakaksesgroupuser where namamenu like '{Menu}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                clear();
+                btnDelete.Enabled = false;
+                btnAdd.Enabled = true;
+
+                //REFRESH DATA
+                refreshData();
+            }
+             
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

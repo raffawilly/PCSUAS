@@ -83,21 +83,27 @@ namespace PCSUAS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            String username = tbUsername.Text;
-            String query = $"delete from m_users where username like '{username}'";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Menghapus");
-            conn.Close();
-            clear();
-            btnInsert.Enabled = true;
-            btnUpdate.Enabled = false;
-            btnDelete.Enabled = false;
-            tbUsername.Enabled = true;
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            //REFRESH DATA
-            refreshData();
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String username = tbUsername.Text;
+                String query = $"delete from m_users where username like '{username}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                clear();
+                btnInsert.Enabled = true;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
+                tbUsername.Enabled = true;
+
+                //REFRESH DATA
+                refreshData();
+            }
+           
         }
 
         private void btnInsert_Click(object sender, EventArgs e)

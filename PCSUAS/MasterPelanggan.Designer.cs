@@ -76,10 +76,11 @@ namespace PCSUAS
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.kOTAComboBox = new System.Windows.Forms.ComboBox();
-            this.kOTA1ComboBox = new System.Windows.Forms.ComboBox();
             this.mkotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
+            this.kOTA1ComboBox = new System.Windows.Forms.ComboBox();
             this.mkotaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             p_CODELabel = new System.Windows.Forms.Label();
             nAMALabel = new System.Windows.Forms.Label();
             aLAMATLabel = new System.Windows.Forms.Label();
@@ -514,6 +515,11 @@ namespace PCSUAS
             this.kOTAComboBox.TabIndex = 32;
             this.kOTAComboBox.ValueMember = "NAMAKOTA";
             // 
+            // mkotaBindingSource
+            // 
+            this.mkotaBindingSource.DataMember = "m_kota";
+            this.mkotaBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
             // kOTA1ComboBox
             // 
             this.kOTA1ComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_pelangganBindingSource, "KOTA1", true));
@@ -526,25 +532,31 @@ namespace PCSUAS
             this.kOTA1ComboBox.TabIndex = 33;
             this.kOTA1ComboBox.ValueMember = "NAMAKOTA";
             // 
-            // mkotaBindingSource
+            // mkotaBindingSource1
             // 
-            this.mkotaBindingSource.DataMember = "m_kota";
-            this.mkotaBindingSource.DataSource = this.dbProjectUasDataSet;
+            this.mkotaBindingSource1.DataMember = "m_kota";
+            this.mkotaBindingSource1.DataSource = this.dbProjectUasDataSet;
             // 
             // m_kotaTableAdapter
             // 
             this.m_kotaTableAdapter.ClearBeforeFill = true;
             // 
-            // mkotaBindingSource1
+            // button1
             // 
-            this.mkotaBindingSource1.DataMember = "m_kota";
-            this.mkotaBindingSource1.DataSource = this.dbProjectUasDataSet;
+            this.button1.Location = new System.Drawing.Point(812, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Lihat Semua Data";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MasterPelanggan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 497);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.kOTA1ComboBox);
             this.Controls.Add(this.kOTAComboBox);
             this.Controls.Add(this.label1);
@@ -629,5 +641,6 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource mkotaBindingSource;
         private dbProjectUasDataSetTableAdapters.m_kotaTableAdapter m_kotaTableAdapter;
         private System.Windows.Forms.BindingSource mkotaBindingSource1;
+        private System.Windows.Forms.Button button1;
     }
 }

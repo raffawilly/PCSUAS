@@ -81,6 +81,7 @@ namespace PCSUAS
             this.mmerkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             kODELabel = new System.Windows.Forms.Label();
             pART_NOLabel = new System.Windows.Forms.Label();
             uNIT_PRICELabel = new System.Windows.Forms.Label();
@@ -228,7 +229,7 @@ namespace PCSUAS
             this.kODETextBox.Location = new System.Drawing.Point(126, 146);
             this.kODETextBox.Name = "kODETextBox";
             this.kODETextBox.Size = new System.Drawing.Size(166, 20);
-            this.kODETextBox.TabIndex = 4;
+            this.kODETextBox.TabIndex = 2;
             // 
             // m_barangBindingSource
             // 
@@ -247,7 +248,7 @@ namespace PCSUAS
             this.pART_NOTextBox.Location = new System.Drawing.Point(399, 146);
             this.pART_NOTextBox.Name = "pART_NOTextBox";
             this.pART_NOTextBox.Size = new System.Drawing.Size(166, 20);
-            this.pART_NOTextBox.TabIndex = 6;
+            this.pART_NOTextBox.TabIndex = 3;
             // 
             // uNIT_PRICETextBox
             // 
@@ -255,7 +256,7 @@ namespace PCSUAS
             this.uNIT_PRICETextBox.Location = new System.Drawing.Point(126, 174);
             this.uNIT_PRICETextBox.Name = "uNIT_PRICETextBox";
             this.uNIT_PRICETextBox.Size = new System.Drawing.Size(166, 20);
-            this.uNIT_PRICETextBox.TabIndex = 10;
+            this.uNIT_PRICETextBox.TabIndex = 5;
             // 
             // uNITTextBox
             // 
@@ -263,7 +264,7 @@ namespace PCSUAS
             this.uNITTextBox.Location = new System.Drawing.Point(401, 174);
             this.uNITTextBox.Name = "uNITTextBox";
             this.uNITTextBox.Size = new System.Drawing.Size(26, 20);
-            this.uNITTextBox.TabIndex = 12;
+            this.uNITTextBox.TabIndex = 6;
             // 
             // sTAMPINGTextBox
             // 
@@ -271,7 +272,7 @@ namespace PCSUAS
             this.sTAMPINGTextBox.Location = new System.Drawing.Point(126, 222);
             this.sTAMPINGTextBox.Name = "sTAMPINGTextBox";
             this.sTAMPINGTextBox.Size = new System.Drawing.Size(166, 20);
-            this.sTAMPINGTextBox.TabIndex = 14;
+            this.sTAMPINGTextBox.TabIndex = 7;
             // 
             // dATA_FISIKTextBox
             // 
@@ -279,7 +280,7 @@ namespace PCSUAS
             this.dATA_FISIKTextBox.Location = new System.Drawing.Point(402, 221);
             this.dATA_FISIKTextBox.Name = "dATA_FISIKTextBox";
             this.dATA_FISIKTextBox.Size = new System.Drawing.Size(163, 20);
-            this.dATA_FISIKTextBox.TabIndex = 16;
+            this.dATA_FISIKTextBox.TabIndex = 8;
             // 
             // pERSAMAANTextBox
             // 
@@ -287,7 +288,7 @@ namespace PCSUAS
             this.pERSAMAANTextBox.Location = new System.Drawing.Point(661, 220);
             this.pERSAMAANTextBox.Name = "pERSAMAANTextBox";
             this.pERSAMAANTextBox.Size = new System.Drawing.Size(166, 20);
-            this.pERSAMAANTextBox.TabIndex = 18;
+            this.pERSAMAANTextBox.TabIndex = 9;
             // 
             // pN1TextBox
             // 
@@ -295,7 +296,7 @@ namespace PCSUAS
             this.pN1TextBox.Location = new System.Drawing.Point(660, 146);
             this.pN1TextBox.Name = "pN1TextBox";
             this.pN1TextBox.Size = new System.Drawing.Size(167, 20);
-            this.pN1TextBox.TabIndex = 20;
+            this.pN1TextBox.TabIndex = 4;
             // 
             // kETERANGANTextBox
             // 
@@ -303,7 +304,7 @@ namespace PCSUAS
             this.kETERANGANTextBox.Location = new System.Drawing.Point(126, 287);
             this.kETERANGANTextBox.Name = "kETERANGANTextBox";
             this.kETERANGANTextBox.Size = new System.Drawing.Size(350, 20);
-            this.kETERANGANTextBox.TabIndex = 28;
+            this.kETERANGANTextBox.TabIndex = 13;
             // 
             // dESCRIPTIONTextBox
             // 
@@ -311,7 +312,7 @@ namespace PCSUAS
             this.dESCRIPTIONTextBox.Location = new System.Drawing.Point(126, 122);
             this.dESCRIPTIONTextBox.Name = "dESCRIPTIONTextBox";
             this.dESCRIPTIONTextBox.Size = new System.Drawing.Size(166, 20);
-            this.dESCRIPTIONTextBox.TabIndex = 8;
+            this.dESCRIPTIONTextBox.TabIndex = 1;
             // 
             // m_barangTableAdapter
             // 
@@ -491,7 +492,7 @@ namespace PCSUAS
             this.mERK1ComboBox.Location = new System.Drawing.Point(126, 248);
             this.mERK1ComboBox.Name = "mERK1ComboBox";
             this.mERK1ComboBox.Size = new System.Drawing.Size(166, 20);
-            this.mERK1ComboBox.TabIndex = 33;
+            this.mERK1ComboBox.TabIndex = 10;
             this.mERK1ComboBox.ValueMember = "ID";
             // 
             // mmerkBindingSource
@@ -508,7 +509,7 @@ namespace PCSUAS
             this.mERK2ComboBox.Location = new System.Drawing.Point(402, 248);
             this.mERK2ComboBox.Name = "mERK2ComboBox";
             this.mERK2ComboBox.Size = new System.Drawing.Size(163, 20);
-            this.mERK2ComboBox.TabIndex = 34;
+            this.mERK2ComboBox.TabIndex = 11;
             this.mERK2ComboBox.ValueMember = "ID";
             // 
             // mmerkBindingSource1
@@ -530,7 +531,7 @@ namespace PCSUAS
             this.mERK3ComboBox.Location = new System.Drawing.Point(661, 251);
             this.mERK3ComboBox.Name = "mERK3ComboBox";
             this.mERK3ComboBox.Size = new System.Drawing.Size(166, 20);
-            this.mERK3ComboBox.TabIndex = 35;
+            this.mERK3ComboBox.TabIndex = 12;
             this.mERK3ComboBox.ValueMember = "ID";
             // 
             // mmerkBindingSource2
@@ -545,18 +546,29 @@ namespace PCSUAS
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(18, 66);
+            this.button1.Location = new System.Drawing.Point(852, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 36;
             this.button1.Text = "Print";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(805, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 23);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "Lihat Semua Data";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MasterBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 350);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mERK3ComboBox);
             this.Controls.Add(this.mERK2ComboBox);
@@ -643,5 +655,6 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource dbProjectUasDataSetBindingSource;
         private System.Windows.Forms.BindingSource mmerkBindingSource2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

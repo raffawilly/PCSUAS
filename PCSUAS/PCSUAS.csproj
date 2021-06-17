@@ -195,6 +195,24 @@
     <Compile Include="ReportViewerMasterSupplier.Designer.cs">
       <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewMasterBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMasterBarang.Designer.cs">
+      <DependentUpon>ViewMasterBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMasterPelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMasterPelanggan.Designer.cs">
+      <DependentUpon>ViewMasterPelanggan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMasterSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMasterSupplier.Designer.cs">
+      <DependentUpon>ViewMasterSupplier.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CrystalReportMasterBarang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterBarang.cs</LastGenOutput>
@@ -273,6 +291,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterSupplier.resx">
       <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMasterBarang.resx">
+      <DependentUpon>ViewMasterBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMasterPelanggan.resx">
+      <DependentUpon>ViewMasterPelanggan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMasterSupplier.resx">
+      <DependentUpon>ViewMasterSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dbProjectUasDataSet.xsc">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>

@@ -178,5 +178,11 @@ namespace PCSUAS
             ReportViewerMasterSupplier report = new ReportViewerMasterSupplier();
             report.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ViewMasterSupplier vSup = new ViewMasterSupplier();
+            vSup.Show();
+        }
     }
 }

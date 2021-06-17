@@ -251,5 +251,11 @@ namespace PCSUAS
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterModel rp = new ReportViewerMasterModel();
+            rp.Show();
+        }
     }
 }

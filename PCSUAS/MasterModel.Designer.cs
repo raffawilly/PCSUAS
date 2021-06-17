@@ -49,6 +49,7 @@ namespace PCSUAS
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbDesc = new System.Windows.Forms.RadioButton();
             this.rbModel = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -235,11 +236,22 @@ namespace PCSUAS
             this.rbModel.UseVisualStyleBackColor = true;
             this.rbModel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbModel_MouseClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MasterModel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 388);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rbDesc);
             this.Controls.Add(this.rbModel);
             this.Controls.Add(this.groupBox1);
@@ -292,5 +304,6 @@ namespace PCSUAS
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbModel;
         private System.Windows.Forms.RadioButton rbDesc;
+        private System.Windows.Forms.Button button1;
     }
 }

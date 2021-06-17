@@ -64,16 +64,30 @@ namespace PCSUAS
             if (cekKosong())
             {
 
+
                 conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
                 conn.Open();
-                String query = $"Insert into m_groupuser  values('{tbNamaGroup.Text}')";
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                this.Validate();
+                String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
+                              $"FROM m_groupuser grp " +
+                              $"WHERE namagroupuser = '{tbNamaGroup.Text}'";
+                SqlCommand comm = new SqlCommand(count, conn);
+                int jmlh = Convert.ToInt32(comm.ExecuteScalar().ToString());
+                if (jmlh == 0)
+                {
+                    String query = $"Insert into m_groupuser  values('{tbNamaGroup.Text}')";
+                    comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    this.Validate();
 
-                refreshData();
-                clear();
+                    refreshData();
+                    clear();
+                }
+                else
+                {
+                    MessageBox.Show("Nama Group sudah ada di database");
+                    conn.Close();
+                }
             }
         }
 

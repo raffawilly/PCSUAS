@@ -80,6 +80,7 @@ namespace PCSUAS
             this.mERK3ComboBox = new System.Windows.Forms.ComboBox();
             this.mmerkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             kODELabel = new System.Windows.Forms.Label();
             pART_NOLabel = new System.Windows.Forms.Label();
             uNIT_PRICELabel = new System.Windows.Forms.Label();
@@ -541,11 +542,22 @@ namespace PCSUAS
             // 
             this.m_merkTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(18, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MasterBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 350);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mERK3ComboBox);
             this.Controls.Add(this.mERK2ComboBox);
             this.Controls.Add(this.mERK1ComboBox);
@@ -630,5 +642,6 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource mmerkBindingSource1;
         private System.Windows.Forms.BindingSource dbProjectUasDataSetBindingSource;
         private System.Windows.Forms.BindingSource mmerkBindingSource2;
+        private System.Windows.Forms.Button button1;
     }
 }

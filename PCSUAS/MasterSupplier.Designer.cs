@@ -30,7 +30,6 @@ namespace PCSUAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterSupplier));
             System.Windows.Forms.Label p_IDLabel;
             System.Windows.Forms.Label nAMALabel;
             System.Windows.Forms.Label aLAMATLabel;
@@ -42,22 +41,24 @@ namespace PCSUAS
             System.Windows.Forms.Label eMAILLabel;
             System.Windows.Forms.Label bANKLabel;
             System.Windows.Forms.Label nOTELabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterSupplier));
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_supplierTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_supplierTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
+            this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
             this.m_supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.m_supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.p_IDTextBox = new System.Windows.Forms.TextBox();
             this.nAMATextBox = new System.Windows.Forms.TextBox();
@@ -72,8 +73,8 @@ namespace PCSUAS
             this.label1 = new System.Windows.Forms.Label();
             this.kOTAComboBox = new System.Windows.Forms.ComboBox();
             this.mkotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
             p_IDLabel = new System.Windows.Forms.Label();
             nAMALabel = new System.Windows.Forms.Label();
             aLAMATLabel = new System.Windows.Forms.Label();
@@ -91,6 +92,106 @@ namespace PCSUAS
             this.m_supplierBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkotaBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // p_IDLabel
+            // 
+            p_IDLabel.AutoSize = true;
+            p_IDLabel.Location = new System.Drawing.Point(53, 124);
+            p_IDLabel.Name = "p_IDLabel";
+            p_IDLabel.Size = new System.Drawing.Size(32, 12);
+            p_IDLabel.TabIndex = 1;
+            p_IDLabel.Text = "P_ID:";
+            p_IDLabel.Click += new System.EventHandler(this.p_IDLabel_Click);
+            // 
+            // nAMALabel
+            // 
+            nAMALabel.AutoSize = true;
+            nAMALabel.Location = new System.Drawing.Point(44, 151);
+            nAMALabel.Name = "nAMALabel";
+            nAMALabel.Size = new System.Drawing.Size(41, 12);
+            nAMALabel.TabIndex = 3;
+            nAMALabel.Text = "NAMA:";
+            // 
+            // aLAMATLabel
+            // 
+            aLAMATLabel.AutoSize = true;
+            aLAMATLabel.Location = new System.Drawing.Point(30, 180);
+            aLAMATLabel.Name = "aLAMATLabel";
+            aLAMATLabel.Size = new System.Drawing.Size(55, 12);
+            aLAMATLabel.TabIndex = 5;
+            aLAMATLabel.Text = "ALAMAT:";
+            // 
+            // kOTALabel
+            // 
+            kOTALabel.AutoSize = true;
+            kOTALabel.Location = new System.Drawing.Point(264, 180);
+            kOTALabel.Name = "kOTALabel";
+            kOTALabel.Size = new System.Drawing.Size(40, 12);
+            kOTALabel.TabIndex = 7;
+            kOTALabel.Text = "KOTA:";
+            // 
+            // tELP_HPLabel
+            // 
+            tELP_HPLabel.AutoSize = true;
+            tELP_HPLabel.Location = new System.Drawing.Point(281, 151);
+            tELP_HPLabel.Name = "tELP_HPLabel";
+            tELP_HPLabel.Size = new System.Drawing.Size(23, 12);
+            tELP_HPLabel.TabIndex = 9;
+            tELP_HPLabel.Text = "HP:";
+            // 
+            // nPWPLabel
+            // 
+            nPWPLabel.AutoSize = true;
+            nPWPLabel.Location = new System.Drawing.Point(264, 270);
+            nPWPLabel.Name = "nPWPLabel";
+            nPWPLabel.Size = new System.Drawing.Size(40, 12);
+            nPWPLabel.TabIndex = 11;
+            nPWPLabel.Text = "NPWP:";
+            // 
+            // nAMA_NPWPLabel
+            // 
+            nAMA_NPWPLabel.AutoSize = true;
+            nAMA_NPWPLabel.Location = new System.Drawing.Point(12, 270);
+            nAMA_NPWPLabel.Name = "nAMA_NPWPLabel";
+            nAMA_NPWPLabel.Size = new System.Drawing.Size(76, 12);
+            nAMA_NPWPLabel.TabIndex = 13;
+            nAMA_NPWPLabel.Text = "NAMA NPWP:";
+            // 
+            // aLAMAT_NPWLabel
+            // 
+            aLAMAT_NPWLabel.AutoSize = true;
+            aLAMAT_NPWLabel.Location = new System.Drawing.Point(-2, 307);
+            aLAMAT_NPWLabel.Name = "aLAMAT_NPWLabel";
+            aLAMAT_NPWLabel.Size = new System.Drawing.Size(90, 12);
+            aLAMAT_NPWLabel.TabIndex = 15;
+            aLAMAT_NPWLabel.Text = "ALAMAT NPWP:";
+            // 
+            // eMAILLabel
+            // 
+            eMAILLabel.AutoSize = true;
+            eMAILLabel.Location = new System.Drawing.Point(262, 307);
+            eMAILLabel.Name = "eMAILLabel";
+            eMAILLabel.Size = new System.Drawing.Size(42, 12);
+            eMAILLabel.TabIndex = 17;
+            eMAILLabel.Text = "EMAIL:";
+            // 
+            // bANKLabel
+            // 
+            bANKLabel.AutoSize = true;
+            bANKLabel.Location = new System.Drawing.Point(572, 150);
+            bANKLabel.Name = "bANKLabel";
+            bANKLabel.Size = new System.Drawing.Size(83, 12);
+            bANKLabel.TabIndex = 19;
+            bANKLabel.Text = "NO REK BANK";
+            // 
+            // nOTELabel
+            // 
+            nOTELabel.AutoSize = true;
+            nOTELabel.Location = new System.Drawing.Point(49, 350);
+            nOTELabel.Name = "nOTELabel";
+            nOTELabel.Size = new System.Drawing.Size(39, 12);
+            nOTELabel.TabIndex = 21;
+            nOTELabel.Text = "NOTE:";
             // 
             // dbProjectUasDataSet
             // 
@@ -133,6 +234,10 @@ namespace PCSUAS
             this.tableAdapterManager.t_penawaran_headerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // m_kotaTableAdapter
+            // 
+            this.m_kotaTableAdapter.ClearBeforeFill = true;
+            // 
             // m_supplierBindingNavigator
             // 
             this.m_supplierBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -162,6 +267,31 @@ namespace PCSUAS
             this.m_supplierBindingNavigator.Size = new System.Drawing.Size(890, 25);
             this.m_supplierBindingNavigator.TabIndex = 0;
             this.m_supplierBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -198,16 +328,9 @@ namespace PCSUAS
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -232,26 +355,8 @@ namespace PCSUAS
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // m_supplierBindingNavigatorSaveItem
             // 
@@ -262,16 +367,6 @@ namespace PCSUAS
             this.m_supplierBindingNavigatorSaveItem.Text = "Save Data";
             this.m_supplierBindingNavigatorSaveItem.Click += new System.EventHandler(this.m_supplierBindingNavigatorSaveItem_Click);
             // 
-            // p_IDLabel
-            // 
-            p_IDLabel.AutoSize = true;
-            p_IDLabel.Location = new System.Drawing.Point(53, 124);
-            p_IDLabel.Name = "p_IDLabel";
-            p_IDLabel.Size = new System.Drawing.Size(32, 12);
-            p_IDLabel.TabIndex = 1;
-            p_IDLabel.Text = "P_ID:";
-            p_IDLabel.Click += new System.EventHandler(this.p_IDLabel_Click);
-            // 
             // p_IDTextBox
             // 
             this.p_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "P_ID", true));
@@ -279,15 +374,6 @@ namespace PCSUAS
             this.p_IDTextBox.Name = "p_IDTextBox";
             this.p_IDTextBox.Size = new System.Drawing.Size(31, 20);
             this.p_IDTextBox.TabIndex = 2;
-            // 
-            // nAMALabel
-            // 
-            nAMALabel.AutoSize = true;
-            nAMALabel.Location = new System.Drawing.Point(44, 151);
-            nAMALabel.Name = "nAMALabel";
-            nAMALabel.Size = new System.Drawing.Size(41, 12);
-            nAMALabel.TabIndex = 3;
-            nAMALabel.Text = "NAMA:";
             // 
             // nAMATextBox
             // 
@@ -297,15 +383,6 @@ namespace PCSUAS
             this.nAMATextBox.Size = new System.Drawing.Size(144, 20);
             this.nAMATextBox.TabIndex = 4;
             // 
-            // aLAMATLabel
-            // 
-            aLAMATLabel.AutoSize = true;
-            aLAMATLabel.Location = new System.Drawing.Point(30, 180);
-            aLAMATLabel.Name = "aLAMATLabel";
-            aLAMATLabel.Size = new System.Drawing.Size(55, 12);
-            aLAMATLabel.TabIndex = 5;
-            aLAMATLabel.Text = "ALAMAT:";
-            // 
             // aLAMATTextBox
             // 
             this.aLAMATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "ALAMAT", true));
@@ -313,24 +390,6 @@ namespace PCSUAS
             this.aLAMATTextBox.Name = "aLAMATTextBox";
             this.aLAMATTextBox.Size = new System.Drawing.Size(144, 20);
             this.aLAMATTextBox.TabIndex = 6;
-            // 
-            // kOTALabel
-            // 
-            kOTALabel.AutoSize = true;
-            kOTALabel.Location = new System.Drawing.Point(264, 180);
-            kOTALabel.Name = "kOTALabel";
-            kOTALabel.Size = new System.Drawing.Size(40, 12);
-            kOTALabel.TabIndex = 7;
-            kOTALabel.Text = "KOTA:";
-            // 
-            // tELP_HPLabel
-            // 
-            tELP_HPLabel.AutoSize = true;
-            tELP_HPLabel.Location = new System.Drawing.Point(281, 151);
-            tELP_HPLabel.Name = "tELP_HPLabel";
-            tELP_HPLabel.Size = new System.Drawing.Size(23, 12);
-            tELP_HPLabel.TabIndex = 9;
-            tELP_HPLabel.Text = "HP:";
             // 
             // tELP_HPTextBox
             // 
@@ -340,15 +399,6 @@ namespace PCSUAS
             this.tELP_HPTextBox.Size = new System.Drawing.Size(116, 20);
             this.tELP_HPTextBox.TabIndex = 10;
             // 
-            // nPWPLabel
-            // 
-            nPWPLabel.AutoSize = true;
-            nPWPLabel.Location = new System.Drawing.Point(264, 270);
-            nPWPLabel.Name = "nPWPLabel";
-            nPWPLabel.Size = new System.Drawing.Size(40, 12);
-            nPWPLabel.TabIndex = 11;
-            nPWPLabel.Text = "NPWP:";
-            // 
             // nPWPTextBox
             // 
             this.nPWPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "NPWP", true));
@@ -356,15 +406,6 @@ namespace PCSUAS
             this.nPWPTextBox.Name = "nPWPTextBox";
             this.nPWPTextBox.Size = new System.Drawing.Size(167, 20);
             this.nPWPTextBox.TabIndex = 12;
-            // 
-            // nAMA_NPWPLabel
-            // 
-            nAMA_NPWPLabel.AutoSize = true;
-            nAMA_NPWPLabel.Location = new System.Drawing.Point(12, 270);
-            nAMA_NPWPLabel.Name = "nAMA_NPWPLabel";
-            nAMA_NPWPLabel.Size = new System.Drawing.Size(76, 12);
-            nAMA_NPWPLabel.TabIndex = 13;
-            nAMA_NPWPLabel.Text = "NAMA NPWP:";
             // 
             // nAMA_NPWPTextBox
             // 
@@ -374,15 +415,6 @@ namespace PCSUAS
             this.nAMA_NPWPTextBox.Size = new System.Drawing.Size(144, 20);
             this.nAMA_NPWPTextBox.TabIndex = 14;
             // 
-            // aLAMAT_NPWLabel
-            // 
-            aLAMAT_NPWLabel.AutoSize = true;
-            aLAMAT_NPWLabel.Location = new System.Drawing.Point(-2, 307);
-            aLAMAT_NPWLabel.Name = "aLAMAT_NPWLabel";
-            aLAMAT_NPWLabel.Size = new System.Drawing.Size(90, 12);
-            aLAMAT_NPWLabel.TabIndex = 15;
-            aLAMAT_NPWLabel.Text = "ALAMAT NPWP:";
-            // 
             // aLAMAT_NPWTextBox
             // 
             this.aLAMAT_NPWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "ALAMAT_NPW", true));
@@ -390,15 +422,6 @@ namespace PCSUAS
             this.aLAMAT_NPWTextBox.Name = "aLAMAT_NPWTextBox";
             this.aLAMAT_NPWTextBox.Size = new System.Drawing.Size(144, 20);
             this.aLAMAT_NPWTextBox.TabIndex = 16;
-            // 
-            // eMAILLabel
-            // 
-            eMAILLabel.AutoSize = true;
-            eMAILLabel.Location = new System.Drawing.Point(262, 307);
-            eMAILLabel.Name = "eMAILLabel";
-            eMAILLabel.Size = new System.Drawing.Size(42, 12);
-            eMAILLabel.TabIndex = 17;
-            eMAILLabel.Text = "EMAIL:";
             // 
             // eMAILTextBox
             // 
@@ -408,15 +431,6 @@ namespace PCSUAS
             this.eMAILTextBox.Size = new System.Drawing.Size(167, 20);
             this.eMAILTextBox.TabIndex = 18;
             // 
-            // bANKLabel
-            // 
-            bANKLabel.AutoSize = true;
-            bANKLabel.Location = new System.Drawing.Point(572, 150);
-            bANKLabel.Name = "bANKLabel";
-            bANKLabel.Size = new System.Drawing.Size(83, 12);
-            bANKLabel.TabIndex = 19;
-            bANKLabel.Text = "NO REK BANK";
-            // 
             // bANKTextBox
             // 
             this.bANKTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "BANK", true));
@@ -424,15 +438,6 @@ namespace PCSUAS
             this.bANKTextBox.Name = "bANKTextBox";
             this.bANKTextBox.Size = new System.Drawing.Size(229, 20);
             this.bANKTextBox.TabIndex = 20;
-            // 
-            // nOTELabel
-            // 
-            nOTELabel.AutoSize = true;
-            nOTELabel.Location = new System.Drawing.Point(49, 350);
-            nOTELabel.Name = "nOTELabel";
-            nOTELabel.Size = new System.Drawing.Size(39, 12);
-            nOTELabel.TabIndex = 21;
-            nOTELabel.Text = "NOTE:";
             // 
             // nOTETextBox
             // 
@@ -471,10 +476,6 @@ namespace PCSUAS
             this.mkotaBindingSource.DataMember = "m_kota";
             this.mkotaBindingSource.DataSource = this.dbProjectUasDataSet;
             // 
-            // m_kotaTableAdapter
-            // 
-            this.m_kotaTableAdapter.ClearBeforeFill = true;
-            // 
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -485,11 +486,23 @@ namespace PCSUAS
             this.progressBar1.Size = new System.Drawing.Size(864, 9);
             this.progressBar1.TabIndex = 34;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(55, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MasterSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 403);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.kOTAComboBox);
             this.Controls.Add(this.label1);
@@ -564,5 +577,6 @@ namespace PCSUAS
         private dbProjectUasDataSetTableAdapters.m_kotaTableAdapter m_kotaTableAdapter;
         private System.Windows.Forms.BindingSource mkotaBindingSource;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
     }
 }

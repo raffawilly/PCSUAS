@@ -188,5 +188,11 @@ namespace PCSUAS
             NmMenuTxt.Text = "";
             CBGroupUser.Enabled = true;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterHakAkses report = new ReportViewerMasterHakAkses();
+            report.Show();
+        }
     }
 }

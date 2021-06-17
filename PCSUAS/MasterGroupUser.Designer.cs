@@ -31,15 +31,12 @@ namespace PCSUAS
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label label2;
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_groupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_groupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
             this.m_hakaksesgroupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_hakaksesgroupuserTableAdapter();
             this.m_usersTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_usersTableAdapter();
-            this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbCari = new System.Windows.Forms.TextBox();
@@ -48,13 +45,15 @@ namespace PCSUAS
             this.tbNamaGroup = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.m_usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             label4 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_groupuserBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -65,15 +64,6 @@ namespace PCSUAS
             label4.Size = new System.Drawing.Size(101, 12);
             label4.TabIndex = 28;
             label4.Text = "Cari Group User :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(100, 130);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(107, 12);
-            label2.TabIndex = 23;
-            label2.Text = "Daftar Group User";
             // 
             // dbProjectUasDataSet
             // 
@@ -123,16 +113,6 @@ namespace PCSUAS
             // m_usersTableAdapter
             // 
             this.m_usersTableAdapter.ClearBeforeFill = true;
-            // 
-            // m_hakaksesgroupuserBindingSource
-            // 
-            this.m_hakaksesgroupuserBindingSource.DataMember = "FK_HAKAKSESGROUPUSER_GROUPUSERS";
-            this.m_hakaksesgroupuserBindingSource.DataSource = this.m_groupuserBindingSource;
-            // 
-            // m_usersBindingSource
-            // 
-            this.m_usersBindingSource.DataMember = "FK_USERS_GROUPUSERS";
-            this.m_usersBindingSource.DataSource = this.m_groupuserBindingSource;
             // 
             // label1
             // 
@@ -211,11 +191,33 @@ namespace PCSUAS
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(40, 116);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // m_hakaksesgroupuserBindingSource
+            // 
+            this.m_hakaksesgroupuserBindingSource.DataMember = "FK_HAKAKSESGROUPUSER_GROUPUSERS";
+            this.m_hakaksesgroupuserBindingSource.DataSource = this.m_groupuserBindingSource;
+            // 
+            // m_usersBindingSource
+            // 
+            this.m_usersBindingSource.DataMember = "FK_USERS_GROUPUSERS";
+            this.m_usersBindingSource.DataSource = this.m_groupuserBindingSource;
+            // 
             // MasterGroupUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 391);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbCari);
             this.Controls.Add(label4);
@@ -223,7 +225,6 @@ namespace PCSUAS
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbNamaGroup);
             this.Controls.Add(this.label3);
-            this.Controls.Add(label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,9 +232,9 @@ namespace PCSUAS
             this.Text = "MasterGroupUser";
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_groupuserBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +258,6 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbNamaGroup;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }

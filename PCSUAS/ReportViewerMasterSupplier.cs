@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace PCSUAS
 {
-    public partial class ReportViewerMasterModel : Form
+    public partial class ReportViewerMasterSupplier : Form
     {
-        public ReportViewerMasterModel()
+        public ReportViewerMasterSupplier()
         {
             InitializeComponent();
         }
 
-        private void ReportViewerMasterModel_Load(object sender, EventArgs e)
+        private void ReportViewerMasterSupplier_Load(object sender, EventArgs e)
         {
-            CrystalReportMasterModel crp = new CrystalReportMasterModel();
-            crystalReportViewer1.ReportSource = crp;
+            CrystalReportMasterSupplier report = new CrystalReportMasterSupplier();
+            crystalReportViewer1.ReportSource = report;
         }
     }
 }

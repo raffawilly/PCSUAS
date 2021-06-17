@@ -31,7 +31,6 @@ namespace PCSUAS
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nAMAGROUPUSERLabel;
-            System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label5;
             this.label4 = new System.Windows.Forms.Label();
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
@@ -54,8 +53,8 @@ namespace PCSUAS
             this.rbMenu = new System.Windows.Forms.RadioButton();
             this.rbGroupUser = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).BeginInit();
@@ -72,6 +71,15 @@ namespace PCSUAS
             nAMAGROUPUSERLabel.TabIndex = 4;
             nAMAGROUPUSERLabel.Text = "Nama Menu : ";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(385, 257);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(79, 12);
+            label5.TabIndex = 40;
+            label5.Text = "Nama Menu : ";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -80,15 +88,6 @@ namespace PCSUAS
             this.label4.Size = new System.Drawing.Size(110, 12);
             this.label4.TabIndex = 37;
             this.label4.Text = "Nama Group User :";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(101, 100);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(107, 12);
-            label2.TabIndex = 32;
-            label2.Text = "Daftar Group User";
             // 
             // dbProjectUasDataSet
             // 
@@ -227,15 +226,6 @@ namespace PCSUAS
             this.label3.TabIndex = 42;
             this.label3.Text = "Nama Group User :";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(385, 257);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(79, 12);
-            label5.TabIndex = 40;
-            label5.Text = "Nama Menu : ";
-            // 
             // CBGroupUserIns
             // 
             this.CBGroupUserIns.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_hakaksesgroupuserBindingSource, "NAMAGROUPUSER", true));
@@ -282,11 +272,23 @@ namespace PCSUAS
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(12, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MasterHakAkses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 413);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rbMenu);
             this.Controls.Add(this.rbGroupUser);
             this.Controls.Add(this.groupBox1);
@@ -300,7 +302,6 @@ namespace PCSUAS
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(nAMAGROUPUSERLabel);
@@ -340,5 +341,6 @@ namespace PCSUAS
         private System.Windows.Forms.RadioButton rbMenu;
         private System.Windows.Forms.RadioButton rbGroupUser;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

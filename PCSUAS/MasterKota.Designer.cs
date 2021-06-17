@@ -30,7 +30,6 @@ namespace PCSUAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label4;
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_kotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,21 +43,12 @@ namespace PCSUAS
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbCari = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_kotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(48, 127);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(92, 12);
-            label2.TabIndex = 12;
-            label2.Text = "Daftar List Kota";
             // 
             // label4
             // 
@@ -187,11 +177,23 @@ namespace PCSUAS
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(21, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Print";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MasterKota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 304);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbCari);
             this.Controls.Add(label4);
@@ -199,7 +201,6 @@ namespace PCSUAS
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbNamaKota);
             this.Controls.Add(this.label3);
-            this.Controls.Add(label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,5 +228,6 @@ namespace PCSUAS
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbCari;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button button1;
     }
 }

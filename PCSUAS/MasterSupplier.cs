@@ -172,5 +172,11 @@ namespace PCSUAS
                 MessageBox.Show("Sql Server Error " + ex);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterSupplier report = new ReportViewerMasterSupplier();
+            report.Show();
+        }
     }
 }

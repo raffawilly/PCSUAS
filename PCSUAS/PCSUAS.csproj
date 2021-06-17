@@ -59,10 +59,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReportMasterGroupUser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterGroupUser.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportMasterHakAkses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterHakAkses.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportMasterKota.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterKota.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportMasterModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReportMasterModel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportMasterSupplier.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterSupplier.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="dbProjectUasDataSet.cs">
@@ -135,15 +159,55 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViewerMasterGroupUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterGroupUser.Designer.cs">
+      <DependentUpon>ReportViewerMasterGroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerMasterHakAkses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterHakAkses.Designer.cs">
+      <DependentUpon>ReportViewerMasterHakAkses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerMasterKota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterKota.Designer.cs">
+      <DependentUpon>ReportViewerMasterKota.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerMasterModel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ReportViewerMasterModel.Designer.cs">
       <DependentUpon>ReportViewerMasterModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerMasterSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterSupplier.Designer.cs">
+      <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CrystalReportMasterGroupUser.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterGroupUser.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterHakAkses.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterHakAkses.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterKota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterKota.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportMasterModel.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterModel.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterSupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterSupplier.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -185,8 +249,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportViewerMasterGroupUser.resx">
+      <DependentUpon>ReportViewerMasterGroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterHakAkses.resx">
+      <DependentUpon>ReportViewerMasterHakAkses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterKota.resx">
+      <DependentUpon>ReportViewerMasterKota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterModel.resx">
       <DependentUpon>ReportViewerMasterModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterSupplier.resx">
+      <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dbProjectUasDataSet.xsc">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>

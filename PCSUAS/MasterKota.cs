@@ -137,5 +137,11 @@ namespace PCSUAS
                 dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 conn.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterKota report = new ReportViewerMasterKota();
+            report.Show();
+        }
     }
 }

@@ -111,9 +111,7 @@ namespace PCSUAS
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            NmMenuInstxt.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -198,6 +196,19 @@ namespace PCSUAS
         private void MasterHakAkses_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDelete.Enabled = true;
+            btnAdd.Enabled = false;
+            NmMenuInstxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            CBGroupUserIns.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
     }
 }

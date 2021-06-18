@@ -190,6 +190,7 @@ namespace PCSUAS
             this.dataGridView1.Size = new System.Drawing.Size(203, 150);
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // button1
             // 

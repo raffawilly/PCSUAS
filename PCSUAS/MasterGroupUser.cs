@@ -93,9 +93,6 @@ namespace PCSUAS
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            tbNamaGroup.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -140,6 +137,13 @@ namespace PCSUAS
         {
             ReportViewerMasterGroupUser report = new ReportViewerMasterGroupUser();
             report.Show();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDelete.Enabled = true;
+            btnAdd.Enabled = false;
+            tbNamaGroup.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
     }
 }

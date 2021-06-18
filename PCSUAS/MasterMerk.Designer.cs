@@ -42,6 +42,13 @@ namespace PCSUAS
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.cari2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbMerkCode = new System.Windows.Forms.TextBox();
+            this.tbMerkDesc = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +86,7 @@ namespace PCSUAS
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(464, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(632, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -152,11 +159,78 @@ namespace PCSUAS
             this.cari2.UseVisualStyleBackColor = true;
             this.cari2.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(422, 159);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Merk Code :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(422, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Merk Desc :";
+            // 
+            // tbMerkCode
+            // 
+            this.tbMerkCode.Location = new System.Drawing.Point(498, 156);
+            this.tbMerkCode.Name = "tbMerkCode";
+            this.tbMerkCode.Size = new System.Drawing.Size(100, 20);
+            this.tbMerkCode.TabIndex = 10;
+            this.tbMerkCode.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // tbMerkDesc
+            // 
+            this.tbMerkDesc.Location = new System.Drawing.Point(497, 187);
+            this.tbMerkDesc.Name = "tbMerkDesc";
+            this.tbMerkDesc.Size = new System.Drawing.Size(100, 20);
+            this.tbMerkDesc.TabIndex = 11;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(497, 213);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 23);
+            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Text = "Insert";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // tbID
+            // 
+            this.tbID.Location = new System.Drawing.Point(497, 130);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(100, 20);
+            this.tbID.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(469, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(22, 12);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "ID :";
+            // 
             // MasterMerk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 415);
+            this.ClientSize = new System.Drawing.Size(632, 415);
+            this.Controls.Add(this.tbID);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.tbMerkDesc);
+            this.Controls.Add(this.tbMerkCode);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.cari2);
             this.Controls.Add(this.tbCode);
@@ -190,5 +264,12 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbCode;
         private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.Button cari2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbMerkCode;
+        private System.Windows.Forms.TextBox tbMerkDesc;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.Label label5;
     }
 }

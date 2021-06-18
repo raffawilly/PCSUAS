@@ -109,5 +109,19 @@ namespace MasterMerkData2
             }
             return merkList;
         }
+        public static List<MasterMerk2> insert(int id,String desc,String code)
+        {
+            List<MasterMerk2> merkList = new List<MasterMerk2>();
+            SqlConnection connection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
+            connection.Open();
+            string selectStatement =
+                "insert into m_merk " +
+                "values(" + id + ",'" + code+"','"+desc+"')";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.ExecuteNonQuery();
+            connection.Close();
+
+            return merkList;
+        }
     }
 }

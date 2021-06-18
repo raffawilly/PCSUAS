@@ -56,6 +56,7 @@ namespace PCSUAS
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(14, 76);
             this.dataGridView1.Name = "dataGridView1";
@@ -251,6 +252,7 @@ namespace PCSUAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(684, 388);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbDesc);

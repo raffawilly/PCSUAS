@@ -42,7 +42,6 @@ namespace PCSUAS
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbCari = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
@@ -53,7 +52,7 @@ namespace PCSUAS
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(88, 81);
+            label4.Location = new System.Drawing.Point(10, 119);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(63, 12);
             label4.TabIndex = 18;
@@ -112,8 +111,9 @@ namespace PCSUAS
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 142);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 142);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(143, 150);
@@ -161,28 +161,18 @@ namespace PCSUAS
             // 
             // tbCari
             // 
-            this.tbCari.Location = new System.Drawing.Point(161, 78);
+            this.tbCari.Location = new System.Drawing.Point(79, 116);
             this.tbCari.Name = "tbCari";
-            this.tbCari.Size = new System.Drawing.Size(92, 20);
+            this.tbCari.Size = new System.Drawing.Size(76, 20);
             this.tbCari.TabIndex = 19;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(259, 78);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(55, 21);
-            this.btnSearch.TabIndex = 20;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.tbCari.TextChanged += new System.EventHandler(this.tbCari_TextChanged);
             // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(21, 113);
+            this.button1.Location = new System.Drawing.Point(12, 79);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(61, 23);
             this.button1.TabIndex = 49;
             this.button1.Text = "Print";
             this.button1.UseVisualStyleBackColor = true;
@@ -192,9 +182,9 @@ namespace PCSUAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(406, 304);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbCari);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnDelete);
@@ -228,7 +218,6 @@ namespace PCSUAS
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbCari;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button button1;
     }
 }

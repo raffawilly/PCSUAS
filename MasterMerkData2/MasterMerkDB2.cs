@@ -83,7 +83,8 @@ namespace MasterMerkData2
             string selectStatement =
                 "SELECT ID, MERK_CODE, MERK_DESC " +
                 "FROM m_merk " +
-                "where merk_desc like'%" + desc + "%'";
+                "where merk_desc like'%" + desc + "%'"+
+                "or merk_code like '%"+ desc +"%'";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             try
             {

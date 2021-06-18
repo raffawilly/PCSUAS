@@ -47,14 +47,15 @@ namespace PCSUAS
             this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbNamaGroupCari = new System.Windows.Forms.TextBox();
             this.tbUsernameCari = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.cbGroupCari = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(14, 74);
             this.dataGridView1.Name = "dataGridView1";
@@ -227,14 +228,6 @@ namespace PCSUAS
             this.label7.TabIndex = 22;
             this.label7.Text = "Username : ";
             // 
-            // tbNamaGroupCari
-            // 
-            this.tbNamaGroupCari.Enabled = false;
-            this.tbNamaGroupCari.Location = new System.Drawing.Point(704, 133);
-            this.tbNamaGroupCari.Name = "tbNamaGroupCari";
-            this.tbNamaGroupCari.Size = new System.Drawing.Size(144, 20);
-            this.tbNamaGroupCari.TabIndex = 21;
-            // 
             // tbUsernameCari
             // 
             this.tbUsernameCari.Location = new System.Drawing.Point(704, 108);
@@ -249,11 +242,22 @@ namespace PCSUAS
             this.progressBar1.Size = new System.Drawing.Size(282, 10);
             this.progressBar1.TabIndex = 27;
             // 
+            // cbGroupCari
+            // 
+            this.cbGroupCari.Enabled = false;
+            this.cbGroupCari.FormattingEnabled = true;
+            this.cbGroupCari.Location = new System.Drawing.Point(703, 130);
+            this.cbGroupCari.Name = "cbGroupCari";
+            this.cbGroupCari.Size = new System.Drawing.Size(146, 20);
+            this.cbGroupCari.TabIndex = 28;
+            // 
             // MasterUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(933, 369);
+            this.Controls.Add(this.cbGroupCari);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.rbNamaGroup);
             this.Controls.Add(this.rbUsername);
@@ -262,7 +266,6 @@ namespace PCSUAS
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tbNamaGroupCari);
             this.Controls.Add(this.tbUsernameCari);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
@@ -306,8 +309,8 @@ namespace PCSUAS
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbNamaGroupCari;
         private System.Windows.Forms.TextBox tbUsernameCari;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ComboBox cbGroupCari;
     }
 }

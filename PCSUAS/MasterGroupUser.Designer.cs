@@ -38,7 +38,6 @@ namespace PCSUAS
             this.m_hakaksesgroupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_hakaksesgroupuserTableAdapter();
             this.m_usersTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_usersTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tbCari = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -59,11 +58,11 @@ namespace PCSUAS
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(136, 85);
+            label4.Location = new System.Drawing.Point(40, 123);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(101, 12);
+            label4.Size = new System.Drawing.Size(51, 12);
             label4.TabIndex = 28;
-            label4.Text = "Cari Group User :";
+            label4.Text = "Search :";
             // 
             // dbProjectUasDataSet
             // 
@@ -124,23 +123,13 @@ namespace PCSUAS
             this.label1.TabIndex = 10;
             this.label1.Text = "MASTER GROUP USER";
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(341, 81);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(55, 21);
-            this.btnSearch.TabIndex = 30;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // tbCari
             // 
-            this.tbCari.Location = new System.Drawing.Point(243, 81);
+            this.tbCari.Location = new System.Drawing.Point(97, 119);
             this.tbCari.Name = "tbCari";
             this.tbCari.Size = new System.Drawing.Size(92, 20);
             this.tbCari.TabIndex = 29;
+            this.tbCari.TextChanged += new System.EventHandler(this.tbCari_TextChanged);
             // 
             // btnDelete
             // 
@@ -183,6 +172,7 @@ namespace PCSUAS
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(40, 145);
             this.dataGridView1.Name = "dataGridView1";
@@ -195,9 +185,9 @@ namespace PCSUAS
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(40, 116);
+            this.button1.Location = new System.Drawing.Point(42, 81);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(49, 23);
             this.button1.TabIndex = 31;
             this.button1.Text = "Print";
             this.button1.UseVisualStyleBackColor = true;
@@ -217,9 +207,9 @@ namespace PCSUAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(562, 391);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbCari);
             this.Controls.Add(label4);
             this.Controls.Add(this.btnDelete);
@@ -252,7 +242,6 @@ namespace PCSUAS
         private dbProjectUasDataSetTableAdapters.m_usersTableAdapter m_usersTableAdapter;
         private System.Windows.Forms.BindingSource m_usersBindingSource;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox tbCari;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;

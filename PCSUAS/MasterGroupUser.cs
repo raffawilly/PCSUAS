@@ -120,17 +120,7 @@ namespace PCSUAS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            DataSet ds = new DataSet();
-            String query = $"SELECT *" +
-                          $"FROM m_groupuser " +
-                          $"WHERE namagroupuser like '%{tbCari.Text}%'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            conn.Close();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -144,6 +134,21 @@ namespace PCSUAS
             btnDelete.Enabled = true;
             btnAdd.Enabled = false;
             tbNamaGroup.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void tbCari_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            DataSet ds = new DataSet();
+            String query = $"SELECT *" +
+                          $"FROM m_groupuser " +
+                          $"WHERE namagroupuser like '%{tbCari.Text}%'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            conn.Close();
         }
     }
 }

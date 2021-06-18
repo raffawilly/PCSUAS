@@ -59,73 +59,13 @@ namespace PCSUAS
 
         }
 
-        private void btnCari_Click(object sender, EventArgs e)
-        {
-            listView1.Items.Clear();
-            List<MasterMerk2> merkList;
-            String CODE =tbCode.Text;
-            try
-            {
-                merkList = MasterMerkDB2.getByMerkCode(CODE);
-                if (merkList.Count > 0)
-                {
-                    MasterMerk2 masterMerk;
-                    for (int i = 0; i < merkList.Count; i++)
-                    {
-                        masterMerk = merkList[i];
-                        listView1.Items.Add(masterMerk.Id.ToString());
-                        listView1.Items[i].SubItems.Add(masterMerk.Merk_code);
-                        listView1.Items[i].SubItems.Add(masterMerk.Merk_desc);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Data tidak ditemukan");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
-            }
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            List<MasterMerk2> merkList;
-            String desc = tbDesc.Text;
-            try
-            {
-                merkList = MasterMerkDB2.getByMerkDesc(desc);
-                if (merkList.Count > 0)
-                {
-                    MasterMerk2 masterMerk;
-                    for (int i = 0; i < merkList.Count; i++)
-                    {
-                        masterMerk = merkList[i];
-                        listView1.Items.Add(masterMerk.Id.ToString());
-                        listView1.Items[i].SubItems.Add(masterMerk.Merk_code);
-                        listView1.Items[i].SubItems.Add(masterMerk.Merk_desc);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Data tidak ditemukan");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
-            }
+          
         }
 
-        private void tbCode_MouseClick(object sender, MouseEventArgs e)
-        {
-            tbCode.Clear();
-        }
 
         private void tbDesc_MouseClick(object sender, MouseEventArgs e)
         {
@@ -156,6 +96,37 @@ namespace PCSUAS
                 tbMerkCode.Clear();
                 tbID.Clear();
                 tbMerkDesc.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+        }
+
+        private void tbDesc_TextChanged(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            List<MasterMerk2> merkList;
+            String desc = tbDesc.Text;
+            try
+            {
+                merkList = MasterMerkDB2.getByMerkDesc(desc);
+                if (merkList.Count > 0)
+                {
+                    MasterMerk2 masterMerk;
+                    for (int i = 0; i < merkList.Count; i++)
+                    {
+                        masterMerk = merkList[i];
+                        listView1.Items.Add(masterMerk.Id.ToString());
+                        listView1.Items[i].SubItems.Add(masterMerk.Merk_code);
+                        listView1.Items[i].SubItems.Add(masterMerk.Merk_desc);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Data tidak ditemukan");
+                }
             }
             catch (Exception ex)
             {

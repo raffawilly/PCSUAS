@@ -40,6 +40,10 @@ namespace PCSUAS
                 cbGroupUser.DataSource = role.Tables[0];
                 cbGroupUser.DisplayMember = "namagroupuser";
                 cbGroupUser.ValueMember = "namagroupuser";
+
+                cbGroupCari.DataSource = role.Tables[0];
+                cbGroupCari.DisplayMember = "namagroupuser";
+                cbGroupCari.ValueMember = "namagroupuser";
                 conn.Close();
             }
             catch (Exception ex)
@@ -184,15 +188,16 @@ namespace PCSUAS
         private void rbDesc_CheckedChanged(object sender, EventArgs e)
         {
             tbUsernameCari.Enabled = false;
-            tbNamaGroupCari.Enabled = true;
+            cbGroupCari.Enabled = true;
             tbUsernameCari.Text = "";
+            refreshData();
         }
 
         private void rbModel_CheckedChanged(object sender, EventArgs e)
         {
             tbUsernameCari.Enabled = true;
-            tbNamaGroupCari.Enabled = false;
-            tbNamaGroupCari.Text = "";
+            cbGroupCari.Enabled = false;
+            refreshData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -203,7 +208,7 @@ namespace PCSUAS
                 DataSet ds = new DataSet();
                 String query = $"SELECT *" +
                               $"FROM m_users " +
-                              $"WHERE namagroupUser like '%{tbNamaGroupCari.Text}%'";
+                              $"WHERE namagroupUser like '%{cbGroupCari.SelectedValue}%'";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(ds);

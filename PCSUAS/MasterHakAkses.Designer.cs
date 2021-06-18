@@ -176,6 +176,7 @@ namespace PCSUAS
             this.NmMenuTxt.Name = "NmMenuTxt";
             this.NmMenuTxt.Size = new System.Drawing.Size(125, 20);
             this.NmMenuTxt.TabIndex = 38;
+            this.NmMenuTxt.TextChanged += new System.EventHandler(this.NmMenuTxt_TextChanged);
             // 
             // btnDelete
             // 
@@ -202,6 +203,7 @@ namespace PCSUAS
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 115);
             this.dataGridView1.Name = "dataGridView1";
@@ -289,6 +291,7 @@ namespace PCSUAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(625, 413);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbMenu);

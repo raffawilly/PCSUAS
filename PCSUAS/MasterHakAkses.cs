@@ -210,5 +210,10 @@ namespace PCSUAS
             NmMenuInstxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             CBGroupUserIns.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
         }
+
+        private void NmMenuTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -118,7 +118,7 @@ namespace PCSUAS
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 84);
+            this.label2.Location = new System.Drawing.Point(10, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 12);
             this.label2.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace PCSUAS
             // 
             // tbDesc
             // 
-            this.tbDesc.Location = new System.Drawing.Point(85, 81);
+            this.tbDesc.Location = new System.Drawing.Point(85, 74);
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.Size = new System.Drawing.Size(100, 20);
             this.tbDesc.TabIndex = 7;
@@ -143,7 +143,7 @@ namespace PCSUAS
             // cari2
             // 
             this.cari2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cari2.Location = new System.Drawing.Point(191, 79);
+            this.cari2.Location = new System.Drawing.Point(191, 72);
             this.cari2.Name = "cari2";
             this.cari2.Size = new System.Drawing.Size(75, 23);
             this.cari2.TabIndex = 6;

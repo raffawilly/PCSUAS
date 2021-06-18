@@ -108,7 +108,7 @@ namespace PCSUAS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ViewMasterBarang vBrg = new ViewMasterBarang();
+            btnCari vBrg = new btnCari();
             vBrg.Show();
             
         }

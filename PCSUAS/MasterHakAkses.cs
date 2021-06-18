@@ -194,5 +194,10 @@ namespace PCSUAS
             ReportViewerMasterHakAkses report = new ReportViewerMasterHakAkses();
             report.Show();
         }
+
+        private void MasterHakAkses_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

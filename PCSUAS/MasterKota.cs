@@ -143,5 +143,10 @@ namespace PCSUAS
             ReportViewerMasterKota report = new ReportViewerMasterKota();
             report.Show();
         }
+
+        private void MasterKota_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

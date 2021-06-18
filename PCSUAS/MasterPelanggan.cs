@@ -44,5 +44,11 @@ namespace PCSUAS
             ViewMasterPelanggan vPel = new ViewMasterPelanggan();
             vPel.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterPelanggan Print = new ReportViewerMasterPelanggan();
+            Print.Show();
+        }
     }
 }

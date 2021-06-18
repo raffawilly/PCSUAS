@@ -89,6 +89,12 @@
       <DependentUpon>CrystalReportMasterModel.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportMasterPelanggan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterPelanggan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportMasterSupplier.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViewerMasterBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterBarang.Designer.cs">
+      <DependentUpon>ReportViewerMasterBarang.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerMasterGroupUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,12 @@
     </Compile>
     <Compile Include="ReportViewerMasterModel.Designer.cs">
       <DependentUpon>ReportViewerMasterModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewerMasterPelanggan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterPelanggan.Designer.cs">
+      <DependentUpon>ReportViewerMasterPelanggan.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportViewerMasterSupplier.cs">
       <SubType>Form</SubType>
@@ -233,6 +251,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterModel.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterPelanggan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterPelanggan.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportMasterSupplier.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterSupplier.cs</LastGenOutput>
@@ -277,6 +299,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportViewerMasterBarang.resx">
+      <DependentUpon>ReportViewerMasterBarang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterGroupUser.resx">
       <DependentUpon>ReportViewerMasterGroupUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterModel.resx">
       <DependentUpon>ReportViewerMasterModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterPelanggan.resx">
+      <DependentUpon>ReportViewerMasterPelanggan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterSupplier.resx">
       <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>

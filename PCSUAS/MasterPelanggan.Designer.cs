@@ -81,6 +81,7 @@ namespace PCSUAS
             this.mkotaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             p_CODELabel = new System.Windows.Forms.Label();
             nAMALabel = new System.Windows.Forms.Label();
             aLAMATLabel = new System.Windows.Forms.Label();
@@ -551,11 +552,22 @@ namespace PCSUAS
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(812, 57);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.TabIndex = 35;
+            this.button2.Text = "Print";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MasterPelanggan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 497);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.kOTA1ComboBox);
             this.Controls.Add(this.kOTAComboBox);
@@ -642,5 +654,6 @@ namespace PCSUAS
         private dbProjectUasDataSetTableAdapters.m_kotaTableAdapter m_kotaTableAdapter;
         private System.Windows.Forms.BindingSource mkotaBindingSource1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

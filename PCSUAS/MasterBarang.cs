@@ -112,5 +112,11 @@ namespace PCSUAS
             vBrg.Show();
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterBarang Print = new ReportViewerMasterBarang();
+            Print.Show();
+        }
     }
 }

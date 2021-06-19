@@ -29,6 +29,7 @@ namespace PCSUAS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterUsers));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,20 +38,24 @@ namespace PCSUAS
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.cbGroupUser = new System.Windows.Forms.ComboBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.rbNamaGroup = new System.Windows.Forms.RadioButton();
             this.rbUsername = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbUsernameCari = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.cbGroupCari = new System.Windows.Forms.ComboBox();
+            this.pictSearch = new System.Windows.Forms.PictureBox();
+            this.pictInsert = new System.Windows.Forms.PictureBox();
+            this.pictUpdate = new System.Windows.Forms.PictureBox();
+            this.pictDelete = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -123,41 +128,6 @@ namespace PCSUAS
             this.cbGroupUser.Size = new System.Drawing.Size(146, 20);
             this.cbGroupUser.TabIndex = 12;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(710, 336);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(141, 21);
-            this.btnDelete.TabIndex = 15;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInsert.Location = new System.Drawing.Point(566, 308);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(285, 21);
-            this.btnInsert.TabIndex = 14;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(566, 336);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(136, 21);
-            this.btnUpdate.TabIndex = 13;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // rbNamaGroup
             // 
             this.rbNamaGroup.AutoSize = true;
@@ -198,17 +168,6 @@ namespace PCSUAS
             this.label6.TabIndex = 25;
             this.label6.Text = "Cari User";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(701, 159);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(147, 23);
-            this.btnSearch.TabIndex = 24;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label5
             // 
@@ -251,25 +210,65 @@ namespace PCSUAS
             this.cbGroupCari.Size = new System.Drawing.Size(146, 20);
             this.cbGroupCari.TabIndex = 28;
             // 
+            // pictSearch
+            // 
+            this.pictSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictSearch.Image")));
+            this.pictSearch.Location = new System.Drawing.Point(778, 155);
+            this.pictSearch.Name = "pictSearch";
+            this.pictSearch.Size = new System.Drawing.Size(70, 24);
+            this.pictSearch.TabIndex = 29;
+            this.pictSearch.TabStop = false;
+            this.pictSearch.Click += new System.EventHandler(this.pictSearch_Click);
+            // 
+            // pictInsert
+            // 
+            this.pictInsert.Image = ((System.Drawing.Image)(resources.GetObject("pictInsert.Image")));
+            this.pictInsert.Location = new System.Drawing.Point(684, 297);
+            this.pictInsert.Name = "pictInsert";
+            this.pictInsert.Size = new System.Drawing.Size(77, 26);
+            this.pictInsert.TabIndex = 30;
+            this.pictInsert.TabStop = false;
+            this.pictInsert.Click += new System.EventHandler(this.pictInsert_Click);
+            // 
+            // pictUpdate
+            // 
+            this.pictUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pictUpdate.Image")));
+            this.pictUpdate.Location = new System.Drawing.Point(766, 297);
+            this.pictUpdate.Name = "pictUpdate";
+            this.pictUpdate.Size = new System.Drawing.Size(84, 26);
+            this.pictUpdate.TabIndex = 31;
+            this.pictUpdate.TabStop = false;
+            this.pictUpdate.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictDelete
+            // 
+            this.pictDelete.Image = ((System.Drawing.Image)(resources.GetObject("pictDelete.Image")));
+            this.pictDelete.Location = new System.Drawing.Point(770, 325);
+            this.pictDelete.Name = "pictDelete";
+            this.pictDelete.Size = new System.Drawing.Size(81, 27);
+            this.pictDelete.TabIndex = 32;
+            this.pictDelete.TabStop = false;
+            this.pictDelete.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // MasterUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(933, 369);
+            this.Controls.Add(this.pictDelete);
+            this.Controls.Add(this.pictUpdate);
+            this.Controls.Add(this.pictInsert);
+            this.Controls.Add(this.pictSearch);
             this.Controls.Add(this.cbGroupCari);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.rbNamaGroup);
             this.Controls.Add(this.rbUsername);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbUsernameCari);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.cbGroupUser);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
@@ -284,6 +283,10 @@ namespace PCSUAS
             this.Text = "MasterUsers";
             this.Load += new System.EventHandler(this.MasterUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,18 +302,18 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.ComboBox cbGroupUser;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.RadioButton rbNamaGroup;
         private System.Windows.Forms.RadioButton rbUsername;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbUsernameCari;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ComboBox cbGroupCari;
+        private System.Windows.Forms.PictureBox pictSearch;
+        private System.Windows.Forms.PictureBox pictInsert;
+        private System.Windows.Forms.PictureBox pictUpdate;
+        private System.Windows.Forms.PictureBox pictDelete;
     }
 }

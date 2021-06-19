@@ -86,10 +86,47 @@ namespace PCSUAS
             conn.Close();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            if(cekKosong())
+            pictInsert.Enabled = false;
+            pictUpdate.Enabled = true;
+            pictDelete.Enabled = true;
+
+            tbModelID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbModelDesc.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void radioButton2_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            tbDescCari.Enabled = false;
+            tbModelIDCari.Enabled = true;
+            tbDescCari.Text = "";
+        }
+
+        private void Description_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbDescCari.Enabled = true;
+            tbModelIDCari.Enabled = false;
+            tbModelIDCari.Text = "";
+        }
+
+        private void MasterModel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbModel_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        
+
+        private void pictInsert_Click(object sender, EventArgs e)
+        {
+
+            if (cekKosong())
             {
                 conn.Open();
                 String desc = tbModelDesc.Text;
@@ -117,20 +154,9 @@ namespace PCSUAS
                     MessageBox.Show("ID Model atau Description sudah ada di database");
                 }
             }
-           
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnInsert.Enabled = false;
-            btnUpdate.Enabled = true;
-            btnDelete.Enabled = true;
-
-            tbModelID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tbModelDesc.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void pictUpdate_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
@@ -153,9 +179,9 @@ namespace PCSUAS
 
                     tbModelID.Text = "";
                     tbModelDesc.Text = "";
-                    btnInsert.Enabled = true;
-                    btnUpdate.Enabled = false;
-                    btnDelete.Enabled = false;
+                    pictInsert.Enabled = true;
+                    pictUpdate.Enabled = false;
+                    pictDelete.Enabled = false;
 
                     //REFRESH DATA
                     refreshData();
@@ -167,7 +193,7 @@ namespace PCSUAS
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void pictDelete_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
@@ -183,79 +209,65 @@ namespace PCSUAS
 
                 tbModelID.Text = "";
                 tbModelDesc.Text = "";
-                btnInsert.Enabled = true;
-                btnUpdate.Enabled = false;
-                btnDelete.Enabled = false;
+                pictInsert.Enabled = true;
+                pictUpdate.Enabled = false;
+                pictDelete.Enabled = false;
 
                 //REFRESH DATA
                 refreshData();
             }
-             
         }
 
-        private void radioButton2_MouseClick(object sender, MouseEventArgs e)
-        {
-
-            tbDescCari.Enabled = false;
-            tbModelIDCari.Enabled = true;
-            tbDescCari.Text = "";
-        }
-
-        private void Description_MouseClick(object sender, MouseEventArgs e)
-        {
-            tbDescCari.Enabled = true;
-            tbModelIDCari.Enabled = false;
-            tbModelIDCari.Text = "";
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void pictSearch_Click(object sender, EventArgs e)
         {
             if (rbDesc.Checked)
             {
-                    conn.Open();
-                    DataSet ds = new DataSet();
-                    String query = $"SELECT *" +
-                                  $"FROM m_model mdl " +
-                                  $"WHERE DESCRIPTION like '%{tbDescCari.Text}%'";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables[0];
-                    dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    conn.Close();
-                
+                conn.Open();
+                DataSet ds = new DataSet();
+                String query = $"SELECT *" +
+                              $"FROM m_model mdl " +
+                              $"WHERE DESCRIPTION like '%{tbDescCari.Text}%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                conn.Close();
+
             }
             else
             {
-                    conn.Open();
-                    DataSet ds = new DataSet();
-                    String query = $"SELECT *" +
-                                  $"FROM m_model mdl " +
-                                  $"WHERE model_id like '%{tbModelIDCari.Text}%'";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(ds);
-                    dataGridView1.DataSource = ds.Tables[0];
-                    dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    conn.Close();
-               
+                conn.Open();
+                DataSet ds = new DataSet();
+                String query = $"SELECT *" +
+                              $"FROM m_model mdl " +
+                              $"WHERE model_id like '%{tbModelIDCari.Text}%'";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                conn.Close();
+
             }
         }
 
-        private void MasterModel_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbModel_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void pictPrint_Click(object sender, EventArgs e)
         {
             ReportViewerMasterModel rp = new ReportViewerMasterModel();
             rp.Show();
+        }
+
+        private void rbDesc_CheckedChanged(object sender, EventArgs e)
+        {
+            tbModelIDCari.Enabled = false;
+            tbDescCari.Enabled = true;
+        }
+
+        private void rbModel_CheckedChanged(object sender, EventArgs e)
+        {
+            tbModelIDCari.Enabled = true;
+            tbDescCari.Enabled = false;
         }
     }
 }

@@ -42,10 +42,11 @@ namespace PCSUAS
             this.label4 = new System.Windows.Forms.Label();
             this.tbMerkCode = new System.Windows.Forms.TextBox();
             this.tbMerkDesc = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictInsert = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -149,16 +150,6 @@ namespace PCSUAS
             this.tbMerkDesc.Size = new System.Drawing.Size(100, 20);
             this.tbMerkDesc.TabIndex = 11;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(497, 213);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 23);
-            this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Insert";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // tbID
             // 
             this.tbID.Location = new System.Drawing.Point(497, 130);
@@ -175,15 +166,25 @@ namespace PCSUAS
             this.label5.TabIndex = 13;
             this.label5.Text = "ID :";
             // 
+            // pictInsert
+            // 
+            this.pictInsert.Image = ((System.Drawing.Image)(resources.GetObject("pictInsert.Image")));
+            this.pictInsert.Location = new System.Drawing.Point(520, 213);
+            this.pictInsert.Name = "pictInsert";
+            this.pictInsert.Size = new System.Drawing.Size(77, 25);
+            this.pictInsert.TabIndex = 15;
+            this.pictInsert.TabStop = false;
+            this.pictInsert.Click += new System.EventHandler(this.pictInsert_Click);
+            // 
             // MasterMerk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(632, 415);
+            this.Controls.Add(this.pictInsert);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbMerkDesc);
             this.Controls.Add(this.tbMerkCode);
             this.Controls.Add(this.label4);
@@ -198,6 +199,7 @@ namespace PCSUAS
             this.Load += new System.EventHandler(this.MasterMerk_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,8 +219,8 @@ namespace PCSUAS
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbMerkCode;
         private System.Windows.Forms.TextBox tbMerkDesc;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictInsert;
     }
 }

@@ -77,11 +77,77 @@ namespace PCSUAS
             conn.Close();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+
+        private void rbMenu_MouseClick(object sender, MouseEventArgs e)
+        {
+            CBGroupUser.Enabled = false;
+            CBGroupUser.SelectedIndex = 0;
+            NmMenuTxt.Enabled = true;
+            
+        }
+
+        private void rbGroupUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            NmMenuTxt.Enabled = false;
+            NmMenuTxt.Text = "";
+            CBGroupUser.Enabled = true;
+        }
+
+        private void MasterHakAkses_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pictDelete.Enabled = true;
+            pictInsert.Enabled = false;
+            NmMenuInstxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            CBGroupUserIns.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void NmMenuTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String Menu = NmMenuInstxt.Text;
+                String query = $"delete from m_hakaksesgroupuser where namamenu like '{Menu}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                clear();
+                pictDelete.Enabled = false;
+                pictInsert.Enabled = true;
+
+                //REFRESH DATA
+                refreshData();
+            }
+        }
+
+        private void pictInsert_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
-               
+
                 conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
                 conn.Open();
                 String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
@@ -109,35 +175,7 @@ namespace PCSUAS
             }
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (dr == DialogResult.Yes)
-            {
-                conn.Open();
-                String Menu = NmMenuInstxt.Text;
-                String query = $"delete from m_hakaksesgroupuser where namamenu like '{Menu}'";
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                MessageBox.Show("Berhasil Menghapus");
-                conn.Close();
-                clear();
-                btnDelete.Enabled = false;
-                btnAdd.Enabled = true;
-
-                //REFRESH DATA
-                refreshData();
-            }
-             
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void pictSearch_Click(object sender, EventArgs e)
         {
             if (rbGroupUser.Checked)
             {
@@ -171,49 +209,10 @@ namespace PCSUAS
             }
         }
 
-
-        private void rbMenu_MouseClick(object sender, MouseEventArgs e)
-        {
-            CBGroupUser.Enabled = false;
-            CBGroupUser.SelectedIndex = 0;
-            NmMenuTxt.Enabled = true;
-            
-        }
-
-        private void rbGroupUser_MouseClick(object sender, MouseEventArgs e)
-        {
-            NmMenuTxt.Enabled = false;
-            NmMenuTxt.Text = "";
-            CBGroupUser.Enabled = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void pictPrint_Click(object sender, EventArgs e)
         {
             ReportViewerMasterHakAkses report = new ReportViewerMasterHakAkses();
             report.Show();
-        }
-
-        private void MasterHakAkses_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            NmMenuInstxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            CBGroupUserIns.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void NmMenuTxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

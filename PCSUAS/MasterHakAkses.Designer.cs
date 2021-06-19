@@ -32,6 +32,7 @@ namespace PCSUAS
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nAMAGROUPUSERLabel;
             System.Windows.Forms.Label label5;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterHakAkses));
             this.label4 = new System.Windows.Forms.Label();
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_hakaksesgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -41,10 +42,7 @@ namespace PCSUAS
             this.mgroupuserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_groupuserTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.NmMenuTxt = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NmMenuInstxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,13 +51,20 @@ namespace PCSUAS
             this.rbMenu = new System.Windows.Forms.RadioButton();
             this.rbGroupUser = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictSearch = new System.Windows.Forms.PictureBox();
+            this.pictInsert = new System.Windows.Forms.PictureBox();
+            this.pictDelete = new System.Windows.Forms.PictureBox();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             nAMAGROUPUSERLabel = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // nAMAGROUPUSERLabel
@@ -152,22 +157,11 @@ namespace PCSUAS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 32);
+            this.label1.Location = new System.Drawing.Point(130, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(380, 40);
             this.label1.TabIndex = 10;
             this.label1.Text = "MASTER HAK AKSES";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(462, 160);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(125, 25);
-            this.btnSearch.TabIndex = 39;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // NmMenuTxt
             // 
@@ -177,29 +171,6 @@ namespace PCSUAS
             this.NmMenuTxt.Size = new System.Drawing.Size(125, 20);
             this.NmMenuTxt.TabIndex = 38;
             this.NmMenuTxt.TextChanged += new System.EventHandler(this.NmMenuTxt_TextChanged);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(481, 288);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(81, 23);
-            this.btnDelete.TabIndex = 36;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Location = new System.Drawing.Point(382, 288);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 23);
-            this.btnAdd.TabIndex = 35;
-            this.btnAdd.Text = "Insert";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dataGridView1
             // 
@@ -276,16 +247,45 @@ namespace PCSUAS
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // pictSearch
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(12, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictSearch.Image = ((System.Drawing.Image)(resources.GetObject("pictSearch.Image")));
+            this.pictSearch.Location = new System.Drawing.Point(512, 160);
+            this.pictSearch.Name = "pictSearch";
+            this.pictSearch.Size = new System.Drawing.Size(74, 25);
+            this.pictSearch.TabIndex = 49;
+            this.pictSearch.TabStop = false;
+            this.pictSearch.Click += new System.EventHandler(this.pictSearch_Click);
+            // 
+            // pictInsert
+            // 
+            this.pictInsert.Image = ((System.Drawing.Image)(resources.GetObject("pictInsert.Image")));
+            this.pictInsert.Location = new System.Drawing.Point(430, 280);
+            this.pictInsert.Name = "pictInsert";
+            this.pictInsert.Size = new System.Drawing.Size(82, 26);
+            this.pictInsert.TabIndex = 50;
+            this.pictInsert.TabStop = false;
+            this.pictInsert.Click += new System.EventHandler(this.pictInsert_Click);
+            // 
+            // pictDelete
+            // 
+            this.pictDelete.Image = ((System.Drawing.Image)(resources.GetObject("pictDelete.Image")));
+            this.pictDelete.Location = new System.Drawing.Point(508, 280);
+            this.pictDelete.Name = "pictDelete";
+            this.pictDelete.Size = new System.Drawing.Size(78, 26);
+            this.pictDelete.TabIndex = 51;
+            this.pictDelete.TabStop = false;
+            this.pictDelete.Click += new System.EventHandler(this.pictDelete_Click);
+            // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(12, 68);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 41);
+            this.pictPrint.TabIndex = 52;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
             // 
             // MasterHakAkses
             // 
@@ -293,7 +293,10 @@ namespace PCSUAS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(625, 413);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictPrint);
+            this.Controls.Add(this.pictDelete);
+            this.Controls.Add(this.pictInsert);
+            this.Controls.Add(this.pictSearch);
             this.Controls.Add(this.rbMenu);
             this.Controls.Add(this.rbGroupUser);
             this.Controls.Add(this.groupBox1);
@@ -302,11 +305,8 @@ namespace PCSUAS
             this.Controls.Add(this.label3);
             this.Controls.Add(label5);
             this.Controls.Add(this.CBGroupUserIns);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.NmMenuTxt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(nAMAGROUPUSERLabel);
@@ -319,6 +319,10 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.m_hakaksesgroupuserBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mgroupuserBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,10 +338,7 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource mgroupuserBindingSource;
         private dbProjectUasDataSetTableAdapters.m_groupuserTableAdapter m_groupuserTableAdapter;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox NmMenuTxt;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox NmMenuInstxt;
@@ -347,6 +348,9 @@ namespace PCSUAS
         private System.Windows.Forms.RadioButton rbMenu;
         private System.Windows.Forms.RadioButton rbGroupUser;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictSearch;
+        private System.Windows.Forms.PictureBox pictInsert;
+        private System.Windows.Forms.PictureBox pictDelete;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

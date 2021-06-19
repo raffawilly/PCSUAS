@@ -31,6 +31,7 @@ namespace PCSUAS
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label label4;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterKota));
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.m_kotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_kotaTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_kotaTableAdapter();
@@ -39,14 +40,17 @@ namespace PCSUAS
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.tbNamaKota = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.tbCari = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictInsert = new System.Windows.Forms.PictureBox();
+            this.pictDelete = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_kotaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -103,7 +107,7 @@ namespace PCSUAS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 36);
+            this.label1.Location = new System.Drawing.Point(59, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(274, 40);
             this.label1.TabIndex = 10;
@@ -136,29 +140,6 @@ namespace PCSUAS
             this.tbNamaKota.Size = new System.Drawing.Size(100, 20);
             this.tbNamaKota.TabIndex = 14;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Location = new System.Drawing.Point(172, 168);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 23);
-            this.btnAdd.TabIndex = 15;
-            this.btnAdd.Text = "Insert";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(267, 168);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(81, 23);
-            this.btnDelete.TabIndex = 17;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // tbCari
             // 
             this.tbCari.Location = new System.Drawing.Point(79, 116);
@@ -167,16 +148,35 @@ namespace PCSUAS
             this.tbCari.TabIndex = 19;
             this.tbCari.TextChanged += new System.EventHandler(this.tbCari_TextChanged);
             // 
-            // button1
+            // pictInsert
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(12, 79);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 23);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictInsert.Image = ((System.Drawing.Image)(resources.GetObject("pictInsert.Image")));
+            this.pictInsert.Location = new System.Drawing.Point(187, 168);
+            this.pictInsert.Name = "pictInsert";
+            this.pictInsert.Size = new System.Drawing.Size(79, 27);
+            this.pictInsert.TabIndex = 50;
+            this.pictInsert.TabStop = false;
+            this.pictInsert.Click += new System.EventHandler(this.pictInsert_Click);
+            // 
+            // pictDelete
+            // 
+            this.pictDelete.Image = ((System.Drawing.Image)(resources.GetObject("pictDelete.Image")));
+            this.pictDelete.Location = new System.Drawing.Point(269, 168);
+            this.pictDelete.Name = "pictDelete";
+            this.pictDelete.Size = new System.Drawing.Size(81, 27);
+            this.pictDelete.TabIndex = 51;
+            this.pictDelete.TabStop = false;
+            this.pictDelete.Click += new System.EventHandler(this.pictDelete_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 68);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 37);
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // MasterKota
             // 
@@ -184,11 +184,11 @@ namespace PCSUAS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(406, 304);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictDelete);
+            this.Controls.Add(this.pictInsert);
             this.Controls.Add(this.tbCari);
             this.Controls.Add(label4);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbNamaKota);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dataGridView1);
@@ -200,6 +200,9 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_kotaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,9 +218,9 @@ namespace PCSUAS
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbNamaKota;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbCari;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictInsert;
+        private System.Windows.Forms.PictureBox pictDelete;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

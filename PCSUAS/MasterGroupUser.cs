@@ -59,7 +59,44 @@ namespace PCSUAS
         }
 
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterGroupUser report = new ReportViewerMasterGroupUser();
+            report.Show();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pictureBox2.Enabled = true;
+            pictureBox1.Enabled = false;
+            tbNamaGroup.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void tbCari_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            DataSet ds = new DataSet();
+            String query = $"SELECT *" +
+                          $"FROM m_groupuser " +
+                          $"WHERE namagroupuser like '%{tbCari.Text}%'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            conn.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
@@ -91,11 +128,7 @@ namespace PCSUAS
             }
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
@@ -109,46 +142,18 @@ namespace PCSUAS
                 MessageBox.Show("Berhasil Menghapus");
                 conn.Close();
                 clear();
-                btnDelete.Enabled = false;
-                btnAdd.Enabled = true;
+                pictureBox2.Enabled = false;
+                pictureBox1.Enabled = true;
 
                 //REFRESH DATA
                 refreshData();
             }
-            
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             ReportViewerMasterGroupUser report = new ReportViewerMasterGroupUser();
             report.Show();
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            tbNamaGroup.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void tbCari_TextChanged(object sender, EventArgs e)
-        {
-            conn.Open();
-            DataSet ds = new DataSet();
-            String query = $"SELECT *" +
-                          $"FROM m_groupuser " +
-                          $"WHERE namagroupuser like '%{tbCari.Text}%'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            conn.Close();
         }
     }
 }

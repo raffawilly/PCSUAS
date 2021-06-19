@@ -173,16 +173,16 @@ namespace PCSUAS
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReportViewerMasterSupplier report = new ReportViewerMasterSupplier();
-            report.Show();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ViewMasterSupplier vSup = new ViewMasterSupplier();
             vSup.Show();
+        }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterSupplier report = new ReportViewerMasterSupplier();
+            report.Show();
         }
     }
 }

@@ -74,8 +74,8 @@ namespace PCSUAS
             this.kOTAComboBox = new System.Windows.Forms.ComboBox();
             this.mkotaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             p_IDLabel = new System.Windows.Forms.Label();
             nAMALabel = new System.Windows.Forms.Label();
             aLAMATLabel = new System.Windows.Forms.Label();
@@ -92,6 +92,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.m_supplierBindingNavigator)).BeginInit();
             this.m_supplierBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkotaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // p_IDLabel
@@ -487,17 +488,6 @@ namespace PCSUAS
             this.progressBar1.Size = new System.Drawing.Size(864, 9);
             this.progressBar1.TabIndex = 34;
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(803, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(760, 28);
@@ -508,14 +498,24 @@ namespace PCSUAS
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(839, 55);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(41, 38);
+            this.pictPrint.TabIndex = 37;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // MasterSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(890, 403);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.kOTAComboBox);
             this.Controls.Add(this.label1);
@@ -551,6 +551,7 @@ namespace PCSUAS
             this.m_supplierBindingNavigator.ResumeLayout(false);
             this.m_supplierBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mkotaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +591,7 @@ namespace PCSUAS
         private dbProjectUasDataSetTableAdapters.m_kotaTableAdapter m_kotaTableAdapter;
         private System.Windows.Forms.BindingSource mkotaBindingSource;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

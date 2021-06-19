@@ -58,8 +58,40 @@ namespace PCSUAS
             dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             conn.Close();
         }
-       
-        private void btnAdd_Click(object sender, EventArgs e)
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            pictDelete.Enabled = true;
+            pictInsert.Enabled = false;
+            tbNamaKota.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+               
+        }
+
+        private void MasterKota_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbCari_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            DataSet ds = new DataSet();
+            String query = $"SELECT *" +
+                          $"FROM m_kota " +
+                          $"WHERE namakota like '%{tbCari.Text}%'";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            conn.Close();
+        }
+
+        private void pictInsert_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
@@ -86,22 +118,11 @@ namespace PCSUAS
                     MessageBox.Show("Nama Menu sudah ada di database");
                     conn.Close();
                 }
-               
+
             }
-            
-
-
-
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDelete.Enabled = true;
-            btnAdd.Enabled = false;
-            tbNamaKota.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void pictDelete_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
@@ -115,43 +136,18 @@ namespace PCSUAS
                 MessageBox.Show("Berhasil Menghapus");
                 conn.Close();
                 clear();
-                btnDelete.Enabled = false;
-                btnAdd.Enabled = true;
+                pictDelete.Enabled = false;
+                pictInsert.Enabled = true;
 
                 //REFRESH DATA
                 refreshData();
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-               
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             ReportViewerMasterKota report = new ReportViewerMasterKota();
             report.Show();
-        }
-
-        private void MasterKota_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbCari_TextChanged(object sender, EventArgs e)
-        {
-            conn.Open();
-            DataSet ds = new DataSet();
-            String query = $"SELECT *" +
-                          $"FROM m_kota " +
-                          $"WHERE namakota like '%{tbCari.Text}%'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            adapter.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            conn.Close();
         }
     }
 }

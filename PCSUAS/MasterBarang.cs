@@ -78,12 +78,6 @@ namespace PCSUAS
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ReportViewerMasterBarang Print = new ReportViewerMasterBarang();
-            Print.Show();
-        }
-
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             try
@@ -118,6 +112,12 @@ namespace PCSUAS
             }
 
 
+        }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterBarang Print = new ReportViewerMasterBarang();
+            Print.Show();
         }
     }
 }

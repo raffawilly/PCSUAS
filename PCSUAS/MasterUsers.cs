@@ -85,32 +85,38 @@ namespace PCSUAS
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (dr == DialogResult.Yes)
-            {
-                conn.Open();
-                String username = tbUsername.Text;
-                String query = $"delete from m_users where username like '{username}'";
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                MessageBox.Show("Berhasil Menghapus");
-                conn.Close();
-                clear();
-                btnInsert.Enabled = true;
-                btnUpdate.Enabled = false;
-                btnDelete.Enabled = false;
-                tbUsername.Enabled = true;
-
-                //REFRESH DATA
-                refreshData();
-            }
-           
+            pictInsert.Enabled = false;
+            pictUpdate.Enabled = true;
+            pictDelete.Enabled = true;
+            tbUsername.Enabled = false;
+            tbUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            cbGroupUser.SelectedValue= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbDesc_CheckedChanged(object sender, EventArgs e)
+        {
+            tbUsernameCari.Enabled = false;
+            cbGroupCari.Enabled = true;
+            tbUsernameCari.Text = "";
+            refreshData();
+        }
+
+        private void rbModel_CheckedChanged(object sender, EventArgs e)
+        {
+            tbUsernameCari.Enabled = true;
+            cbGroupCari.Enabled = false;
+            refreshData();
+        }
+
+        private void pictInsert_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
@@ -144,18 +150,7 @@ namespace PCSUAS
             }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnInsert.Enabled = false;
-            btnUpdate.Enabled = true;
-            btnDelete.Enabled = true;
-            tbUsername.Enabled = false;
-            tbUsername.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tbPassword.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            cbGroupUser.SelectedValue= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (cekKosong())
             {
@@ -164,43 +159,47 @@ namespace PCSUAS
                 String password = tbPassword.Text;
                 String namagroup = cbGroupUser.SelectedValue.ToString();
                 conn.Close();
-                    conn.Open();
-                    String query = $"update m_users set username = '{username}',password = '{password} ',namagroupuser='{namagroup}' where username= '{username}'";
-                    SqlCommand comm2 = new SqlCommand(query, conn);
-                    comm2.ExecuteNonQuery();
-                    MessageBox.Show("Berhasil Update!");
-                    conn.Close();
-                    clear();
-                    btnInsert.Enabled = true;
-                    btnUpdate.Enabled = false;
-                    btnDelete.Enabled = false;
-                    tbUsername.Enabled = true;
-                    //REFRESH DATA
-                    refreshData();
+                conn.Open();
+                String query = $"update m_users set username = '{username}',password = '{password} ',namagroupuser='{namagroup}' where username= '{username}'";
+                SqlCommand comm2 = new SqlCommand(query, conn);
+                comm2.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Update!");
+                conn.Close();
+                clear();
+                pictInsert.Enabled = true;
+                pictUpdate.Enabled = false;
+                pictDelete.Enabled = false;
+                tbUsername.Enabled = true;
+                //REFRESH DATA
+                refreshData();
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String username = tbUsername.Text;
+                String query = $"delete from m_users where username like '{username}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                clear();
+                pictInsert.Enabled = true;
+                pictUpdate.Enabled = false;
+                pictDelete.Enabled = false;
+                tbUsername.Enabled = true;
+
+                //REFRESH DATA
+                refreshData();
+            }
         }
 
-        private void rbDesc_CheckedChanged(object sender, EventArgs e)
-        {
-            tbUsernameCari.Enabled = false;
-            cbGroupCari.Enabled = true;
-            tbUsernameCari.Text = "";
-            refreshData();
-        }
-
-        private void rbModel_CheckedChanged(object sender, EventArgs e)
-        {
-            tbUsernameCari.Enabled = true;
-            cbGroupCari.Enabled = false;
-            refreshData();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void pictSearch_Click(object sender, EventArgs e)
         {
             if (rbNamaGroup.Checked)
             {

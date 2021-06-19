@@ -80,8 +80,8 @@ namespace PCSUAS
             this.mERK3ComboBox = new System.Windows.Forms.ComboBox();
             this.mmerkBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.m_merkTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_merkTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             kODELabel = new System.Windows.Forms.Label();
             pART_NOLabel = new System.Windows.Forms.Label();
             uNIT_PRICELabel = new System.Windows.Forms.Label();
@@ -103,6 +103,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // kODELabel
@@ -545,17 +546,6 @@ namespace PCSUAS
             // 
             this.m_merkTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(805, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(805, 28);
@@ -566,13 +556,23 @@ namespace PCSUAS
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(887, 54);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 38;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // MasterBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(939, 350);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.mERK3ComboBox);
             this.Controls.Add(this.mERK2ComboBox);
@@ -615,6 +615,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmerkBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,7 +659,7 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource mmerkBindingSource1;
         private System.Windows.Forms.BindingSource dbProjectUasDataSetBindingSource;
         private System.Windows.Forms.BindingSource mmerkBindingSource2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

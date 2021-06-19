@@ -134,5 +134,11 @@ namespace PCSUAS
                 this.Close();
             }
         }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerMasterMerk Print = new ReportViewerMasterMerk();
+            Print.Show();
+        }
     }
 }

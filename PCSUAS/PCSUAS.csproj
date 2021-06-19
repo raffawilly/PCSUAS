@@ -83,6 +83,12 @@
       <DependentUpon>CrystalReportMasterKota.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportMasterMerk.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterMerk.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportMasterModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +201,12 @@
     <Compile Include="ReportViewerMasterKota.Designer.cs">
       <DependentUpon>ReportViewerMasterKota.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerMasterMerk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterMerk.Designer.cs">
+      <DependentUpon>ReportViewerMasterMerk.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerMasterModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +258,10 @@
     <EmbeddedResource Include="CrystalReportMasterKota.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterKota.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterMerk.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterMerk.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportMasterModel.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -310,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterKota.resx">
       <DependentUpon>ReportViewerMasterKota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterMerk.resx">
+      <DependentUpon>ReportViewerMasterMerk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterModel.resx">
       <DependentUpon>ReportViewerMasterModel.cs</DependentUpon>

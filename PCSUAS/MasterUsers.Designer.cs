@@ -51,11 +51,13 @@ namespace PCSUAS
             this.pictInsert = new System.Windows.Forms.PictureBox();
             this.pictUpdate = new System.Windows.Forms.PictureBox();
             this.pictDelete = new System.Windows.Forms.PictureBox();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -250,12 +252,23 @@ namespace PCSUAS
             this.pictDelete.TabStop = false;
             this.pictDelete.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(881, 28);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 39;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // MasterUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(933, 369);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.pictDelete);
             this.Controls.Add(this.pictUpdate);
             this.Controls.Add(this.pictInsert);
@@ -287,6 +300,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,5 +329,6 @@ namespace PCSUAS
         private System.Windows.Forms.PictureBox pictInsert;
         private System.Windows.Forms.PictureBox pictUpdate;
         private System.Windows.Forms.PictureBox pictDelete;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

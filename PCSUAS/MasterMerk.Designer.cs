@@ -35,7 +35,6 @@ namespace PCSUAS
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +43,11 @@ namespace PCSUAS
             this.tbMerkDesc = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             this.pictInsert = new System.Windows.Forms.PictureBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,16 +89,6 @@ namespace PCSUAS
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(106, 22);
-            this.toolStripButton1.Text = "Lihat Semua Merk";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // label2
             // 
@@ -166,6 +158,16 @@ namespace PCSUAS
             this.label5.TabIndex = 13;
             this.label5.Text = "ID :";
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(558, 28);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 40;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // pictInsert
             // 
             this.pictInsert.Image = ((System.Drawing.Image)(resources.GetObject("pictInsert.Image")));
@@ -176,12 +178,23 @@ namespace PCSUAS
             this.pictInsert.TabStop = false;
             this.pictInsert.Click += new System.EventHandler(this.pictInsert_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(106, 22);
+            this.toolStripButton1.Text = "Lihat Semua Merk";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // MasterMerk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(632, 415);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.pictInsert);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.label5);
@@ -199,6 +212,7 @@ namespace PCSUAS
             this.Load += new System.EventHandler(this.MasterMerk_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictInsert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,5 +236,6 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictInsert;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

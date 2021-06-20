@@ -115,23 +115,30 @@ namespace PCSUAS
 
         private void pictInsert_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
-            List<MasterMerk2> merkList;
-            String code = tbMerkCode.Text;
-            String desc = tbMerkDesc.Text;
-            int id = int.Parse(tbID.Text);
-            try
+            if(tbID.Text.Length==0 || tbMerkCode.Text.Length==0 || tbMerkDesc.Text.Length == 0)
             {
-                merkList = MasterMerkDB2.insert(id, desc, code);
-                MessageBox.Show("Data Berhasil Dimasukkan");
-                tbMerkCode.Clear();
-                tbID.Clear();
-                tbMerkDesc.Clear();
+                MessageBox.Show("Isi Data Dengan Benar!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-                this.Close();
+                listView1.Items.Clear();
+                List<MasterMerk2> merkList;
+                String code = tbMerkCode.Text;
+                String desc = tbMerkDesc.Text;
+                int id = int.Parse(tbID.Text);
+                try
+                {
+                    merkList = MasterMerkDB2.insert(id, desc, code);
+                    MessageBox.Show("Data Berhasil Dimasukkan");
+                    tbMerkCode.Clear();
+                    tbID.Clear();
+                    tbMerkDesc.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    this.Close();
+                }
             }
         }
 

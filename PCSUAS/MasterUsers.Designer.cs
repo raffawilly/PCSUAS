@@ -234,6 +234,7 @@ namespace PCSUAS
             // 
             // pictUpdate
             // 
+            this.pictUpdate.Enabled = false;
             this.pictUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pictUpdate.Image")));
             this.pictUpdate.Location = new System.Drawing.Point(766, 297);
             this.pictUpdate.Name = "pictUpdate";
@@ -244,6 +245,7 @@ namespace PCSUAS
             // 
             // pictDelete
             // 
+            this.pictDelete.Enabled = false;
             this.pictDelete.Image = ((System.Drawing.Image)(resources.GetObject("pictDelete.Image")));
             this.pictDelete.Location = new System.Drawing.Point(770, 325);
             this.pictDelete.Name = "pictDelete";

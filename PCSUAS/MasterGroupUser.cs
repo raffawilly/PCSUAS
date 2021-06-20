@@ -155,5 +155,10 @@ namespace PCSUAS
             ReportViewerMasterGroupUser report = new ReportViewerMasterGroupUser();
             report.Show();
         }
+
+        private void MasterGroupUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

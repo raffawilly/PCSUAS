@@ -269,6 +269,7 @@ namespace PCSUAS
             // 
             // pictDelete
             // 
+            this.pictDelete.Enabled = false;
             this.pictDelete.Image = ((System.Drawing.Image)(resources.GetObject("pictDelete.Image")));
             this.pictDelete.Location = new System.Drawing.Point(508, 280);
             this.pictDelete.Name = "pictDelete";

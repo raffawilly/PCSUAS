@@ -235,7 +235,8 @@ namespace PCSUAS
 
         private void pictPrint_Click(object sender, EventArgs e)
         {
-            
+            ReportViewerMasterUser Print = new ReportViewerMasterUser();
+            Print.Show();
         }
     }
 }

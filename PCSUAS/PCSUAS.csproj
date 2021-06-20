@@ -107,6 +107,12 @@
       <DependentUpon>CrystalReportMasterSupplier.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportMasterUser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportMasterUser.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dbProjectUasDataSet.cs">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
     </Compile>
@@ -225,6 +231,12 @@
     <Compile Include="ReportViewerMasterSupplier.Designer.cs">
       <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerMasterUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerMasterUser.Designer.cs">
+      <DependentUpon>ReportViewerMasterUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewMasterBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +286,10 @@
     <EmbeddedResource Include="CrystalReportMasterSupplier.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterSupplier.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportMasterUser.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportMasterUser.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -338,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterSupplier.resx">
       <DependentUpon>ReportViewerMasterSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerMasterUser.resx">
+      <DependentUpon>ReportViewerMasterUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMasterBarang.resx">
       <DependentUpon>ViewMasterBarang.cs</DependentUpon>

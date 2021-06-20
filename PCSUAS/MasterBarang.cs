@@ -13,9 +13,19 @@ namespace PCSUAS
 {
     public partial class MasterBarang : Form
     {
+        SqlConnection conn;
         public MasterBarang()
         {
             InitializeComponent();
+            try
+            {
+                conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error {ex.Message}");
+                throw;
+            }
         }
 
         private void m_barangBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -85,6 +95,18 @@ namespace PCSUAS
                 //this.Validate();
                 this.m_barangBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+                DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    conn.Open();
+                    String kode = kODETextBox.Text;
+                    String query = $"delete from m_barang where kode like '{kode}'";
+                    SqlCommand comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus");
+                    conn.Close();
+                }
             }
             catch (DataException ex)
             {

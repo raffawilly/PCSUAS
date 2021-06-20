@@ -13,9 +13,19 @@ namespace PCSUAS
 {
     public partial class MasterSupplier : Form
     {
+        SqlConnection conn;
         public MasterSupplier()
         {
             InitializeComponent();
+            try
+            {
+                conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error {ex.Message}");
+                throw;
+            }
         }
 
         private void m_supplierBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -183,6 +193,52 @@ namespace PCSUAS
         {
             ReportViewerMasterSupplier report = new ReportViewerMasterSupplier();
             report.Show();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //this.Validate();
+                this.m_supplierBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+                DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+                if (dr == DialogResult.Yes)
+                {
+                    conn.Open();
+                    String kode = p_IDTextBox.Text;
+                    String query = $"delete from m_supplier where p_id like '{kode}'";
+                    SqlCommand comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                    MessageBox.Show("Berhasil Menghapus");
+                    conn.Close();
+                }
+            }
+            catch (DataException ex)
+            {
+                MessageBox.Show(ex.Message + ex.GetType().ToString());
+                this.m_supplierBindingSource.CancelEdit();
+            }
+            catch (ArgumentException ex)
+            {
+                // This block catches exceptions such as a value that's beyond
+                // the maximum length for a column in a dataset.
+                MessageBox.Show(ex.Message, "Argument Exception");
+                this.m_supplierBindingSource.CancelEdit();
+            }
+            catch (DBConcurrencyException)
+            {
+                MessageBox.Show("A concurrency error occurred. " +
+                    "The row was not updated.", "Concurrency Exception");
+                this.m_supplierTableAdapter.Fill(this.dbProjectUasDataSet.m_supplier);
+            }
+
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL Server error # " + ex.Number +
+                    ": " + ex.Message, ex.GetType().ToString());
+            }
         }
     }
 }

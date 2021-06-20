@@ -121,6 +121,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceForm.Designer.cs">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterGroupUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceForm.resx">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterBarang.resx">
       <DependentUpon>MasterBarang.cs</DependentUpon>

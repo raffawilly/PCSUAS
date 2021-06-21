@@ -76,11 +76,21 @@ namespace PCSUAS
             SqlCommand commNote = new SqlCommand(note, conn);
             tbNote.Text = commNote.ExecuteScalar().ToString();
 
+            //SUM
+            String SUM = $"SELECT FORMAT(Sum(td.qty*mb.unit_price),'C') " +
+                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"WHERE mb.kode = td.kode "+
+                         $"and th.no_nota = td.no_nota " +
+                        $"and th.p_id = '{tbSup.Text}'";
+            SqlCommand commSum = new SqlCommand(SUM, conn);
+            tbPartPrice.Text = commSum.ExecuteScalar().ToString();
+
 
             DataSet ds = new DataSet();
             String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
                            $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
                            $"where mb.kode = td.kode "+
+                           $"and th.no_nota = td.no_nota "+
                            $"and th.p_id = '{tbSup.Text}'";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -118,15 +128,6 @@ namespace PCSUAS
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
-            //int total = 0;
-            ////loop through the datagrid and sum the column 
-            //for (int i = 0; i < dgvBarang.Rows.Count; i++)
-            //{
-            //    total += Convert.ToInt32(dgvBarang.Rows[i].Cells["Amount"].Value.ToString());
-
-            //}
-            //tbPartPrice.Text = total.ToString();
-
             refreshSupplier();
         }
 

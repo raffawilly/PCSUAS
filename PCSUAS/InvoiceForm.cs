@@ -119,5 +119,15 @@ namespace PCSUAS
         {
             refreshSupplier();
         }
+
+        private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
+        {
+            refreshSupplier();
+        }
+
+        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
+        {
+            refreshSupplier();
+        }
     }
 }

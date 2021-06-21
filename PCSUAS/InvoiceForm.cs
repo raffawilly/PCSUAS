@@ -87,6 +87,7 @@ namespace PCSUAS
             adapter.Fill(ds);
             dgvBarang.DataSource = ds.Tables[0];
 
+            
             conn.Close();
         }
         private void t_invoice_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -117,6 +118,15 @@ namespace PCSUAS
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
         {
+            //int total = 0;
+            ////loop through the datagrid and sum the column 
+            //for (int i = 0; i < dgvBarang.Rows.Count; i++)
+            //{
+            //    total += Convert.ToInt32(dgvBarang.Rows[i].Cells["Amount"].Value.ToString());
+
+            //}
+            //tbPartPrice.Text = total.ToString();
+
             refreshSupplier();
         }
 

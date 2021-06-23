@@ -83,5 +83,11 @@ namespace PCSUAS
             MasterModel mMdl = new MasterModel();
             mMdl.Show();
         }
+
+        private void pictureBox10_Click(object sender, EventArgs e)
+        {
+            InvoiceForm inv = new InvoiceForm();
+            inv.Show();
+        }
     }
 }

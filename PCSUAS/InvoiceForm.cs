@@ -77,6 +77,15 @@ namespace PCSUAS
             tbNote.Text = commNote.ExecuteScalar().ToString();
 
             //SUM
+            String SUM2 = $"SELECT Sum(td.qty*mb.unit_price) " +
+                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"WHERE mb.kode = td.kode " +
+                         $"and th.no_nota = td.no_nota " +
+                        $"and th.p_id = '{tbSup.Text}'";
+            SqlCommand commSum2 = new SqlCommand(SUM2, conn);
+            String tbPart = commSum2.ExecuteScalar().ToString();
+
+            //SUM
             String SUM = $"SELECT FORMAT(Sum(td.qty*mb.unit_price),'C') " +
                         $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
                         $"WHERE mb.kode = td.kode "+
@@ -84,8 +93,13 @@ namespace PCSUAS
                         $"and th.p_id = '{tbSup.Text}'";
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbPartPrice.Text = commSum.ExecuteScalar().ToString();
+            int discount = Convert.ToInt32( tbDiscount.Text);
+            int service = Convert.ToInt32(tbService.Text);
+            int ppn = Convert.ToInt32(tbPPN.Text);
+            int partprice = Convert.ToInt32(tbPart);
 
-
+            tbTotal.Text = (discount + service + ppn + partprice).ToString("C");
+            
             DataSet ds = new DataSet();
             String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
                            $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +

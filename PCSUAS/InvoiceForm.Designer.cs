@@ -508,6 +508,7 @@ namespace PCSUAS
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.Size = new System.Drawing.Size(124, 20);
             this.tbDiscount.TabIndex = 29;
+            this.tbDiscount.Text = "0";
             this.tbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbService
@@ -517,6 +518,7 @@ namespace PCSUAS
             this.tbService.Name = "tbService";
             this.tbService.Size = new System.Drawing.Size(124, 20);
             this.tbService.TabIndex = 30;
+            this.tbService.Text = "0";
             this.tbService.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbPPN
@@ -527,6 +529,7 @@ namespace PCSUAS
             this.tbPPN.Name = "tbPPN";
             this.tbPPN.Size = new System.Drawing.Size(124, 20);
             this.tbPPN.TabIndex = 31;
+            this.tbPPN.Text = "0";
             this.tbPPN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9

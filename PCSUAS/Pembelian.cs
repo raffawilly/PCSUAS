@@ -147,14 +147,24 @@ namespace PCSUAS
             SqlCommand comm5 = new SqlCommand(temp5, conn);
             String merk = comm5.ExecuteScalar().ToString();
 
+
             int qty = Convert.ToInt32(numericUpDown1.Value);
+            if (qty <= 0)
+            {
+                MessageBox.Show("JUMLAH HARUS LEBIH DARI 0");
+                conn.Close();
+            }
+            else
+            {
+                String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
+                comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                refresh();
+                MessageBox.Show("Berhasil ditambahkan");
+            }
 
-
-            String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
-            comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-            refresh();
+           
 
         }
     }

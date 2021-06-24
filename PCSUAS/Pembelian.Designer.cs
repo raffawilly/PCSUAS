@@ -1,7 +1,7 @@
 ﻿
 namespace PCSUAS
 {
-    partial class Pembelian
+    partial class combobox1
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,9 @@ namespace PCSUAS
             System.Windows.Forms.Label nO_PNWLabel;
             System.Windows.Forms.Label nO_NOTALabel;
             System.Windows.Forms.Label p_IDLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pembelian));
             System.Windows.Forms.Label tbTglInvoice;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(combobox1));
+            System.Windows.Forms.Label nPWPLabel;
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.t_pembelian_headerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.t_pembelian_headerTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.t_pembelian_headerTableAdapter();
@@ -58,13 +59,6 @@ namespace PCSUAS
             this.msupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nO_PNWTextBox = new System.Windows.Forms.TextBox();
             this.nO_NOTATextBox = new System.Windows.Forms.TextBox();
-            this.tbNamaSupp = new System.Windows.Forms.TextBox();
-            this.p_IDTextBox = new System.Windows.Forms.TextBox();
-            this.tbNoNpwp = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbAlamat = new System.Windows.Forms.TextBox();
-            this.tbKota = new System.Windows.Forms.TextBox();
-            this.tbNote = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.t_pembelian_detailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -80,10 +74,22 @@ namespace PCSUAS
             this.tbGrandTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.Combobox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mbarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nAMATextBox = new System.Windows.Forms.TextBox();
+            this.aLAMATTextBox = new System.Windows.Forms.TextBox();
+            this.kOTATextBox = new System.Windows.Forms.TextBox();
+            this.nPWPTextBox = new System.Windows.Forms.TextBox();
+            this.nOTETextBox = new System.Windows.Forms.TextBox();
             nO_PNWLabel = new System.Windows.Forms.Label();
             nO_NOTALabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
             tbTglInvoice = new System.Windows.Forms.Label();
+            nPWPLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_headerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_headerBindingNavigator)).BeginInit();
@@ -92,6 +98,9 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_detailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_PNWLabel
@@ -120,6 +129,15 @@ namespace PCSUAS
             p_IDLabel.Size = new System.Drawing.Size(69, 13);
             p_IDLabel.TabIndex = 7;
             p_IDLabel.Text = "SUPPLIER : ";
+            // 
+            // tbTglInvoice
+            // 
+            tbTglInvoice.AutoSize = true;
+            tbTglInvoice.Location = new System.Drawing.Point(564, 130);
+            tbTglInvoice.Name = "tbTglInvoice";
+            tbTglInvoice.Size = new System.Drawing.Size(66, 13);
+            tbTglInvoice.TabIndex = 20;
+            tbTglInvoice.Text = "Tgl Invoice :";
             // 
             // dbProjectUasDataSet
             // 
@@ -196,7 +214,7 @@ namespace PCSUAS
             this.t_pembelian_headerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.t_pembelian_headerBindingNavigator.Name = "t_pembelian_headerBindingNavigator";
             this.t_pembelian_headerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.t_pembelian_headerBindingNavigator.Size = new System.Drawing.Size(744, 25);
+            this.t_pembelian_headerBindingNavigator.Size = new System.Drawing.Size(781, 25);
             this.t_pembelian_headerBindingNavigator.TabIndex = 0;
             this.t_pembelian_headerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -208,6 +226,7 @@ namespace PCSUAS
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -233,6 +252,7 @@ namespace PCSUAS
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -253,6 +273,7 @@ namespace PCSUAS
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -281,6 +302,7 @@ namespace PCSUAS
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
             // 
             // bindingNavigatorSeparator2
             // 
@@ -309,7 +331,6 @@ namespace PCSUAS
             // nO_PNWTextBox
             // 
             this.nO_PNWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_pembelian_headerBindingSource, "NO_PNW", true));
-            this.nO_PNWTextBox.Enabled = false;
             this.nO_PNWTextBox.Location = new System.Drawing.Point(73, 50);
             this.nO_PNWTextBox.Name = "nO_PNWTextBox";
             this.nO_PNWTextBox.Size = new System.Drawing.Size(100, 20);
@@ -318,70 +339,10 @@ namespace PCSUAS
             // nO_NOTATextBox
             // 
             this.nO_NOTATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_pembelian_headerBindingSource, "NO_NOTA", true));
-            this.nO_NOTATextBox.Enabled = false;
             this.nO_NOTATextBox.Location = new System.Drawing.Point(73, 76);
             this.nO_NOTATextBox.Name = "nO_NOTATextBox";
             this.nO_NOTATextBox.Size = new System.Drawing.Size(100, 20);
             this.nO_NOTATextBox.TabIndex = 4;
-            // 
-            // tbNamaSupp
-            // 
-            this.tbNamaSupp.Enabled = false;
-            this.tbNamaSupp.Location = new System.Drawing.Point(376, 50);
-            this.tbNamaSupp.Name = "tbNamaSupp";
-            this.tbNamaSupp.Size = new System.Drawing.Size(131, 20);
-            this.tbNamaSupp.TabIndex = 10;
-            // 
-            // p_IDTextBox
-            // 
-            this.p_IDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_pembelian_headerBindingSource, "P_ID", true));
-            this.p_IDTextBox.Enabled = false;
-            this.p_IDTextBox.Location = new System.Drawing.Point(255, 50);
-            this.p_IDTextBox.Name = "p_IDTextBox";
-            this.p_IDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.p_IDTextBox.TabIndex = 11;
-            // 
-            // tbNoNpwp
-            // 
-            this.tbNoNpwp.Enabled = false;
-            this.tbNoNpwp.Location = new System.Drawing.Point(255, 76);
-            this.tbNoNpwp.Name = "tbNoNpwp";
-            this.tbNoNpwp.Size = new System.Drawing.Size(100, 20);
-            this.tbNoNpwp.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "NO NPWP:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // tbAlamat
-            // 
-            this.tbAlamat.Enabled = false;
-            this.tbAlamat.Location = new System.Drawing.Point(376, 76);
-            this.tbAlamat.Name = "tbAlamat";
-            this.tbAlamat.Size = new System.Drawing.Size(131, 20);
-            this.tbAlamat.TabIndex = 15;
-            // 
-            // tbKota
-            // 
-            this.tbKota.Enabled = false;
-            this.tbKota.Location = new System.Drawing.Point(513, 76);
-            this.tbKota.Name = "tbKota";
-            this.tbKota.Size = new System.Drawing.Size(87, 20);
-            this.tbKota.TabIndex = 17;
-            // 
-            // tbNote
-            // 
-            this.tbNote.Enabled = false;
-            this.tbNote.Location = new System.Drawing.Point(73, 127);
-            this.tbNote.Name = "tbNote";
-            this.tbNote.Size = new System.Drawing.Size(300, 20);
-            this.tbNote.TabIndex = 19;
             // 
             // label5
             // 
@@ -405,15 +366,6 @@ namespace PCSUAS
             this.dataGridView1.Size = new System.Drawing.Size(720, 234);
             this.dataGridView1.TabIndex = 20;
             // 
-            // tbTglInvoice
-            // 
-            tbTglInvoice.AutoSize = true;
-            tbTglInvoice.Location = new System.Drawing.Point(564, 130);
-            tbTglInvoice.Name = "tbTglInvoice";
-            tbTglInvoice.Size = new System.Drawing.Size(66, 13);
-            tbTglInvoice.TabIndex = 20;
-            tbTglInvoice.Text = "Tgl Invoice :";
-            // 
             // tGL_PNWTextBox
             // 
             this.tGL_PNWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_pembelian_headerBindingSource, "TGL_PNW", true));
@@ -426,16 +378,17 @@ namespace PCSUAS
             // 
             // btnTambahItem
             // 
-            this.btnTambahItem.Location = new System.Drawing.Point(173, 433);
+            this.btnTambahItem.Location = new System.Drawing.Point(9, 495);
             this.btnTambahItem.Name = "btnTambahItem";
             this.btnTambahItem.Size = new System.Drawing.Size(78, 23);
             this.btnTambahItem.TabIndex = 22;
             this.btnTambahItem.Text = "Tambah Item";
             this.btnTambahItem.UseVisualStyleBackColor = true;
+            this.btnTambahItem.Click += new System.EventHandler(this.btnTambahItem_Click);
             // 
             // btnHapusItem
             // 
-            this.btnHapusItem.Location = new System.Drawing.Point(255, 433);
+            this.btnHapusItem.Location = new System.Drawing.Point(91, 495);
             this.btnHapusItem.Name = "btnHapusItem";
             this.btnHapusItem.Size = new System.Drawing.Size(72, 23);
             this.btnHapusItem.TabIndex = 23;
@@ -526,11 +479,117 @@ namespace PCSUAS
             this.label7.TabIndex = 32;
             this.label7.Text = "___________________________";
             // 
-            // Pembelian
+            // Combobox2
+            // 
+            this.Combobox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_pembelian_headerBindingSource, "P_ID", true));
+            this.Combobox2.DataSource = this.m_supplierBindingSource;
+            this.Combobox2.DisplayMember = "P_ID";
+            this.Combobox2.FormattingEnabled = true;
+            this.Combobox2.Location = new System.Drawing.Point(255, 50);
+            this.Combobox2.Name = "Combobox2";
+            this.Combobox2.Size = new System.Drawing.Size(121, 21);
+            this.Combobox2.TabIndex = 33;
+            this.Combobox2.ValueMember = "P_ID";
+            this.Combobox2.SelectedIndexChanged += new System.EventHandler(this.Combobox2_SelectedIndexChanged);
+            this.Combobox2.DropDownClosed += new System.EventHandler(this.Combobox2_DropDownClosed);
+            this.Combobox2.ValueMemberChanged += new System.EventHandler(this.Combobox2_ValueMemberChanged);
+            this.Combobox2.TextChanged += new System.EventHandler(this.Combobox2_TextChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.mbarangBindingSource;
+            this.comboBox3.DisplayMember = "DESCRIPTION";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(9, 442);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 34;
+            this.comboBox3.ValueMember = "ID";
+            // 
+            // dbProjectUasDataSetBindingSource
+            // 
+            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
+            this.dbProjectUasDataSetBindingSource.Position = 0;
+            // 
+            // mbarangBindingSource
+            // 
+            this.mbarangBindingSource.DataMember = "m_barang";
+            this.mbarangBindingSource.DataSource = this.dbProjectUasDataSetBindingSource;
+            // 
+            // m_barangTableAdapter
+            // 
+            this.m_barangTableAdapter.ClearBeforeFill = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(9, 469);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 35;
+            // 
+            // nAMATextBox
+            // 
+            this.nAMATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "NAMA", true));
+            this.nAMATextBox.Location = new System.Drawing.Point(410, 50);
+            this.nAMATextBox.Name = "nAMATextBox";
+            this.nAMATextBox.Size = new System.Drawing.Size(100, 20);
+            this.nAMATextBox.TabIndex = 36;
+            // 
+            // aLAMATTextBox
+            // 
+            this.aLAMATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "ALAMAT", true));
+            this.aLAMATTextBox.Location = new System.Drawing.Point(410, 76);
+            this.aLAMATTextBox.Name = "aLAMATTextBox";
+            this.aLAMATTextBox.Size = new System.Drawing.Size(100, 20);
+            this.aLAMATTextBox.TabIndex = 37;
+            // 
+            // kOTATextBox
+            // 
+            this.kOTATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "KOTA", true));
+            this.kOTATextBox.Location = new System.Drawing.Point(530, 76);
+            this.kOTATextBox.Name = "kOTATextBox";
+            this.kOTATextBox.Size = new System.Drawing.Size(100, 20);
+            this.kOTATextBox.TabIndex = 38;
+            // 
+            // nPWPLabel
+            // 
+            nPWPLabel.AutoSize = true;
+            nPWPLabel.Location = new System.Drawing.Point(206, 79);
+            nPWPLabel.Name = "nPWPLabel";
+            nPWPLabel.Size = new System.Drawing.Size(43, 13);
+            nPWPLabel.TabIndex = 38;
+            nPWPLabel.Text = "NPWP:";
+            // 
+            // nPWPTextBox
+            // 
+            this.nPWPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "NPWP", true));
+            this.nPWPTextBox.Location = new System.Drawing.Point(255, 76);
+            this.nPWPTextBox.Name = "nPWPTextBox";
+            this.nPWPTextBox.Size = new System.Drawing.Size(100, 20);
+            this.nPWPTextBox.TabIndex = 39;
+            // 
+            // nOTETextBox
+            // 
+            this.nOTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "NOTE", true));
+            this.nOTETextBox.Location = new System.Drawing.Point(73, 127);
+            this.nOTETextBox.Name = "nOTETextBox";
+            this.nOTETextBox.Size = new System.Drawing.Size(100, 20);
+            this.nOTETextBox.TabIndex = 40;
+            // 
+            // combobox1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 527);
+            this.ClientSize = new System.Drawing.Size(781, 548);
+            this.Controls.Add(this.nOTETextBox);
+            this.Controls.Add(nPWPLabel);
+            this.Controls.Add(this.nPWPTextBox);
+            this.Controls.Add(this.kOTATextBox);
+            this.Controls.Add(this.aLAMATTextBox);
+            this.Controls.Add(this.nAMATextBox);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.Combobox2);
             this.Controls.Add(this.tbGrandTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbPPN);
@@ -544,14 +603,7 @@ namespace PCSUAS
             this.Controls.Add(tbTglInvoice);
             this.Controls.Add(this.tGL_PNWTextBox);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.tbNote);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbKota);
-            this.Controls.Add(this.tbAlamat);
-            this.Controls.Add(this.tbNoNpwp);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.p_IDTextBox);
-            this.Controls.Add(this.tbNamaSupp);
             this.Controls.Add(p_IDLabel);
             this.Controls.Add(nO_NOTALabel);
             this.Controls.Add(this.nO_NOTATextBox);
@@ -559,7 +611,7 @@ namespace PCSUAS
             this.Controls.Add(this.nO_PNWTextBox);
             this.Controls.Add(this.t_pembelian_headerBindingNavigator);
             this.Controls.Add(this.label7);
-            this.Name = "Pembelian";
+            this.Name = "combobox1";
             this.Text = "Pembelian";
             this.Load += new System.EventHandler(this.Pembelian_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).EndInit();
@@ -571,6 +623,9 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_detailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -600,13 +655,6 @@ namespace PCSUAS
         private System.Windows.Forms.BindingSource msupplierBindingSource;
         private System.Windows.Forms.TextBox nO_PNWTextBox;
         private System.Windows.Forms.TextBox nO_NOTATextBox;
-        private System.Windows.Forms.TextBox tbNamaSupp;
-        private System.Windows.Forms.TextBox p_IDTextBox;
-        private System.Windows.Forms.TextBox tbNoNpwp;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbAlamat;
-        private System.Windows.Forms.TextBox tbKota;
-        private System.Windows.Forms.TextBox tbNote;
         private System.Windows.Forms.Label label5;
         private dbProjectUasDataSetTableAdapters.t_pembelian_detailTableAdapter t_pembelian_detailTableAdapter;
         private System.Windows.Forms.BindingSource t_pembelian_detailBindingSource;
@@ -623,5 +671,16 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbGrandTotal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox Combobox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.BindingSource dbProjectUasDataSetBindingSource;
+        private System.Windows.Forms.BindingSource mbarangBindingSource;
+        private dbProjectUasDataSetTableAdapters.m_barangTableAdapter m_barangTableAdapter;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox nAMATextBox;
+        private System.Windows.Forms.TextBox aLAMATTextBox;
+        private System.Windows.Forms.TextBox kOTATextBox;
+        private System.Windows.Forms.TextBox nPWPTextBox;
+        private System.Windows.Forms.TextBox nOTETextBox;
     }
 }

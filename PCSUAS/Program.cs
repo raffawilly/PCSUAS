@@ -16,7 +16,7 @@ namespace PCSUAS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pembelian());
+            Application.Run(new combobox1());
         }
     }
 }

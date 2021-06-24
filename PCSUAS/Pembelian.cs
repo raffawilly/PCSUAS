@@ -29,7 +29,7 @@ namespace PCSUAS
                            $"where th.no_pnw = td.no_pnw " +
                            $"and mb.kode = td.kode " +
                            $"and th.no_nota = td.no_nota " +
-                             $"and th.no_nota = '{nO_NOTATextBox.Text}' ";
+                           $"and th.no_nota = '{nO_NOTATextBox.Text}' ";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);

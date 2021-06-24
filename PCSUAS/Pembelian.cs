@@ -61,7 +61,8 @@ namespace PCSUAS
             DataSet ds = new DataSet();
             String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
                            $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
-                           $"where mb.kode = td.kode " +
+                           $"where th.no_pnw = td.no_pnw " +
+                           $"and mb.kode = td.kode " +
                            $"and th.no_nota = td.no_nota " +
                            $"and th.p_id = '{p_IDTextBox.Text}'";
             SqlCommand cmd = new SqlCommand(query, conn);

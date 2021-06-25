@@ -34,8 +34,8 @@ namespace PCSUAS
             System.Windows.Forms.Label nO_NOTALabel;
             System.Windows.Forms.Label p_IDLabel;
             System.Windows.Forms.Label tbTglInvoice;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(combobox1));
             System.Windows.Forms.Label nPWPLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(combobox1));
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.t_pembelian_headerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.t_pembelian_headerTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.t_pembelian_headerTableAdapter();
@@ -76,8 +76,8 @@ namespace PCSUAS
             this.label7 = new System.Windows.Forms.Label();
             this.Combobox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mbarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbProjectUasDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.nAMATextBox = new System.Windows.Forms.TextBox();
@@ -85,6 +85,9 @@ namespace PCSUAS
             this.kOTATextBox = new System.Windows.Forms.TextBox();
             this.nPWPTextBox = new System.Windows.Forms.TextBox();
             this.nOTETextBox = new System.Windows.Forms.TextBox();
+            this.tbHapusKode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnBatal = new System.Windows.Forms.Button();
             nO_PNWLabel = new System.Windows.Forms.Label();
             nO_NOTALabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
@@ -98,8 +101,8 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_detailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +141,15 @@ namespace PCSUAS
             tbTglInvoice.Size = new System.Drawing.Size(66, 13);
             tbTglInvoice.TabIndex = 20;
             tbTglInvoice.Text = "Tgl Invoice :";
+            // 
+            // nPWPLabel
+            // 
+            nPWPLabel.AutoSize = true;
+            nPWPLabel.Location = new System.Drawing.Point(206, 79);
+            nPWPLabel.Name = "nPWPLabel";
+            nPWPLabel.Size = new System.Drawing.Size(43, 13);
+            nPWPLabel.TabIndex = 38;
+            nPWPLabel.Text = "NPWP:";
             // 
             // dbProjectUasDataSet
             // 
@@ -360,11 +372,13 @@ namespace PCSUAS
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(10, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(720, 234);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // tGL_PNWTextBox
             // 
@@ -378,6 +392,7 @@ namespace PCSUAS
             // 
             // btnTambahItem
             // 
+            this.btnTambahItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTambahItem.Location = new System.Drawing.Point(9, 495);
             this.btnTambahItem.Name = "btnTambahItem";
             this.btnTambahItem.Size = new System.Drawing.Size(78, 23);
@@ -388,12 +403,18 @@ namespace PCSUAS
             // 
             // btnHapusItem
             // 
-            this.btnHapusItem.Location = new System.Drawing.Point(91, 495);
+            this.btnHapusItem.BackColor = System.Drawing.Color.Red;
+            this.btnHapusItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnHapusItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHapusItem.Enabled = false;
+            this.btnHapusItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHapusItem.Location = new System.Drawing.Point(280, 495);
             this.btnHapusItem.Name = "btnHapusItem";
             this.btnHapusItem.Size = new System.Drawing.Size(72, 23);
             this.btnHapusItem.TabIndex = 23;
             this.btnHapusItem.Text = "Hapus Item";
-            this.btnHapusItem.UseVisualStyleBackColor = true;
+            this.btnHapusItem.UseVisualStyleBackColor = false;
+            this.btnHapusItem.Click += new System.EventHandler(this.btnHapusItem_Click);
             // 
             // label1
             // 
@@ -413,6 +434,7 @@ namespace PCSUAS
             this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(124, 20);
             this.tbTotal.TabIndex = 25;
+            this.tbTotal.Text = "0";
             // 
             // tbDiscount
             // 
@@ -420,6 +442,7 @@ namespace PCSUAS
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.Size = new System.Drawing.Size(124, 20);
             this.tbDiscount.TabIndex = 27;
+            this.tbDiscount.Text = "0";
             // 
             // label3
             // 
@@ -440,6 +463,7 @@ namespace PCSUAS
             this.tbPPN.ReadOnly = true;
             this.tbPPN.Size = new System.Drawing.Size(124, 20);
             this.tbPPN.TabIndex = 29;
+            this.tbPPN.Text = "0";
             // 
             // label4
             // 
@@ -459,6 +483,7 @@ namespace PCSUAS
             this.tbGrandTotal.ReadOnly = true;
             this.tbGrandTotal.Size = new System.Drawing.Size(124, 20);
             this.tbGrandTotal.TabIndex = 31;
+            this.tbGrandTotal.Text = "0";
             // 
             // label6
             // 
@@ -506,15 +531,15 @@ namespace PCSUAS
             this.comboBox3.TabIndex = 34;
             this.comboBox3.ValueMember = "ID";
             // 
-            // dbProjectUasDataSetBindingSource
-            // 
-            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
-            this.dbProjectUasDataSetBindingSource.Position = 0;
-            // 
             // mbarangBindingSource
             // 
             this.mbarangBindingSource.DataMember = "m_barang";
             this.mbarangBindingSource.DataSource = this.dbProjectUasDataSetBindingSource;
+            // 
+            // dbProjectUasDataSetBindingSource
+            // 
+            this.dbProjectUasDataSetBindingSource.DataSource = this.dbProjectUasDataSet;
+            this.dbProjectUasDataSetBindingSource.Position = 0;
             // 
             // m_barangTableAdapter
             // 
@@ -551,15 +576,6 @@ namespace PCSUAS
             this.kOTATextBox.Size = new System.Drawing.Size(100, 20);
             this.kOTATextBox.TabIndex = 38;
             // 
-            // nPWPLabel
-            // 
-            nPWPLabel.AutoSize = true;
-            nPWPLabel.Location = new System.Drawing.Point(206, 79);
-            nPWPLabel.Name = "nPWPLabel";
-            nPWPLabel.Size = new System.Drawing.Size(43, 13);
-            nPWPLabel.TabIndex = 38;
-            nPWPLabel.Text = "NPWP:";
-            // 
             // nPWPTextBox
             // 
             this.nPWPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.m_supplierBindingSource, "NPWP", true));
@@ -576,11 +592,45 @@ namespace PCSUAS
             this.nOTETextBox.Size = new System.Drawing.Size(100, 20);
             this.nOTETextBox.TabIndex = 40;
             // 
+            // tbHapusKode
+            // 
+            this.tbHapusKode.Enabled = false;
+            this.tbHapusKode.Location = new System.Drawing.Point(186, 469);
+            this.tbHapusKode.Name = "tbHapusKode";
+            this.tbHapusKode.Size = new System.Drawing.Size(100, 20);
+            this.tbHapusKode.TabIndex = 41;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Enabled = false;
+            this.label2.Location = new System.Drawing.Point(183, 445);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Kode Barang yang ingin dihapus : ";
+            // 
+            // btnBatal
+            // 
+            this.btnBatal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBatal.Enabled = false;
+            this.btnBatal.Location = new System.Drawing.Point(186, 495);
+            this.btnBatal.Name = "btnBatal";
+            this.btnBatal.Size = new System.Drawing.Size(75, 23);
+            this.btnBatal.TabIndex = 43;
+            this.btnBatal.Text = "Batal";
+            this.btnBatal.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnBatal.UseVisualStyleBackColor = true;
+            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
+            // 
             // combobox1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 548);
+            this.Controls.Add(this.btnBatal);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbHapusKode);
             this.Controls.Add(this.nOTETextBox);
             this.Controls.Add(nPWPLabel);
             this.Controls.Add(this.nPWPTextBox);
@@ -623,8 +673,8 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_pembelian_detailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -682,5 +732,8 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox kOTATextBox;
         private System.Windows.Forms.TextBox nPWPTextBox;
         private System.Windows.Forms.TextBox nOTETextBox;
+        private System.Windows.Forms.TextBox tbHapusKode;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBatal;
     }
 }

@@ -93,12 +93,13 @@ namespace PCSUAS
                         $"and th.p_id = '{tbSup.Text}'";
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbPartPrice.Text = commSum.ExecuteScalar().ToString();
+
             int discount = Convert.ToInt32(tbDiscount.Text);
             int service = Convert.ToInt32(tbService.Text);
             int ppn = Convert.ToInt32(tbPPN.Text);
             int partprice = Convert.ToInt32(tbPart);
 
-            tbTotal.Text = "$" + (discount + service + ppn + partprice).ToString() + ",00";
+            tbTotal.Text = "$" + (partprice - discount + service + ppn).ToString() + ",00";
             
             DataSet ds = new DataSet();
             String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +

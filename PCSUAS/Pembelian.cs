@@ -34,9 +34,40 @@ namespace PCSUAS
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
+
+            //SUM
+            String SUM1 = $"SELECT Sum(td.qty*mb.unit_price) " +
+                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"WHERE mb.kode = td.kode " +
+                         $"and th.no_nota = td.no_nota " +
+                        $"and th.p_id = '{Combobox2.Text}' " +
+                         $"and '{nO_NOTATextBox.Text}' = td.no_nota ";
+            SqlCommand commSum1 = new SqlCommand(SUM1, conn);
+            String totalHarga = commSum1.ExecuteScalar().ToString();
+
+            //SUM
+            String SUM = $"SELECT FORMAT(Sum(td.qty*mb.unit_price),'C') " +
+                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"WHERE mb.kode = td.kode " +
+                         $"and th.no_nota = td.no_nota " +
+                        $"and th.p_id = '{Combobox2.Text}' " +
+                         $"and '{nO_NOTATextBox.Text}' = td.no_nota ";
+            SqlCommand commSum = new SqlCommand(SUM, conn);
+            tbTotal.Text = commSum.ExecuteScalar().ToString();
             conn.Close();
 
+            int discount = Convert.ToInt32(tbDiscount.Text);
+            int ppn = Convert.ToInt32(tbPPN.Text);
+            if (totalHarga.Equals(""))
+            {
+                tbTotal.Text = "0";
+            }
+            else
+            {
+                int total = Convert.ToInt32(totalHarga);
 
+                tbGrandTotal.Text = "$" + (total - discount + ppn).ToString() + ",00";
+            }
         }
         private void t_pembelian_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -138,15 +169,19 @@ namespace PCSUAS
                          $"FROM m_barang " +
                          $"WHERE id = '{comboBox3.SelectedValue}'";
             SqlCommand comm4 = new SqlCommand(temp4, conn);
-            String unit = comm3.ExecuteScalar().ToString();
+            String unit = comm4.ExecuteScalar().ToString();
 
             //merk
-            String temp5 = $"SELECT unit " +
+            String temp5 = $"SELECT merk1 " +
                          $"FROM m_barang " +
                          $"WHERE id = '{comboBox3.SelectedValue}'";
             SqlCommand comm5 = new SqlCommand(temp5, conn);
             String merk = comm5.ExecuteScalar().ToString();
 
+            //CEK JUMLAH
+            String DataBrg = $"SELECT COUNT(*) FROM t_pembelian_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+            SqlCommand comm6 = new SqlCommand(DataBrg, conn);
+            String cekBarang = comm6.ExecuteScalar().ToString();
 
             int qty = Convert.ToInt32(numericUpDown1.Value);
             if (qty <= 0)
@@ -156,16 +191,86 @@ namespace PCSUAS
             }
             else
             {
-                String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
-                comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                refresh();
-                MessageBox.Show("Berhasil ditambahkan");
+                if (Convert.ToInt32(cekBarang) > 0)
+                {
+                    String jmlhBarang = $"SELECT qty FROM t_pembelian_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                    SqlCommand comm7 = new SqlCommand(jmlhBarang, conn);
+                    String qtyAwal = comm7.ExecuteScalar().ToString();
+                    int tambahQTY = qty + Convert.ToInt32(qtyAwal);
+                    String query = $"UPDATE t_pembelian_detail SET qty = {tambahQTY} where kode = '{kode}'";
+                    comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Berhasil ditambahkan");
+                    refresh();
+                }
+                else
+                {
+                    String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
+                    comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Berhasil ditambahkan");
+                    refresh();
+                }
+               
             }
 
            
 
+        }
+
+        private void btnHapusItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String kode = tbHapusKode.Text;
+                String query = $"delete from t_pembelian_detail where kode like '{kode}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                refresh();
+                numericUpDown1.Enabled = true;
+                comboBox3.Enabled = true;
+                btnTambahItem.Enabled = true;
+
+                label2.Enabled = false;
+                tbHapusKode.Enabled = false;
+                btnHapusItem.Enabled = false;
+                btnBatal.Enabled = false;
+                tbHapusKode.Text = "";
+            }
+
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            numericUpDown1.Enabled = false;
+            comboBox3.Enabled = false;
+            btnTambahItem.Enabled = false;
+
+            label2.Enabled = true;
+            tbHapusKode.Enabled = true;
+            btnHapusItem.Enabled = true;
+            btnBatal.Enabled = true;
+            tbHapusKode.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Enabled = true;
+            comboBox3.Enabled = true;
+            btnTambahItem.Enabled = true;
+
+            label2.Enabled = false;
+            tbHapusKode.Enabled = false;
+            btnHapusItem.Enabled = false;
+            btnBatal.Enabled = false;
+            tbHapusKode.Text = "";
         }
     }
 }

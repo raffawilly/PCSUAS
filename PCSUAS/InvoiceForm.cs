@@ -93,19 +93,19 @@ namespace PCSUAS
                         $"and th.p_id = '{tbSup.Text}'";
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbPartPrice.Text = commSum.ExecuteScalar().ToString();
-            int discount = Convert.ToInt32( tbDiscount.Text);
+            int discount = Convert.ToInt32(tbDiscount.Text);
             int service = Convert.ToInt32(tbService.Text);
             int ppn = Convert.ToInt32(tbPPN.Text);
             int partprice = Convert.ToInt32(tbPart);
 
-            tbTotal.Text = (discount + service + ppn + partprice).ToString("C");
+            tbTotal.Text = "$" + (discount + service + ppn + partprice).ToString() + ",00";
             
             DataSet ds = new DataSet();
             String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
-                           $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
-                           $"where mb.kode = td.kode "+
-                           $"and th.no_nota = td.no_nota "+
-                           $"and th.p_id = '{tbSup.Text}'";
+                           $"FROM m_barang mb,t_invoice_detail td,t_invoice_header th " +
+                           $"where mb.kode = td.kode " +
+                           $"and th.no_inv = td.no_inv " +
+                           $"and th.no_inv = '{nO_INVTextBox.Text}' ";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);
@@ -128,6 +128,7 @@ namespace PCSUAS
             this.m_supplierTableAdapter.Fill(this.dbProjectUasDataSet.m_supplier);
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_invoice_header' table. You can move, or remove it, as needed.
             this.t_invoice_headerTableAdapter.Fill(this.dbProjectUasDataSet.t_invoice_header);
+            refreshSupplier();
 
         }
 

@@ -16,7 +16,7 @@ namespace PCSUAS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new combobox1());
+            Application.Run(new Home());
         }
     }
 }

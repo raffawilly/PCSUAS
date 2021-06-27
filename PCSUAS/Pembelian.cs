@@ -171,6 +171,13 @@ namespace PCSUAS
             SqlCommand comm4 = new SqlCommand(temp4, conn);
             String unit = comm4.ExecuteScalar().ToString();
 
+            //unit_price
+            String temp7 = $"SELECT unit_price " +
+                         $"FROM m_barang " +
+                         $"WHERE id = '{comboBox3.SelectedValue}'";
+            SqlCommand comm8 = new SqlCommand(temp7, conn);
+            String unit_price = comm8.ExecuteScalar().ToString();
+
             //merk
             String temp5 = $"SELECT merk1 " +
                          $"FROM m_barang " +
@@ -206,7 +213,7 @@ namespace PCSUAS
                 }
                 else
                 {
-                    String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
+                    String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty,unit_price) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}',{unit_price})";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
@@ -271,6 +278,12 @@ namespace PCSUAS
             btnHapusItem.Enabled = false;
             btnBatal.Enabled = false;
             tbHapusKode.Text = "";
+        }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerPembelian rp = new ReportViewerPembelian();
+            rp.Show();
         }
     }
 }

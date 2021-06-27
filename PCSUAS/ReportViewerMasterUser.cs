@@ -22,5 +22,10 @@ namespace PCSUAS
             CrystalReportMasterUser report = new CrystalReportMasterUser();
             crystalReportViewer1.ReportSource = report;
         }
+
+        private void ReportViewerMasterUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

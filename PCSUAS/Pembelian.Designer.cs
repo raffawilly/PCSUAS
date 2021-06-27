@@ -88,6 +88,7 @@ namespace PCSUAS
             this.tbHapusKode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnBatal = new System.Windows.Forms.Button();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             nO_PNWLabel = new System.Windows.Forms.Label();
             nO_NOTALabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
@@ -104,6 +105,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_PNWLabel
@@ -623,11 +625,22 @@ namespace PCSUAS
             this.btnBatal.UseVisualStyleBackColor = true;
             this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(695, 28);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 44;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // combobox1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 548);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.btnBatal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbHapusKode);
@@ -676,6 +689,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -735,5 +749,6 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox tbHapusKode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBatal;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

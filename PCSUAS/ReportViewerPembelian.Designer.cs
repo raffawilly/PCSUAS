@@ -1,7 +1,7 @@
 ﻿
 namespace PCSUAS
 {
-    partial class ReportViewerMasterUser
+    partial class ReportViewerPembelian
     {
         /// <summary>
         /// Required designer variable.
@@ -42,17 +42,16 @@ namespace PCSUAS
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
-            // ReportViewerMasterUser
+            // ReportViewerPembelian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "ReportViewerMasterUser";
-            this.Text = "ReportViewerMasterUser";
-            this.Load += new System.EventHandler(this.ReportViewerMasterUser_Load);
+            this.Name = "ReportViewerPembelian";
+            this.Text = "ReportViewerPembelian";
+            this.Load += new System.EventHandler(this.ReportViewerPembelian_Load);
             this.ResumeLayout(false);
 
         }

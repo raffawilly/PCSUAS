@@ -11,25 +11,25 @@ using System.Windows.Forms;
 
 namespace PCSUAS
 {
-    public partial class combobox1 : Form
+    public partial class Penawaran : Form
     {
         SqlConnection conn;
-        public combobox1()
+        public Penawaran()
         {
             InitializeComponent();
             conn = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=dbProjectUas;Integrated Security=True");
         }
+
         public void refresh()
         {
             conn.Open();
 
             DataSet ds = new DataSet();
-            String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.unit AS UNIT ,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
-                           $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+            String query = $"SELECT mb.kode as KODE,mb.part_no AS 'PART NO',mb.description AS DESCRIPTION,mb.merk1 AS MERK,td.qty AS QUANTITY ,FORMAT(mb.unit_price,'C') AS PRICE,FORMAT((td.qty*mb.unit_price),'C') as Amount " +
+                           $"FROM m_barang mb,t_penawaran_detail td,t_penawaran_header th " +
                            $"where th.no_pnw = td.no_pnw " +
                            $"and mb.kode = td.kode " +
-                           $"and th.no_nota = td.no_nota " +
-                           $"and th.no_nota = '{nO_NOTATextBox.Text}' ";
+                           $"and th.no_pnw = '{nO_PNWTextBox.Text}' ";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);
@@ -37,21 +37,21 @@ namespace PCSUAS
 
             //SUM
             String SUM1 = $"SELECT Sum(td.qty*mb.unit_price) " +
-                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"FROM m_barang mb,t_penawaran_detail td,t_penawaran_header th " +
                         $"WHERE mb.kode = td.kode " +
-                         $"and th.no_nota = td.no_nota " +
-                        $"and th.p_id = '{Combobox2.Text}' " +
-                         $"and '{nO_NOTATextBox.Text}' = td.no_nota ";
+                         $"and th.no_pnw = td.no_pnw " +
+                        $"and th.p_id = '{p_IDComboBox.Text}' " +
+                         $"and '{nO_PNWTextBox.Text}' = td.no_pnw ";
             SqlCommand commSum1 = new SqlCommand(SUM1, conn);
             String totalHarga = commSum1.ExecuteScalar().ToString();
 
             //SUM
             String SUM = $"SELECT FORMAT(Sum(td.qty*mb.unit_price),'C') " +
-                        $"FROM m_barang mb,t_pembelian_detail td,t_pembelian_header th " +
+                        $"FROM m_barang mb,t_penawaran_detail td,t_penawaran_header th " +
                         $"WHERE mb.kode = td.kode " +
-                         $"and th.no_nota = td.no_nota " +
-                        $"and th.p_id = '{Combobox2.Text}' " +
-                         $"and '{nO_NOTATextBox.Text}' = td.no_nota ";
+                         $"and th.no_pnw = td.no_pnw " +
+                        $"and th.p_id = '{p_IDComboBox.Text}' " +
+                         $"and '{nO_PNWTextBox.Text}' = td.no_pnw ";
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbTotal.Text = commSum.ExecuteScalar().ToString();
             conn.Close();
@@ -69,29 +69,33 @@ namespace PCSUAS
                 tbGrandTotal.Text = "$" + (total - discount + ppn).ToString() + ",00";
             }
         }
-        private void t_pembelian_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+
+        private void t_penawaran_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.t_pembelian_headerBindingSource.EndEdit();
+            this.t_penawaran_headerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
 
         }
 
-        private void Pembelian_Load(object sender, EventArgs e)
+        private void Penawaran_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_barang' table. You can move, or remove it, as needed.
             this.m_barangTableAdapter.Fill(this.dbProjectUasDataSet.m_barang);
-            // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_pembelian_detail' table. You can move, or remove it, as needed.
-            this.t_pembelian_detailTableAdapter.Fill(this.dbProjectUasDataSet.t_pembelian_detail);
+            // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_pelanggan' table. You can move, or remove it, as needed.
+            this.m_pelangganTableAdapter.Fill(this.dbProjectUasDataSet.m_pelanggan);
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_supplier' table. You can move, or remove it, as needed.
             this.m_supplierTableAdapter.Fill(this.dbProjectUasDataSet.m_supplier);
-            // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_pembelian_header' table. You can move, or remove it, as needed.
-            this.t_pembelian_headerTableAdapter.Fill(this.dbProjectUasDataSet.t_pembelian_header);
-            refresh();
+            // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_penawaran_header' table. You can move, or remove it, as needed.
+            this.t_penawaran_headerTableAdapter.Fill(this.dbProjectUasDataSet.t_penawaran_header);
 
+            refresh();
         }
 
-      
+        private void bATALCheckBox_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
         {
@@ -99,42 +103,6 @@ namespace PCSUAS
         }
 
         private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
-        {
-            refresh();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Combobox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Combobox2_DropDownClosed(object sender, EventArgs e)
-        {
-        }
-
-        private void Combobox2_ValueMemberChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void Combobox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void bindingNavigatorMoveLastItem_Click(object sender, EventArgs e)
-        {
-            refresh();
-        }
-
-        private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             refresh();
         }
@@ -148,7 +116,7 @@ namespace PCSUAS
                          $"FROM m_barang " +
                          $"WHERE id = '{comboBox3.SelectedValue}'";
             SqlCommand comm = new SqlCommand(temp, conn);
-           String kode = comm.ExecuteScalar().ToString();
+            String kode = comm.ExecuteScalar().ToString();
 
             //part_no
             String temp2 = $"SELECT part_no " +
@@ -165,7 +133,7 @@ namespace PCSUAS
             String description = comm3.ExecuteScalar().ToString();
 
             //unit
-            String temp4 = $"SELECT unit " +
+            String temp4 = $"SELECT unit_price " +
                          $"FROM m_barang " +
                          $"WHERE id = '{comboBox3.SelectedValue}'";
             SqlCommand comm4 = new SqlCommand(temp4, conn);
@@ -179,7 +147,7 @@ namespace PCSUAS
             String merk = comm5.ExecuteScalar().ToString();
 
             //CEK JUMLAH
-            String DataBrg = $"SELECT COUNT(*) FROM t_pembelian_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+            String DataBrg = $"SELECT COUNT(*) FROM t_penawaran_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
             SqlCommand comm6 = new SqlCommand(DataBrg, conn);
             String cekBarang = comm6.ExecuteScalar().ToString();
 
@@ -193,11 +161,11 @@ namespace PCSUAS
             {
                 if (Convert.ToInt32(cekBarang) > 0)
                 {
-                    String jmlhBarang = $"SELECT qty FROM t_pembelian_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                    String jmlhBarang = $"SELECT qty FROM t_penawaran_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
                     SqlCommand comm7 = new SqlCommand(jmlhBarang, conn);
                     String qtyAwal = comm7.ExecuteScalar().ToString();
                     int tambahQTY = qty + Convert.ToInt32(qtyAwal);
-                    String query = $"UPDATE t_pembelian_detail SET qty = {tambahQTY} where kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                    String query = $"UPDATE t_penawaran_detail SET qty = {tambahQTY} where kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
@@ -206,45 +174,15 @@ namespace PCSUAS
                 }
                 else
                 {
-                    String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}')";
+                    String query = $"Insert into t_penawaran_detail(no_pnw,kode,part_no,descriptio,unit_price,qty) values('{nO_PNWTextBox.Text}','{kode}','{part_no}','{description}','{unit}','{qty}')";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                     conn.Close();
                     MessageBox.Show("Berhasil ditambahkan");
                     refresh();
                 }
-               
+
             }
-
-           
-
-        }
-
-        private void btnHapusItem_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-
-            if (dr == DialogResult.Yes)
-            {
-                conn.Open();
-                String kode = tbHapusKode.Text;
-                String query = $"delete from t_pembelian_detail where kode like '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
-                SqlCommand comm = new SqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                MessageBox.Show("Berhasil Menghapus");
-                conn.Close();
-                refresh();
-                numericUpDown1.Enabled = true;
-                comboBox3.Enabled = true;
-                btnTambahItem.Enabled = true;
-
-                label2.Enabled = false;
-                tbHapusKode.Enabled = false;
-                btnHapusItem.Enabled = false;
-                btnBatal.Enabled = false;
-                tbHapusKode.Text = "";
-            }
-
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -271,6 +209,32 @@ namespace PCSUAS
             btnHapusItem.Enabled = false;
             btnBatal.Enabled = false;
             tbHapusKode.Text = "";
+        }
+
+        private void btnHapusItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Apakah anda yakin ingin menghapus data ini?", "Warning!!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+
+            if (dr == DialogResult.Yes)
+            {
+                conn.Open();
+                String kode = tbHapusKode.Text;
+                String query = $"delete from t_penawaran_detail where kode like '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                SqlCommand comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("Berhasil Menghapus");
+                conn.Close();
+                refresh();
+                numericUpDown1.Enabled = true;
+                comboBox3.Enabled = true;
+                btnTambahItem.Enabled = true;
+
+                label2.Enabled = false;
+                tbHapusKode.Enabled = false;
+                btnHapusItem.Enabled = false;
+                btnBatal.Enabled = false;
+                tbHapusKode.Text = "";
+            }
         }
     }
 }

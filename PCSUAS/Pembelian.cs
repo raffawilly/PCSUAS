@@ -55,7 +55,7 @@ namespace PCSUAS
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbTotal.Text = commSum.ExecuteScalar().ToString();
             conn.Close();
-
+            tbGrandTotal.Text = "0";
             int discount = Convert.ToInt32(tbDiscount.Text);
             int ppn = Convert.ToInt32(tbPPN.Text);
             if (totalHarga.Equals(""))

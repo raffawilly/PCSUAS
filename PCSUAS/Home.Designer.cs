@@ -196,6 +196,7 @@ namespace PCSUAS
             // 
             // pictureBox11
             // 
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.Location = new System.Drawing.Point(118, 330);
             this.pictureBox11.Name = "pictureBox11";
@@ -206,6 +207,7 @@ namespace PCSUAS
             // 
             // pictureBox12
             // 
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.Location = new System.Drawing.Point(482, 330);
             this.pictureBox12.Name = "pictureBox12";

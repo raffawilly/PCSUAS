@@ -224,6 +224,7 @@ namespace PCSUAS
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -240,6 +241,7 @@ namespace PCSUAS
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -498,6 +500,7 @@ namespace PCSUAS
             this.tbPartPrice.Name = "tbPartPrice";
             this.tbPartPrice.Size = new System.Drawing.Size(124, 20);
             this.tbPartPrice.TabIndex = 28;
+            this.tbPartPrice.Text = "0";
             this.tbPartPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbDiscount

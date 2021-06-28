@@ -30,7 +30,6 @@ namespace PCSUAS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Penawaran));
             System.Windows.Forms.Label nO_PNWLabel;
             System.Windows.Forms.Label p_IDLabel;
             System.Windows.Forms.Label mODELLabel;
@@ -39,33 +38,35 @@ namespace PCSUAS
             System.Windows.Forms.Label tGL_PNWLabel;
             System.Windows.Forms.Label tGL_TERIMALabel;
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Penawaran));
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.t_penawaran_headerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.t_penawaran_headerTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.t_penawaran_headerTableAdapter();
             this.tableAdapterManager = new PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager();
+            this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
+            this.m_pelangganTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_pelangganTableAdapter();
+            this.m_supplierTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_supplierTableAdapter();
             this.t_penawaran_headerBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.t_penawaran_headerBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.nO_PNWTextBox = new System.Windows.Forms.TextBox();
             this.p_IDComboBox = new System.Windows.Forms.ComboBox();
             this.msupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_supplierTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_supplierTableAdapter();
             this.mODELTextBox = new System.Windows.Forms.TextBox();
             this.eNGINETextBox = new System.Windows.Forms.TextBox();
             this.sERIAL_NOTextBox = new System.Windows.Forms.TextBox();
             this.bATALCheckBox = new System.Windows.Forms.CheckBox();
             this.mpelangganBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_pelangganTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_pelangganTableAdapter();
             this.nAMATextBox = new System.Windows.Forms.TextBox();
             this.aLAMATTextBox = new System.Windows.Forms.TextBox();
             this.kOTATextBox = new System.Windows.Forms.TextBox();
@@ -85,13 +86,12 @@ namespace PCSUAS
             this.tbHapusKode = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.mbarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnHapusItem = new System.Windows.Forms.Button();
             this.btnTambahItem = new System.Windows.Forms.Button();
             this.tGL_PNWDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tGL_TERIMADateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TglBatalDTP = new System.Windows.Forms.DateTimePicker();
-            this.mbarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
             nO_PNWLabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
             mODELLabel = new System.Windows.Forms.Label();
@@ -110,6 +110,78 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nO_PNWLabel
+            // 
+            nO_PNWLabel.AutoSize = true;
+            nO_PNWLabel.Location = new System.Drawing.Point(9, 46);
+            nO_PNWLabel.Name = "nO_PNWLabel";
+            nO_PNWLabel.Size = new System.Drawing.Size(55, 13);
+            nO_PNWLabel.TabIndex = 1;
+            nO_PNWLabel.Text = "NO PNW:";
+            // 
+            // p_IDLabel
+            // 
+            p_IDLabel.AutoSize = true;
+            p_IDLabel.Location = new System.Drawing.Point(9, 129);
+            p_IDLabel.Name = "p_IDLabel";
+            p_IDLabel.Size = new System.Drawing.Size(77, 13);
+            p_IDLabel.TabIndex = 3;
+            p_IDLabel.Text = "CUSTOMER : ";
+            // 
+            // mODELLabel
+            // 
+            mODELLabel.AutoSize = true;
+            mODELLabel.Location = new System.Drawing.Point(16, 83);
+            mODELLabel.Name = "mODELLabel";
+            mODELLabel.Size = new System.Drawing.Size(48, 13);
+            mODELLabel.TabIndex = 9;
+            mODELLabel.Text = "MODEL:";
+            // 
+            // eNGINELabel
+            // 
+            eNGINELabel.AutoSize = true;
+            eNGINELabel.Location = new System.Drawing.Point(204, 50);
+            eNGINELabel.Name = "eNGINELabel";
+            eNGINELabel.Size = new System.Drawing.Size(51, 13);
+            eNGINELabel.TabIndex = 11;
+            eNGINELabel.Text = "ENGINE:";
+            // 
+            // sERIAL_NOLabel
+            // 
+            sERIAL_NOLabel.AutoSize = true;
+            sERIAL_NOLabel.Location = new System.Drawing.Point(188, 83);
+            sERIAL_NOLabel.Name = "sERIAL_NOLabel";
+            sERIAL_NOLabel.Size = new System.Drawing.Size(67, 13);
+            sERIAL_NOLabel.TabIndex = 13;
+            sERIAL_NOLabel.Text = "SERIAL NO:";
+            // 
+            // tGL_PNWLabel
+            // 
+            tGL_PNWLabel.AutoSize = true;
+            tGL_PNWLabel.Location = new System.Drawing.Point(563, 50);
+            tGL_PNWLabel.Name = "tGL_PNWLabel";
+            tGL_PNWLabel.Size = new System.Drawing.Size(60, 13);
+            tGL_PNWLabel.TabIndex = 50;
+            tGL_PNWLabel.Text = "TGL PNW:";
+            // 
+            // tGL_TERIMALabel
+            // 
+            tGL_TERIMALabel.AutoSize = true;
+            tGL_TERIMALabel.Location = new System.Drawing.Point(548, 80);
+            tGL_TERIMALabel.Name = "tGL_TERIMALabel";
+            tGL_TERIMALabel.Size = new System.Drawing.Size(75, 13);
+            tGL_TERIMALabel.TabIndex = 51;
+            tGL_TERIMALabel.Text = "TGL TERIMA:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(555, 107);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(68, 13);
+            label1.TabIndex = 53;
+            label1.Text = "TGL BATAL:";
             // 
             // dbProjectUasDataSet
             // 
@@ -152,6 +224,18 @@ namespace PCSUAS
             this.tableAdapterManager.t_penawaran_headerTableAdapter = this.t_penawaran_headerTableAdapter;
             this.tableAdapterManager.UpdateOrder = PCSUAS.dbProjectUasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // m_barangTableAdapter
+            // 
+            this.m_barangTableAdapter.ClearBeforeFill = true;
+            // 
+            // m_pelangganTableAdapter
+            // 
+            this.m_pelangganTableAdapter.ClearBeforeFill = true;
+            // 
+            // m_supplierTableAdapter
+            // 
+            this.m_supplierTableAdapter.ClearBeforeFill = true;
+            // 
             // t_penawaran_headerBindingNavigator
             // 
             this.t_penawaran_headerBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -181,6 +265,33 @@ namespace PCSUAS
             this.t_penawaran_headerBindingNavigator.Size = new System.Drawing.Size(969, 25);
             this.t_penawaran_headerBindingNavigator.TabIndex = 0;
             this.t_penawaran_headerBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -216,16 +327,9 @@ namespace PCSUAS
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -249,26 +353,8 @@ namespace PCSUAS
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // t_penawaran_headerBindingNavigatorSaveItem
             // 
@@ -279,15 +365,6 @@ namespace PCSUAS
             this.t_penawaran_headerBindingNavigatorSaveItem.Text = "Save Data";
             this.t_penawaran_headerBindingNavigatorSaveItem.Click += new System.EventHandler(this.t_penawaran_headerBindingNavigatorSaveItem_Click);
             // 
-            // nO_PNWLabel
-            // 
-            nO_PNWLabel.AutoSize = true;
-            nO_PNWLabel.Location = new System.Drawing.Point(9, 46);
-            nO_PNWLabel.Name = "nO_PNWLabel";
-            nO_PNWLabel.Size = new System.Drawing.Size(55, 13);
-            nO_PNWLabel.TabIndex = 1;
-            nO_PNWLabel.Text = "NO PNW:";
-            // 
             // nO_PNWTextBox
             // 
             this.nO_PNWTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_penawaran_headerBindingSource, "NO_PNW", true));
@@ -295,15 +372,6 @@ namespace PCSUAS
             this.nO_PNWTextBox.Name = "nO_PNWTextBox";
             this.nO_PNWTextBox.Size = new System.Drawing.Size(100, 20);
             this.nO_PNWTextBox.TabIndex = 2;
-            // 
-            // p_IDLabel
-            // 
-            p_IDLabel.AutoSize = true;
-            p_IDLabel.Location = new System.Drawing.Point(9, 129);
-            p_IDLabel.Name = "p_IDLabel";
-            p_IDLabel.Size = new System.Drawing.Size(77, 13);
-            p_IDLabel.TabIndex = 3;
-            p_IDLabel.Text = "CUSTOMER : ";
             // 
             // p_IDComboBox
             // 
@@ -322,19 +390,6 @@ namespace PCSUAS
             this.msupplierBindingSource.DataMember = "m_supplier";
             this.msupplierBindingSource.DataSource = this.dbProjectUasDataSet;
             // 
-            // m_supplierTableAdapter
-            // 
-            this.m_supplierTableAdapter.ClearBeforeFill = true;
-            // 
-            // mODELLabel
-            // 
-            mODELLabel.AutoSize = true;
-            mODELLabel.Location = new System.Drawing.Point(16, 83);
-            mODELLabel.Name = "mODELLabel";
-            mODELLabel.Size = new System.Drawing.Size(48, 13);
-            mODELLabel.TabIndex = 9;
-            mODELLabel.Text = "MODEL:";
-            // 
             // mODELTextBox
             // 
             this.mODELTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_penawaran_headerBindingSource, "MODEL", true));
@@ -343,15 +398,6 @@ namespace PCSUAS
             this.mODELTextBox.Size = new System.Drawing.Size(100, 20);
             this.mODELTextBox.TabIndex = 10;
             // 
-            // eNGINELabel
-            // 
-            eNGINELabel.AutoSize = true;
-            eNGINELabel.Location = new System.Drawing.Point(204, 50);
-            eNGINELabel.Name = "eNGINELabel";
-            eNGINELabel.Size = new System.Drawing.Size(51, 13);
-            eNGINELabel.TabIndex = 11;
-            eNGINELabel.Text = "ENGINE:";
-            // 
             // eNGINETextBox
             // 
             this.eNGINETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_penawaran_headerBindingSource, "ENGINE", true));
@@ -359,15 +405,6 @@ namespace PCSUAS
             this.eNGINETextBox.Name = "eNGINETextBox";
             this.eNGINETextBox.Size = new System.Drawing.Size(100, 20);
             this.eNGINETextBox.TabIndex = 12;
-            // 
-            // sERIAL_NOLabel
-            // 
-            sERIAL_NOLabel.AutoSize = true;
-            sERIAL_NOLabel.Location = new System.Drawing.Point(188, 83);
-            sERIAL_NOLabel.Name = "sERIAL_NOLabel";
-            sERIAL_NOLabel.Size = new System.Drawing.Size(67, 13);
-            sERIAL_NOLabel.TabIndex = 13;
-            sERIAL_NOLabel.Text = "SERIAL NO:";
             // 
             // sERIAL_NOTextBox
             // 
@@ -392,10 +429,6 @@ namespace PCSUAS
             // 
             this.mpelangganBindingSource.DataMember = "m_pelanggan";
             this.mpelangganBindingSource.DataSource = this.dbProjectUasDataSet;
-            // 
-            // m_pelangganTableAdapter
-            // 
-            this.m_pelangganTableAdapter.ClearBeforeFill = true;
             // 
             // nAMATextBox
             // 
@@ -575,6 +608,11 @@ namespace PCSUAS
             this.comboBox3.TabIndex = 46;
             this.comboBox3.ValueMember = "ID";
             // 
+            // mbarangBindingSource
+            // 
+            this.mbarangBindingSource.DataMember = "m_barang";
+            this.mbarangBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
             // btnHapusItem
             // 
             this.btnHapusItem.BackColor = System.Drawing.Color.Red;
@@ -601,15 +639,6 @@ namespace PCSUAS
             this.btnTambahItem.UseVisualStyleBackColor = true;
             this.btnTambahItem.Click += new System.EventHandler(this.btnTambahItem_Click);
             // 
-            // tGL_PNWLabel
-            // 
-            tGL_PNWLabel.AutoSize = true;
-            tGL_PNWLabel.Location = new System.Drawing.Point(563, 50);
-            tGL_PNWLabel.Name = "tGL_PNWLabel";
-            tGL_PNWLabel.Size = new System.Drawing.Size(60, 13);
-            tGL_PNWLabel.TabIndex = 50;
-            tGL_PNWLabel.Text = "TGL PNW:";
-            // 
             // tGL_PNWDateTimePicker
             // 
             this.tGL_PNWDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.t_penawaran_headerBindingSource, "TGL_PNW", true));
@@ -617,15 +646,6 @@ namespace PCSUAS
             this.tGL_PNWDateTimePicker.Name = "tGL_PNWDateTimePicker";
             this.tGL_PNWDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.tGL_PNWDateTimePicker.TabIndex = 51;
-            // 
-            // tGL_TERIMALabel
-            // 
-            tGL_TERIMALabel.AutoSize = true;
-            tGL_TERIMALabel.Location = new System.Drawing.Point(548, 80);
-            tGL_TERIMALabel.Name = "tGL_TERIMALabel";
-            tGL_TERIMALabel.Size = new System.Drawing.Size(75, 13);
-            tGL_TERIMALabel.TabIndex = 51;
-            tGL_TERIMALabel.Text = "TGL TERIMA:";
             // 
             // tGL_TERIMADateTimePicker
             // 
@@ -635,15 +655,6 @@ namespace PCSUAS
             this.tGL_TERIMADateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.tGL_TERIMADateTimePicker.TabIndex = 52;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(555, 107);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(68, 13);
-            label1.TabIndex = 53;
-            label1.Text = "TGL BATAL:";
-            // 
             // TglBatalDTP
             // 
             this.TglBatalDTP.Enabled = false;
@@ -652,15 +663,6 @@ namespace PCSUAS
             this.TglBatalDTP.Size = new System.Drawing.Size(200, 20);
             this.TglBatalDTP.TabIndex = 54;
             this.TglBatalDTP.Value = new System.DateTime(1945, 8, 17, 0, 0, 0, 0);
-            // 
-            // mbarangBindingSource
-            // 
-            this.mbarangBindingSource.DataMember = "m_barang";
-            this.mbarangBindingSource.DataSource = this.dbProjectUasDataSet;
-            // 
-            // m_barangTableAdapter
-            // 
-            this.m_barangTableAdapter.ClearBeforeFill = true;
             // 
             // Penawaran
             // 

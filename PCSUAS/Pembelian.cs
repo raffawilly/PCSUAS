@@ -71,10 +71,17 @@ namespace PCSUAS
         }
         private void t_pembelian_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.t_pembelian_headerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
-
+            try
+            {
+                this.Validate();
+                this.t_pembelian_headerBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
         }
 
         private void Pembelian_Load(object sender, EventArgs e)
@@ -114,7 +121,8 @@ namespace PCSUAS
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-
+            this.dataGridView1.DataSource = null;
+            this.dataGridView1.Rows.Clear();
         }
 
         private void Combobox2_DropDownClosed(object sender, EventArgs e)
@@ -284,6 +292,20 @@ namespace PCSUAS
         {
             ReportViewerPembelian rp = new ReportViewerPembelian();
             rp.Show();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String query = $"delete from t_pembelian_detail where no_pnw = '{nO_PNWTextBox.Text}'";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            MessageBox.Show("Berhasil Menghapus");
+            conn.Close();
+
+            this.Validate();
+            this.t_pembelian_headerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
         }
     }
 }

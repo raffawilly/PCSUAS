@@ -182,9 +182,9 @@ namespace PCSUAS
             bANKLabel.AutoSize = true;
             bANKLabel.Location = new System.Drawing.Point(572, 150);
             bANKLabel.Name = "bANKLabel";
-            bANKLabel.Size = new System.Drawing.Size(83, 12);
+            bANKLabel.Size = new System.Drawing.Size(73, 12);
             bANKLabel.TabIndex = 19;
-            bANKLabel.Text = "NO REK BANK";
+            bANKLabel.Text = "NAMA BANK";
             // 
             // nOTELabel
             // 

@@ -72,9 +72,18 @@ namespace PCSUAS
 
         private void t_penawaran_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.t_penawaran_headerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            try
+            {
+                this.Validate();
+                this.t_penawaran_headerBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
+            
 
         }
 
@@ -235,6 +244,27 @@ namespace PCSUAS
                 btnBatal.Enabled = false;
                 tbHapusKode.Text = "";
             }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = null;
+            this.dataGridView1.Rows.Clear();
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String query = $"delete from t_penawaran_detail where no_pnw = '{nO_PNWTextBox.Text}'";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            MessageBox.Show("Berhasil Menghapus");
+            conn.Close();
+
+            this.Validate();
+            this.t_penawaran_headerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
         }
     }
 }

@@ -117,9 +117,17 @@ namespace PCSUAS
         }
         private void t_invoice_headerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.t_invoice_headerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            try
+            {
+                this.Validate();
+                this.t_invoice_headerBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
 
         }
 
@@ -155,6 +163,26 @@ namespace PCSUAS
         private void bindingNavigatorMoveFirstItem_Click(object sender, EventArgs e)
         {
             refreshSupplier();
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            this.dgvBarang.DataSource = null;
+            this.dgvBarang.Rows.Clear();
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String query = $"delete from t_invoice_detail where no_inv = '{nO_PNWTextBox.Text}'";
+            SqlCommand comm = new SqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            MessageBox.Show("Berhasil Menghapus");
+            conn.Close();
+
+            this.Validate();
+            this.t_invoice_headerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
         }
     }
 }

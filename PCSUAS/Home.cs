@@ -89,5 +89,17 @@ namespace PCSUAS
             InvoiceForm inv = new InvoiceForm();
             inv.Show();
         }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            combobox1 beli = new combobox1();
+            beli.Show();
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            Penawaran penawaran = new Penawaran();
+            penawaran.Show();
+        }
     }
 }

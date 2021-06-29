@@ -268,7 +268,11 @@ namespace PCSUAS
             numericUpDown1.Enabled = false;
             comboBox3.Enabled = false;
             btnTambahItem.Enabled = false;
+            tbHargaJual.Enabled = false;
 
+            updateQty.Enabled = true;
+            tbEditHargaJual.Enabled = true;
+            tbDescEdit.Enabled = true;
             label2.Enabled = true;
             tbHapusKode.Enabled = true;
             btnHapusItem.Enabled = true;
@@ -296,6 +300,10 @@ namespace PCSUAS
             comboBox3.Enabled = true;
             btnTambahItem.Enabled = true;
 
+            btnUpdate.Enabled = false;
+            updateQty.Enabled = false;
+            tbEditHargaJual.Enabled = false;
+            tbDescEdit.Enabled = false;
             label2.Enabled = false;
             tbHapusKode.Enabled = false;
             btnHapusItem.Enabled = false;

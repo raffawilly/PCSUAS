@@ -149,6 +149,17 @@ namespace PCSUAS
 
         private void btnTambahItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                this.Validate();
+                this.t_pembelian_headerBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                this.Close();
+            }
             conn.Open();
 
             //kode

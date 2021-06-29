@@ -92,6 +92,18 @@ namespace PCSUAS
             this.tGL_PNWDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tGL_TERIMADateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TglBatalDTP = new System.Windows.Forms.DateTimePicker();
+            this.tbHargaBeli = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbHargaJual = new System.Windows.Forms.TextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.updateQty = new System.Windows.Forms.NumericUpDown();
+            this.tbEditHargaJual = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.tbDescEdit = new System.Windows.Forms.TextBox();
             nO_PNWLabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
             mODELLabel = new System.Windows.Forms.Label();
@@ -109,6 +121,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateQty)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_PNWLabel
@@ -563,9 +576,9 @@ namespace PCSUAS
             // 
             this.btnBatal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBatal.Enabled = false;
-            this.btnBatal.Location = new System.Drawing.Point(189, 518);
+            this.btnBatal.Location = new System.Drawing.Point(247, 617);
             this.btnBatal.Name = "btnBatal";
-            this.btnBatal.Size = new System.Drawing.Size(75, 23);
+            this.btnBatal.Size = new System.Drawing.Size(153, 23);
             this.btnBatal.TabIndex = 50;
             this.btnBatal.Text = "Batal";
             this.btnBatal.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
@@ -576,23 +589,24 @@ namespace PCSUAS
             // 
             this.label5.AutoSize = true;
             this.label5.Enabled = false;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(186, 468);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(169, 13);
+            this.label5.Size = new System.Drawing.Size(147, 13);
             this.label5.TabIndex = 49;
-            this.label5.Text = "Kode Barang yang ingin dihapus : ";
+            this.label5.Text = "EDIT / HAPUS BARANG";
             // 
             // tbHapusKode
             // 
             this.tbHapusKode.Enabled = false;
-            this.tbHapusKode.Location = new System.Drawing.Point(189, 492);
+            this.tbHapusKode.Location = new System.Drawing.Point(255, 492);
             this.tbHapusKode.Name = "tbHapusKode";
-            this.tbHapusKode.Size = new System.Drawing.Size(100, 20);
+            this.tbHapusKode.Size = new System.Drawing.Size(49, 20);
             this.tbHapusKode.TabIndex = 48;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 492);
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 582);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 47;
@@ -607,6 +621,8 @@ namespace PCSUAS
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 46;
             this.comboBox3.ValueMember = "ID";
+            this.comboBox3.SelectedValueChanged += new System.EventHandler(this.comboBox3_SelectedValueChanged);
+            this.comboBox3.TextChanged += new System.EventHandler(this.comboBox3_TextChanged);
             // 
             // mbarangBindingSource
             // 
@@ -620,18 +636,18 @@ namespace PCSUAS
             this.btnHapusItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHapusItem.Enabled = false;
             this.btnHapusItem.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHapusItem.Location = new System.Drawing.Point(283, 518);
+            this.btnHapusItem.Location = new System.Drawing.Point(328, 589);
             this.btnHapusItem.Name = "btnHapusItem";
             this.btnHapusItem.Size = new System.Drawing.Size(72, 23);
             this.btnHapusItem.TabIndex = 45;
-            this.btnHapusItem.Text = "Hapus Item";
+            this.btnHapusItem.Text = "Delete Item";
             this.btnHapusItem.UseVisualStyleBackColor = false;
             this.btnHapusItem.Click += new System.EventHandler(this.btnHapusItem_Click);
             // 
             // btnTambahItem
             // 
             this.btnTambahItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTambahItem.Location = new System.Drawing.Point(12, 518);
+            this.btnTambahItem.Location = new System.Drawing.Point(12, 608);
             this.btnTambahItem.Name = "btnTambahItem";
             this.btnTambahItem.Size = new System.Drawing.Size(78, 23);
             this.btnTambahItem.TabIndex = 44;
@@ -664,11 +680,119 @@ namespace PCSUAS
             this.TglBatalDTP.TabIndex = 54;
             this.TglBatalDTP.Value = new System.DateTime(1945, 8, 17, 0, 0, 0, 0);
             // 
+            // tbHargaBeli
+            // 
+            this.tbHargaBeli.Enabled = false;
+            this.tbHargaBeli.Location = new System.Drawing.Point(12, 511);
+            this.tbHargaBeli.Name = "tbHargaBeli";
+            this.tbHargaBeli.Size = new System.Drawing.Size(100, 20);
+            this.tbHargaBeli.TabIndex = 55;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 495);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Harga Beli:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 541);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 13);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Harga Jual:";
+            // 
+            // tbHargaJual
+            // 
+            this.tbHargaJual.Location = new System.Drawing.Point(12, 559);
+            this.tbHargaJual.Name = "tbHargaJual";
+            this.tbHargaJual.Size = new System.Drawing.Size(100, 20);
+            this.tbHargaJual.TabIndex = 57;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(211, 495);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 60;
+            this.label10.Text = "Kode :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(214, 526);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(35, 13);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "QTY :";
+            // 
+            // updateQty
+            // 
+            this.updateQty.Location = new System.Drawing.Point(255, 526);
+            this.updateQty.Name = "updateQty";
+            this.updateQty.Size = new System.Drawing.Size(145, 20);
+            this.updateQty.TabIndex = 62;
+            // 
+            // tbEditHargaJual
+            // 
+            this.tbEditHargaJual.Location = new System.Drawing.Point(255, 563);
+            this.tbEditHargaJual.Name = "tbEditHargaJual";
+            this.tbEditHargaJual.Size = new System.Drawing.Size(145, 20);
+            this.tbEditHargaJual.TabIndex = 63;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(188, 566);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 64;
+            this.label12.Text = "Harga Jual:";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(247, 589);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 65;
+            this.btnUpdate.Text = "Update Item";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // tbDescEdit
+            // 
+            this.tbDescEdit.Location = new System.Drawing.Point(310, 492);
+            this.tbDescEdit.Name = "tbDescEdit";
+            this.tbDescEdit.Size = new System.Drawing.Size(90, 20);
+            this.tbDescEdit.TabIndex = 66;
+            // 
             // Penawaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 596);
+            this.ClientSize = new System.Drawing.Size(969, 669);
+            this.Controls.Add(this.tbDescEdit);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbEditHargaJual);
+            this.Controls.Add(this.updateQty);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.tbHargaJual);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tbHargaBeli);
             this.Controls.Add(this.TglBatalDTP);
             this.Controls.Add(label1);
             this.Controls.Add(tGL_TERIMALabel);
@@ -721,6 +845,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateQty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -781,5 +906,17 @@ namespace PCSUAS
         private System.Windows.Forms.DateTimePicker TglBatalDTP;
         private dbProjectUasDataSetTableAdapters.m_barangTableAdapter m_barangTableAdapter;
         private System.Windows.Forms.BindingSource mbarangBindingSource;
+        private System.Windows.Forms.TextBox tbHargaBeli;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbHargaJual;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown updateQty;
+        private System.Windows.Forms.TextBox tbEditHargaJual;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox tbDescEdit;
     }
 }

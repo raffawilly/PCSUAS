@@ -600,6 +600,7 @@ namespace PCSUAS
             this.btnBatal.Text = "Batal";
             this.btnBatal.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnBatal.UseVisualStyleBackColor = true;
+            this.btnBatal.Click += new System.EventHandler(this.btnBatal_Click);
             // 
             // label4
             // 

@@ -125,6 +125,40 @@ namespace PCSUAS
 
         }
 
+        private void enableInsert()
+        {
+            comboBox3.Enabled = true;
+            numericUpDown1.Enabled = true;
+            tbHargaBeli.Enabled = false;
+            tbHargaJual.Enabled = true;
+            btnTambahItem.Enabled = true;
+
+            tbHapusKode.Enabled = false;
+            tbDescEdit.Enabled = false;
+            updateQty.Enabled = false;
+            tbEditHargaJual.Enabled = false;
+            btnBatal.Enabled = false;
+            btnUpdate.Enabled = false;
+            btnHapusItem.Enabled = false;
+        }
+
+        private void enableUpdateDelete()
+        {
+            comboBox3.Enabled = false;
+            numericUpDown1.Enabled = false;
+            tbHargaBeli.Enabled = false;
+            tbHargaJual.Enabled = false;
+            btnTambahItem.Enabled = false;
+
+            tbHapusKode.Enabled = true;
+            tbDescEdit.Enabled = true;
+            updateQty.Enabled = true;
+            tbEditHargaJual.Enabled = true;
+            btnBatal.Enabled = true;
+            btnUpdate.Enabled = true;
+            btnHapusItem.Enabled = true;
+        }
+
         private void InvoiceForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.m_barang' table. You can move, or remove it, as needed.
@@ -134,6 +168,7 @@ namespace PCSUAS
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_invoice_header' table. You can move, or remove it, as needed.
             this.t_invoice_headerTableAdapter.Fill(this.dbProjectUasDataSet.t_invoice_header);
             refreshSupplier();
+            enableInsert();
 
         }
 
@@ -308,19 +343,7 @@ namespace PCSUAS
 
         private void dgvBarang_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            numericUpDown1.Enabled = false;
-            comboBox3.Enabled = false;
-            btnTambahItem.Enabled = false;
-            tbHargaJual.Enabled = false;
-
-            btnUpdate.Enabled = true;
-            updateQty.Enabled = true;
-            tbEditHargaJual.Enabled = true;
-            tbDescEdit.Enabled = true;
-            label2.Enabled = true;
-            tbHapusKode.Enabled = true;
-            btnHapusItem.Enabled = true;
-            btnBatal.Enabled = true;
+            enableUpdateDelete();
             tbHapusKode.Text = dgvBarang.Rows[e.RowIndex].Cells[0].Value.ToString();
             tbDescEdit.Text = dgvBarang.Rows[e.RowIndex].Cells[2].Value.ToString();
             updateQty.Text = dgvBarang.Rows[e.RowIndex].Cells[4].Value.ToString();
@@ -385,6 +408,7 @@ namespace PCSUAS
                     enableInserting();
                     conn.Close();
                     refreshSupplier();
+                    enableInsert();
                     MessageBox.Show("Berhasil Update!");
                 }
                 else
@@ -415,6 +439,7 @@ namespace PCSUAS
                     enableInserting();
                     conn.Close();
                     refreshSupplier();
+                    enableInsert();
                     MessageBox.Show("Berhasil Update!");
                 }
             }
@@ -447,6 +472,7 @@ namespace PCSUAS
                 MessageBox.Show("Berhasil Menghapus");
                 conn.Close();
                 refreshSupplier();
+                enableInsert();
 
             }
         }
@@ -454,6 +480,11 @@ namespace PCSUAS
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
             refreshSupplier();
+        }
+
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            enableInsert();
         }
     }
 }

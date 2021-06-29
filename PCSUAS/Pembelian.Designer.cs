@@ -89,17 +89,12 @@ namespace PCSUAS
             this.label2 = new System.Windows.Forms.Label();
             this.btnBatal = new System.Windows.Forms.Button();
             this.pictPrint = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbHargaJual = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbHargaBeli = new System.Windows.Forms.TextBox();
             this.tbDescEdit = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbEditHargaJual = new System.Windows.Forms.TextBox();
             this.updateQty = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             nO_PNWLabel = new System.Windows.Forms.Label();
             nO_NOTALabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
@@ -408,7 +403,7 @@ namespace PCSUAS
             // btnTambahItem
             // 
             this.btnTambahItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTambahItem.Location = new System.Drawing.Point(9, 571);
+            this.btnTambahItem.Location = new System.Drawing.Point(10, 515);
             this.btnTambahItem.Name = "btnTambahItem";
             this.btnTambahItem.Size = new System.Drawing.Size(78, 23);
             this.btnTambahItem.TabIndex = 22;
@@ -423,7 +418,7 @@ namespace PCSUAS
             this.btnHapusItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHapusItem.Enabled = false;
             this.btnHapusItem.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHapusItem.Location = new System.Drawing.Point(303, 545);
+            this.btnHapusItem.Location = new System.Drawing.Point(303, 515);
             this.btnHapusItem.Name = "btnHapusItem";
             this.btnHapusItem.Size = new System.Drawing.Size(72, 23);
             this.btnHapusItem.TabIndex = 23;
@@ -540,7 +535,7 @@ namespace PCSUAS
             this.comboBox3.DataSource = this.mbarangBindingSource;
             this.comboBox3.DisplayMember = "DESCRIPTION";
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(8, 426);
+            this.comboBox3.Location = new System.Drawing.Point(10, 462);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 34;
@@ -562,7 +557,7 @@ namespace PCSUAS
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(9, 545);
+            this.numericUpDown1.Location = new System.Drawing.Point(9, 489);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 35;
@@ -629,7 +624,7 @@ namespace PCSUAS
             // 
             this.btnBatal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBatal.Enabled = false;
-            this.btnBatal.Location = new System.Drawing.Point(210, 574);
+            this.btnBatal.Location = new System.Drawing.Point(210, 544);
             this.btnBatal.Name = "btnBatal";
             this.btnBatal.Size = new System.Drawing.Size(166, 23);
             this.btnBatal.TabIndex = 43;
@@ -648,39 +643,6 @@ namespace PCSUAS
             this.pictPrint.TabStop = false;
             this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 496);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 13);
-            this.label9.TabIndex = 65;
-            this.label9.Text = "Harga Jual:";
-            // 
-            // tbHargaJual
-            // 
-            this.tbHargaJual.Location = new System.Drawing.Point(9, 514);
-            this.tbHargaJual.Name = "tbHargaJual";
-            this.tbHargaJual.Size = new System.Drawing.Size(100, 20);
-            this.tbHargaJual.TabIndex = 64;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 450);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "Harga Beli:";
-            // 
-            // tbHargaBeli
-            // 
-            this.tbHargaBeli.Enabled = false;
-            this.tbHargaBeli.Location = new System.Drawing.Point(9, 466);
-            this.tbHargaBeli.Name = "tbHargaBeli";
-            this.tbHargaBeli.Size = new System.Drawing.Size(100, 20);
-            this.tbHargaBeli.TabIndex = 62;
-            // 
             // tbDescEdit
             // 
             this.tbDescEdit.Location = new System.Drawing.Point(285, 459);
@@ -690,28 +652,13 @@ namespace PCSUAS
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(209, 545);
+            this.btnUpdate.Location = new System.Drawing.Point(209, 515);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(92, 23);
             this.btnUpdate.TabIndex = 76;
             this.btnUpdate.Text = "Update Item";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(163, 514);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 13);
-            this.label12.TabIndex = 75;
-            this.label12.Text = "Harga Jual:";
-            // 
-            // tbEditHargaJual
-            // 
-            this.tbEditHargaJual.Location = new System.Drawing.Point(230, 511);
-            this.tbEditHargaJual.Name = "tbEditHargaJual";
-            this.tbEditHargaJual.Size = new System.Drawing.Size(145, 20);
-            this.tbEditHargaJual.TabIndex = 74;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // updateQty
             // 
@@ -740,22 +687,28 @@ namespace PCSUAS
             this.label13.TabIndex = 69;
             this.label13.Text = "EDIT / HAPUS BARANG";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Enabled = false;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(8, 434);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 13);
+            this.label8.TabIndex = 78;
+            this.label8.Text = "TAMBAH ITEM";
+            // 
             // combobox1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 606);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tbDescEdit);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.tbEditHargaJual);
             this.Controls.Add(this.updateQty);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.tbHargaJual);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbHargaBeli);
             this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.btnBatal);
             this.Controls.Add(this.label2);
@@ -867,16 +820,11 @@ namespace PCSUAS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBatal;
         private System.Windows.Forms.PictureBox pictPrint;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbHargaJual;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbHargaBeli;
         private System.Windows.Forms.TextBox tbDescEdit;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tbEditHargaJual;
         private System.Windows.Forms.NumericUpDown updateQty;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label8;
     }
 }

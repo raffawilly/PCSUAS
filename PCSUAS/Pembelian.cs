@@ -29,7 +29,8 @@ namespace PCSUAS
                            $"where th.no_pnw = td.no_pnw " +
                            $"and mb.kode = td.kode " +
                            $"and th.no_nota = td.no_nota " +
-                           $"and th.no_nota = '{nO_NOTATextBox.Text}' ";
+                           $"and th.no_nota = '{nO_NOTATextBox.Text}' " +
+                           $"and th.p_id = '{Combobox2.Text}'";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(ds);
@@ -221,12 +222,24 @@ namespace PCSUAS
                 {
                     String jmlhBarang = $"SELECT qty FROM t_pembelian_detail WHERE kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
                     SqlCommand comm7 = new SqlCommand(jmlhBarang, conn);
-                    String qtyAwal = comm7.ExecuteScalar().ToString();
-                    int tambahQTY = qty + Convert.ToInt32(qtyAwal);
+                    String stokdetail = comm7.ExecuteScalar().ToString();
+                    int tambahQTY = qty + Convert.ToInt32(stokdetail);
                     String query = $"UPDATE t_pembelian_detail SET qty = {tambahQTY} where kode = '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
+
+                    //MENGURANGI STOK BARANG DI GUDANG
+                    String stokBarang = $"SELECT unit FROM m_barang WHERE kode = '{kode}' ";
+                    comm7 = new SqlCommand(stokBarang, conn);
+                    String qtyStokBarang = comm7.ExecuteScalar().ToString();
+                    int totalPenambahan = Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(qtyStokBarang);
+                    query = $"UPDATE m_barang SET unit = {totalPenambahan} where kode = '{kode}'";
+                    comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+
+
                     conn.Close();
+
                     MessageBox.Show("Berhasil ditambahkan");
                     refresh();
                 }
@@ -235,15 +248,21 @@ namespace PCSUAS
                     String query = $"Insert into t_pembelian_detail(no_pnw,no_nota,kode,part_no,descriptio,unit,merk,qty,unit_price) values('{nO_PNWTextBox.Text}','{nO_NOTATextBox.Text}','{kode}','{part_no}','{description}','{unit}','{merk}','{qty}',{unit_price})";
                     comm = new SqlCommand(query, conn);
                     comm.ExecuteNonQuery();
+
+                    //MENGURANGI STOK BARANG DI GUDANG
+                    String stokBarang = $"SELECT unit FROM m_barang WHERE kode = '{kode}' ";
+                    SqlCommand comm7 = new SqlCommand(stokBarang, conn);
+                    String qtyStokBarang = comm7.ExecuteScalar().ToString();
+                    int totalPenambahan = Convert.ToInt32(numericUpDown1.Value) + Convert.ToInt32(qtyStokBarang);
+                    query = $"UPDATE m_barang SET unit = {totalPenambahan} where kode = '{kode}'";
+                    comm = new SqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+
                     conn.Close();
                     MessageBox.Show("Berhasil ditambahkan");
                     refresh();
                 }
-               
             }
-
-           
-
         }
 
         private void btnHapusItem_Click(object sender, EventArgs e)
@@ -253,11 +272,23 @@ namespace PCSUAS
             if (dr == DialogResult.Yes)
             {
                 conn.Open();
-                String kode = tbHapusKode.Text;
-                String query = $"delete from t_pembelian_detail where kode like '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+
+                String stokBarang = $"SELECT unit FROM m_barang WHERE kode = '{tbHapusKode.Text}' ";
+                SqlCommand comm7 = new SqlCommand(stokBarang, conn);
+                String qtyStokBarang = comm7.ExecuteScalar().ToString();
+                int totalPenambahan =Convert.ToInt32(qtyStokBarang) - Convert.ToInt32(updateQty.Value) ;
+                String query = $"UPDATE m_barang SET unit = {totalPenambahan} where kode = '{tbHapusKode.Text}'";
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.ExecuteNonQuery();
+
+                String kode = tbHapusKode.Text;
+                query = $"delete from t_pembelian_detail where kode like '{kode}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                comm = new SqlCommand(query, conn);
+                comm.ExecuteNonQuery();
                 MessageBox.Show("Berhasil Menghapus");
+
+               
+
                 conn.Close();
                 refresh();
                 numericUpDown1.Enabled = true;
@@ -284,6 +315,8 @@ namespace PCSUAS
             btnHapusItem.Enabled = true;
             btnBatal.Enabled = true;
             tbHapusKode.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbDescEdit.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            updateQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
         private void btnBatal_Click(object sender, EventArgs e)
@@ -317,6 +350,89 @@ namespace PCSUAS
             this.Validate();
             this.t_pembelian_headerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            //MENGAMBIL QTY
+            String temp4 = $"SELECT qty " +
+                         $"FROM t_pembelian_detail " +
+                         $"where kode like '{tbHapusKode.Text}' " +
+                         $" and no_pnw = '{nO_PNWTextBox.Text}'";
+            SqlCommand comm4 = new SqlCommand(temp4, conn);
+            String tempQty = comm4.ExecuteScalar().ToString();
+            conn.Close();
+            if (updateQty.Value < 1)
+            {
+                MessageBox.Show("Angka Stok tidak boleh 0 atau dibawah 0");
+            }
+            else
+            {
+                if (updateQty.Value > Convert.ToInt32(tempQty))
+                {
+                    conn.Open();
+                    //MENGHITUNG JARAK PERBEDAAN QTY
+                    int jarakQty = Convert.ToInt32(updateQty.Value) - Convert.ToInt32(tempQty);
+
+                    //MENGAMBIL QTY
+                    temp4 = $"SELECT unit " +
+                                 $"FROM m_barang " +
+                                 $"where kode like '{tbHapusKode.Text}' ";
+                    comm4 = new SqlCommand(temp4, conn);
+                    String qtyBarang = comm4.ExecuteScalar().ToString();
+
+                    //MENAMBAH QTY DI BARANG
+                    int totalAKhirQty = jarakQty + Convert.ToInt32(qtyBarang);
+
+                    //UPDATE BARANG
+                    String query = $"update m_barang set unit = {totalAKhirQty} where kode like '{tbHapusKode.Text}'";
+                    SqlCommand comm2 = new SqlCommand(query, conn);
+                    comm2.ExecuteNonQuery();
+
+
+                    //UPDATE PEMBLIAN DETAIL
+                    query = $"update t_pembelian_detail set qty = {updateQty.Value} where kode like '{tbHapusKode.Text}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                    comm2 = new SqlCommand(query, conn);
+                    comm2.ExecuteNonQuery();
+
+                    MessageBox.Show("BERHASIL DI UPDATE");
+                    conn.Close();
+                    refresh();
+                }
+                else
+                {
+                    conn.Open();
+                    //MENGHITUNG JARAK PERBEDAAN QTY
+                    int jarakQty = Convert.ToInt32(tempQty) - Convert.ToInt32(updateQty.Value);
+
+                    //MENGAMBIL QTY
+                    temp4 = $"SELECT unit " +
+                                 $"FROM m_barang " +
+                                 $"where kode like '{tbHapusKode.Text}' ";
+                    comm4 = new SqlCommand(temp4, conn);
+                    String qtyBarang = comm4.ExecuteScalar().ToString();
+
+                    //MENAMBAH QTY DI BARANG
+                    int totalAKhirQty = Convert.ToInt32(qtyBarang) - jarakQty;
+
+                    //UPDATE BARANG
+                    String query = $"update m_barang set unit = {totalAKhirQty} where kode like '{tbHapusKode.Text}'";
+                    SqlCommand comm2 = new SqlCommand(query, conn);
+                    comm2.ExecuteNonQuery();
+
+
+                    //UPDATE PEMBLIAN DETAIL
+                    query = $"update t_pembelian_detail set qty = {updateQty.Value} where kode like '{tbHapusKode.Text}' and no_pnw = '{nO_PNWTextBox.Text}'";
+                    comm2 = new SqlCommand(query, conn);
+                    comm2.ExecuteNonQuery();
+
+                    MessageBox.Show("BERHASIL DI UPDATE");
+                    conn.Close();
+                    refresh();
+                }
+            }
+         
         }
     }
 }

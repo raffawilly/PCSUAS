@@ -95,6 +95,11 @@ namespace PCSUAS
             this.m_supplierTableAdapter.Fill(this.dbProjectUasDataSet.m_supplier);
             // TODO: This line of code loads data into the 'dbProjectUasDataSet.t_pembelian_header' table. You can move, or remove it, as needed.
             this.t_pembelian_headerTableAdapter.Fill(this.dbProjectUasDataSet.t_pembelian_header);
+            tbDescEdit.Enabled = false;
+            updateQty.Enabled = false;
+            btnUpdate.Enabled = false;
+            btnBatal.Enabled = false;
+            btnHapusItem.Enabled = false;
             refresh();
 
         }
@@ -124,6 +129,15 @@ namespace PCSUAS
         {
             this.dataGridView1.DataSource = null;
             this.dataGridView1.Rows.Clear();
+            numericUpDown1.Enabled = true;
+            comboBox3.Enabled = true;
+            btnTambahItem.Enabled = true;
+
+            tbDescEdit.Enabled = false;
+            updateQty.Enabled = false;
+            btnUpdate.Enabled = false;
+            btnBatal.Enabled = false;
+            btnHapusItem.Enabled = false;
         }
 
         private void Combobox2_DropDownClosed(object sender, EventArgs e)
@@ -150,8 +164,10 @@ namespace PCSUAS
 
         private void btnTambahItem_Click(object sender, EventArgs e)
         {
+            
             try
             {
+                
                 this.Validate();
                 this.t_pembelian_headerBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
@@ -291,15 +307,7 @@ namespace PCSUAS
 
                 conn.Close();
                 refresh();
-                numericUpDown1.Enabled = true;
-                comboBox3.Enabled = true;
-                btnTambahItem.Enabled = true;
-
-                label2.Enabled = false;
-                tbHapusKode.Enabled = false;
-                btnHapusItem.Enabled = false;
-                btnBatal.Enabled = false;
-                tbHapusKode.Text = "";
+                enableInsert();
             }
 
         }
@@ -310,6 +318,9 @@ namespace PCSUAS
             comboBox3.Enabled = false;
             btnTambahItem.Enabled = false;
 
+            tbDescEdit.Enabled = true;
+            updateQty.Enabled = true;
+            btnUpdate.Enabled = true;
             label2.Enabled = true;
             tbHapusKode.Enabled = true;
             btnHapusItem.Enabled = true;
@@ -319,17 +330,24 @@ namespace PCSUAS
             updateQty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
-        private void btnBatal_Click(object sender, EventArgs e)
+        private void enableInsert()
         {
             numericUpDown1.Enabled = true;
             comboBox3.Enabled = true;
             btnTambahItem.Enabled = true;
 
+            tbDescEdit.Enabled = false;
+            updateQty.Enabled = false;
+            btnUpdate.Enabled = false;
             label2.Enabled = false;
             tbHapusKode.Enabled = false;
             btnHapusItem.Enabled = false;
             btnBatal.Enabled = false;
             tbHapusKode.Text = "";
+        }
+        private void btnBatal_Click(object sender, EventArgs e)
+        {
+            enableInsert();
         }
 
         private void pictPrint_Click(object sender, EventArgs e)
@@ -340,16 +358,12 @@ namespace PCSUAS
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            conn.Open();
-            String query = $"delete from t_pembelian_detail where no_pnw = '{nO_PNWTextBox.Text}'";
-            SqlCommand comm = new SqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Berhasil Menghapus");
-            conn.Close();
+            
 
             this.Validate();
             this.t_pembelian_headerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+            refresh();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -399,6 +413,7 @@ namespace PCSUAS
                     MessageBox.Show("BERHASIL DI UPDATE");
                     conn.Close();
                     refresh();
+                    enableInsert();
                 }
                 else
                 {
@@ -429,6 +444,7 @@ namespace PCSUAS
 
                     MessageBox.Show("BERHASIL DI UPDATE");
                     conn.Close();
+                    enableInsert();
                     refresh();
                 }
             }

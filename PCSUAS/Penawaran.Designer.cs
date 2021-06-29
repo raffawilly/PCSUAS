@@ -334,6 +334,7 @@ namespace PCSUAS
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -505,11 +506,9 @@ namespace PCSUAS
             // 
             // tbPPN
             // 
-            this.tbPPN.Enabled = false;
             this.tbPPN.ForeColor = System.Drawing.Color.Red;
             this.tbPPN.Location = new System.Drawing.Point(820, 483);
             this.tbPPN.Name = "tbPPN";
-            this.tbPPN.ReadOnly = true;
             this.tbPPN.Size = new System.Drawing.Size(124, 20);
             this.tbPPN.TabIndex = 38;
             this.tbPPN.Text = "0";

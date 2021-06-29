@@ -118,6 +118,8 @@ namespace PCSUAS
                 this.Validate();
                 this.t_penawaran_headerBindingSource.EndEdit();
                 this.tableAdapterManager.UpdateAll(this.dbProjectUasDataSet);
+           
+
             }
             catch (Exception ex)
             {
@@ -169,6 +171,28 @@ namespace PCSUAS
                 this.Close();
             }
             conn.Open();
+
+            //AutoInc
+            String count = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
+                            $"FROM t_invoice_header th ";
+            SqlCommand commSelect = new SqlCommand(count, conn);
+            int jmlh = Convert.ToInt32(commSelect.ExecuteScalar().ToString());
+
+            //CekInvHeader
+            String count2 = $"SELECT ISNULL(COUNT(*), 0) as Jumlah " +
+                            $"FROM t_invoice_header th " +
+                            $"WHERE th.no_pnw = '{nO_PNWTextBox.Text}'";
+            SqlCommand commSelect2 = new SqlCommand(count2, conn);
+            int jmlh2 = Convert.ToInt32(commSelect2.ExecuteScalar().ToString());
+
+            if (jmlh2 == 0)
+            {
+                //inserting Invoice Header
+                String insertInv = $"Insert into t_invoice_header(no_inv,no_pnw,tgl_inv,p_id) values('{jmlh + 1}','{nO_PNWTextBox.Text}','{tGL_PNWDateTimePicker.Value.ToLongDateString()}','{p_IDComboBox.Text}')";
+                SqlCommand commInsert = new SqlCommand(insertInv, conn);
+                commInsert.ExecuteNonQuery();
+            }
+
             //kode
             String temp = $"SELECT kode " +
                          $"FROM m_barang " +
@@ -260,6 +284,14 @@ namespace PCSUAS
                     {
                         String query = $"Insert into t_penawaran_detail(no_pnw,kode,part_no,descriptio,unit_price,unit_pric2,qty) values('{nO_PNWTextBox.Text}','{kode}','{part_no}','{description}','{unit}','{unit2}','{qty}')";
                         comm = new SqlCommand(query, conn);
+                        comm.ExecuteNonQuery();
+
+                        String selectInv = $"SELECT no_inv FROM t_invoice_header WHERE no_pnw = '{nO_PNWTextBox.Text}'";
+                        SqlCommand commSelectNoInv = new SqlCommand(selectInv, conn);
+                        String SelectNoInv = commSelectNoInv.ExecuteScalar().ToString();
+
+                        String InsertingInvoice = $"Insert into t_invoice_detail(no_inv,kode,part_no,descriptio,unit_price,unit_pric2,qty) values('{SelectNoInv}','{kode}','{part_no}','{description}','{unit}','{unit2}','{qty}')";
+                        comm = new SqlCommand(InsertingInvoice, conn);
                         comm.ExecuteNonQuery();
 
                         String jmlhBarang = $"SELECT unit FROM m_barang WHERE kode = '{kode}' ";

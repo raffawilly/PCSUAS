@@ -35,6 +35,9 @@ namespace PCSUAS
             System.Windows.Forms.Label tGL_INVLabel;
             System.Windows.Forms.Label tGL_TERIMALabel;
             System.Windows.Forms.Label p_IDLabel;
+            System.Windows.Forms.Label eMAILLabel;
+            System.Windows.Forms.Label nAMA_NPWPLabel;
+            System.Windows.Forms.Label nOTELabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceForm));
             this.dbProjectUasDataSet = new PCSUAS.dbProjectUasDataSet();
             this.t_invoice_headerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,19 +61,7 @@ namespace PCSUAS
             this.nO_PNWTextBox = new System.Windows.Forms.TextBox();
             this.tGL_INVDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tGL_TERIMADateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbKota = new System.Windows.Forms.TextBox();
             this.msupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbNamaSup = new System.Windows.Forms.TextBox();
-            this.tbAlamatSup = new System.Windows.Forms.TextBox();
-            this.tbNamaNPWP = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbNomorNPWP = new System.Windows.Forms.TextBox();
-            this.tbSup = new System.Windows.Forms.TextBox();
-            this.tbNote = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dgvBarang = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,17 +74,53 @@ namespace PCSUAS
             this.label9 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.p_IDComboBox = new System.Windows.Forms.ComboBox();
+            this.tinvoiceheaderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nAMATextBox = new System.Windows.Forms.TextBox();
+            this.aLAMATTextBox = new System.Windows.Forms.TextBox();
+            this.eMAILTextBox = new System.Windows.Forms.TextBox();
+            this.kOTATextBox = new System.Windows.Forms.TextBox();
+            this.nAMA_NPWPTextBox = new System.Windows.Forms.TextBox();
+            this.nPWPTextBox = new System.Windows.Forms.TextBox();
+            this.nOTETextBox = new System.Windows.Forms.TextBox();
+            this.tbDescEdit = new System.Windows.Forms.TextBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbEditHargaJual = new System.Windows.Forms.TextBox();
+            this.updateQty = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbHargaJual = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbHargaBeli = new System.Windows.Forms.TextBox();
+            this.btnBatal = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbHapusKode = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.mbarangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnHapusItem = new System.Windows.Forms.Button();
+            this.btnTambahItem = new System.Windows.Forms.Button();
+            this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
             nO_INVLabel = new System.Windows.Forms.Label();
             nO_PNWLabel = new System.Windows.Forms.Label();
             tGL_INVLabel = new System.Windows.Forms.Label();
             tGL_TERIMALabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
+            eMAILLabel = new System.Windows.Forms.Label();
+            nAMA_NPWPLabel = new System.Windows.Forms.Label();
+            nOTELabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dbProjectUasDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_invoice_headerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_invoice_headerBindingNavigator)).BeginInit();
             this.t_invoice_headerBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinvoiceheaderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_INVLabel
@@ -140,6 +167,33 @@ namespace PCSUAS
             p_IDLabel.Size = new System.Drawing.Size(51, 13);
             p_IDLabel.TabIndex = 18;
             p_IDLabel.Text = "Supplier :";
+            // 
+            // eMAILLabel
+            // 
+            eMAILLabel.AutoSize = true;
+            eMAILLabel.Location = new System.Drawing.Point(754, 54);
+            eMAILLabel.Name = "eMAILLabel";
+            eMAILLabel.Size = new System.Drawing.Size(42, 13);
+            eMAILLabel.TabIndex = 37;
+            eMAILLabel.Text = "EMAIL:";
+            // 
+            // nAMA_NPWPLabel
+            // 
+            nAMA_NPWPLabel.AutoSize = true;
+            nAMA_NPWPLabel.Location = new System.Drawing.Point(4, 110);
+            nAMA_NPWPLabel.Name = "nAMA_NPWPLabel";
+            nAMA_NPWPLabel.Size = new System.Drawing.Size(43, 13);
+            nAMA_NPWPLabel.TabIndex = 39;
+            nAMA_NPWPLabel.Text = "NPWP:";
+            // 
+            // nOTELabel
+            // 
+            nOTELabel.AutoSize = true;
+            nOTELabel.Location = new System.Drawing.Point(7, 137);
+            nOTELabel.Name = "nOTELabel";
+            nOTELabel.Size = new System.Drawing.Size(40, 13);
+            nOTELabel.TabIndex = 41;
+            nOTELabel.Text = "NOTE:";
             // 
             // dbProjectUasDataSet
             // 
@@ -212,7 +266,7 @@ namespace PCSUAS
             this.t_invoice_headerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.t_invoice_headerBindingNavigator.Name = "t_invoice_headerBindingNavigator";
             this.t_invoice_headerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.t_invoice_headerBindingNavigator.Size = new System.Drawing.Size(1111, 25);
+            this.t_invoice_headerBindingNavigator.Size = new System.Drawing.Size(1122, 25);
             this.t_invoice_headerBindingNavigator.TabIndex = 1;
             this.t_invoice_headerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -320,6 +374,7 @@ namespace PCSUAS
             // nO_INVTextBox
             // 
             this.nO_INVTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_invoice_headerBindingSource, "NO_INV", true));
+            this.nO_INVTextBox.Enabled = false;
             this.nO_INVTextBox.Location = new System.Drawing.Point(57, 50);
             this.nO_INVTextBox.Name = "nO_INVTextBox";
             this.nO_INVTextBox.Size = new System.Drawing.Size(100, 20);
@@ -349,105 +404,10 @@ namespace PCSUAS
             this.tGL_TERIMADateTimePicker.Size = new System.Drawing.Size(130, 20);
             this.tGL_TERIMADateTimePicker.TabIndex = 8;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(752, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "E-Mail";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(794, 50);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(202, 20);
-            this.tbEmail.TabIndex = 10;
-            // 
-            // tbKota
-            // 
-            this.tbKota.Location = new System.Drawing.Point(1002, 50);
-            this.tbKota.Name = "tbKota";
-            this.tbKota.Size = new System.Drawing.Size(100, 20);
-            this.tbKota.TabIndex = 11;
-            // 
             // msupplierBindingSource
             // 
             this.msupplierBindingSource.DataMember = "m_supplier";
             this.msupplierBindingSource.DataSource = this.dbProjectUasDataSet;
-            // 
-            // tbNamaSup
-            // 
-            this.tbNamaSup.Location = new System.Drawing.Point(184, 77);
-            this.tbNamaSup.Name = "tbNamaSup";
-            this.tbNamaSup.Size = new System.Drawing.Size(371, 20);
-            this.tbNamaSup.TabIndex = 14;
-            // 
-            // tbAlamatSup
-            // 
-            this.tbAlamatSup.Location = new System.Drawing.Point(561, 77);
-            this.tbAlamatSup.Name = "tbAlamatSup";
-            this.tbAlamatSup.Size = new System.Drawing.Size(541, 20);
-            this.tbAlamatSup.TabIndex = 15;
-            // 
-            // tbNamaNPWP
-            // 
-            this.tbNamaNPWP.Location = new System.Drawing.Point(87, 103);
-            this.tbNamaNPWP.Name = "tbNamaNPWP";
-            this.tbNamaNPWP.Size = new System.Drawing.Size(467, 20);
-            this.tbNamaNPWP.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Nama NPWP :";
-            // 
-            // tbNomorNPWP
-            // 
-            this.tbNomorNPWP.Location = new System.Drawing.Point(654, 103);
-            this.tbNomorNPWP.Name = "tbNomorNPWP";
-            this.tbNomorNPWP.Size = new System.Drawing.Size(448, 20);
-            this.tbNomorNPWP.TabIndex = 18;
-            // 
-            // tbSup
-            // 
-            this.tbSup.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_invoice_headerBindingSource, "P_ID", true));
-            this.tbSup.Location = new System.Drawing.Point(57, 77);
-            this.tbSup.Name = "tbSup";
-            this.tbSup.Size = new System.Drawing.Size(121, 20);
-            this.tbSup.TabIndex = 19;
-            this.tbSup.Text = "1";
-            this.tbSup.TextChanged += new System.EventHandler(this.tbSup_TextChanged);
-            // 
-            // tbNote
-            // 
-            this.tbNote.Location = new System.Drawing.Point(53, 132);
-            this.tbNote.Name = "tbNote";
-            this.tbNote.Size = new System.Drawing.Size(1049, 20);
-            this.tbNote.TabIndex = 20;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(568, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Nomor NPWP :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "NOTE :";
             // 
             // dgvBarang
             // 
@@ -456,6 +416,7 @@ namespace PCSUAS
             this.dgvBarang.Name = "dgvBarang";
             this.dgvBarang.Size = new System.Drawing.Size(1095, 326);
             this.dgvBarang.TabIndex = 23;
+            this.dgvBarang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBarang_CellDoubleClick);
             // 
             // label5
             // 
@@ -496,7 +457,7 @@ namespace PCSUAS
             // tbPartPrice
             // 
             this.tbPartPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPartPrice.Location = new System.Drawing.Point(962, 489);
+            this.tbPartPrice.Location = new System.Drawing.Point(973, 489);
             this.tbPartPrice.Name = "tbPartPrice";
             this.tbPartPrice.Size = new System.Drawing.Size(124, 20);
             this.tbPartPrice.TabIndex = 28;
@@ -507,7 +468,7 @@ namespace PCSUAS
             // 
             this.tbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDiscount.ForeColor = System.Drawing.Color.Red;
-            this.tbDiscount.Location = new System.Drawing.Point(962, 512);
+            this.tbDiscount.Location = new System.Drawing.Point(973, 512);
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.Size = new System.Drawing.Size(124, 20);
             this.tbDiscount.TabIndex = 29;
@@ -517,7 +478,7 @@ namespace PCSUAS
             // tbService
             // 
             this.tbService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbService.Location = new System.Drawing.Point(962, 535);
+            this.tbService.Location = new System.Drawing.Point(973, 535);
             this.tbService.Name = "tbService";
             this.tbService.Size = new System.Drawing.Size(124, 20);
             this.tbService.TabIndex = 30;
@@ -528,7 +489,7 @@ namespace PCSUAS
             // 
             this.tbPPN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPPN.ForeColor = System.Drawing.Color.Red;
-            this.tbPPN.Location = new System.Drawing.Point(962, 558);
+            this.tbPPN.Location = new System.Drawing.Point(973, 558);
             this.tbPPN.Name = "tbPPN";
             this.tbPPN.Size = new System.Drawing.Size(124, 20);
             this.tbPPN.TabIndex = 31;
@@ -547,7 +508,7 @@ namespace PCSUAS
             // tbTotal
             // 
             this.tbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTotal.Location = new System.Drawing.Point(962, 586);
+            this.tbTotal.Location = new System.Drawing.Point(973, 586);
             this.tbTotal.Name = "tbTotal";
             this.tbTotal.Size = new System.Drawing.Size(124, 20);
             this.tbTotal.TabIndex = 34;
@@ -562,11 +523,289 @@ namespace PCSUAS
             this.label10.TabIndex = 33;
             this.label10.Text = "Total $";
             // 
+            // p_IDComboBox
+            // 
+            this.p_IDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.t_invoice_headerBindingSource, "P_ID", true));
+            this.p_IDComboBox.DataSource = this.msupplierBindingSource;
+            this.p_IDComboBox.DisplayMember = "P_ID";
+            this.p_IDComboBox.FormattingEnabled = true;
+            this.p_IDComboBox.Location = new System.Drawing.Point(57, 76);
+            this.p_IDComboBox.Name = "p_IDComboBox";
+            this.p_IDComboBox.Size = new System.Drawing.Size(121, 21);
+            this.p_IDComboBox.TabIndex = 35;
+            this.p_IDComboBox.ValueMember = "P_ID";
+            // 
+            // tinvoiceheaderBindingSource
+            // 
+            this.tinvoiceheaderBindingSource.DataMember = "t_invoice_header";
+            this.tinvoiceheaderBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
+            // nAMATextBox
+            // 
+            this.nAMATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "NAMA", true));
+            this.nAMATextBox.Location = new System.Drawing.Point(184, 77);
+            this.nAMATextBox.Name = "nAMATextBox";
+            this.nAMATextBox.Size = new System.Drawing.Size(417, 20);
+            this.nAMATextBox.TabIndex = 36;
+            // 
+            // aLAMATTextBox
+            // 
+            this.aLAMATTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "ALAMAT", true));
+            this.aLAMATTextBox.Location = new System.Drawing.Point(607, 77);
+            this.aLAMATTextBox.Name = "aLAMATTextBox";
+            this.aLAMATTextBox.Size = new System.Drawing.Size(495, 20);
+            this.aLAMATTextBox.TabIndex = 37;
+            // 
+            // eMAILTextBox
+            // 
+            this.eMAILTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "EMAIL", true));
+            this.eMAILTextBox.Location = new System.Drawing.Point(802, 51);
+            this.eMAILTextBox.Name = "eMAILTextBox";
+            this.eMAILTextBox.Size = new System.Drawing.Size(154, 20);
+            this.eMAILTextBox.TabIndex = 38;
+            // 
+            // kOTATextBox
+            // 
+            this.kOTATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "KOTA", true));
+            this.kOTATextBox.Location = new System.Drawing.Point(962, 50);
+            this.kOTATextBox.Name = "kOTATextBox";
+            this.kOTATextBox.Size = new System.Drawing.Size(140, 20);
+            this.kOTATextBox.TabIndex = 39;
+            // 
+            // nAMA_NPWPTextBox
+            // 
+            this.nAMA_NPWPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "NAMA_NPWP", true));
+            this.nAMA_NPWPTextBox.Location = new System.Drawing.Point(57, 107);
+            this.nAMA_NPWPTextBox.Name = "nAMA_NPWPTextBox";
+            this.nAMA_NPWPTextBox.Size = new System.Drawing.Size(445, 20);
+            this.nAMA_NPWPTextBox.TabIndex = 40;
+            // 
+            // nPWPTextBox
+            // 
+            this.nPWPTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "NPWP", true));
+            this.nPWPTextBox.Location = new System.Drawing.Point(508, 107);
+            this.nPWPTextBox.Name = "nPWPTextBox";
+            this.nPWPTextBox.Size = new System.Drawing.Size(594, 20);
+            this.nPWPTextBox.TabIndex = 41;
+            // 
+            // nOTETextBox
+            // 
+            this.nOTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.msupplierBindingSource, "NOTE", true));
+            this.nOTETextBox.Location = new System.Drawing.Point(57, 134);
+            this.nOTETextBox.Name = "nOTETextBox";
+            this.nOTETextBox.Size = new System.Drawing.Size(1045, 20);
+            this.nOTETextBox.TabIndex = 42;
+            // 
+            // tbDescEdit
+            // 
+            this.tbDescEdit.Location = new System.Drawing.Point(387, 536);
+            this.tbDescEdit.Name = "tbDescEdit";
+            this.tbDescEdit.Size = new System.Drawing.Size(90, 20);
+            this.tbDescEdit.TabIndex = 84;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(324, 633);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 83;
+            this.btnUpdate.Text = "Update Item";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(265, 610);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 82;
+            this.label12.Text = "Harga Jual:";
+            // 
+            // tbEditHargaJual
+            // 
+            this.tbEditHargaJual.Location = new System.Drawing.Point(332, 607);
+            this.tbEditHargaJual.Name = "tbEditHargaJual";
+            this.tbEditHargaJual.Size = new System.Drawing.Size(145, 20);
+            this.tbEditHargaJual.TabIndex = 81;
+            // 
+            // updateQty
+            // 
+            this.updateQty.Location = new System.Drawing.Point(332, 570);
+            this.updateQty.Name = "updateQty";
+            this.updateQty.Size = new System.Drawing.Size(145, 20);
+            this.updateQty.TabIndex = 80;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(291, 570);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(35, 13);
+            this.label11.TabIndex = 79;
+            this.label11.Text = "QTY :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(288, 539);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 78;
+            this.label1.Text = "Kode :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(86, 585);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Harga Jual:";
+            // 
+            // tbHargaJual
+            // 
+            this.tbHargaJual.Location = new System.Drawing.Point(89, 603);
+            this.tbHargaJual.Name = "tbHargaJual";
+            this.tbHargaJual.Size = new System.Drawing.Size(100, 20);
+            this.tbHargaJual.TabIndex = 76;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(86, 539);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 75;
+            this.label3.Text = "Harga Beli:";
+            // 
+            // tbHargaBeli
+            // 
+            this.tbHargaBeli.Enabled = false;
+            this.tbHargaBeli.Location = new System.Drawing.Point(89, 555);
+            this.tbHargaBeli.Name = "tbHargaBeli";
+            this.tbHargaBeli.Size = new System.Drawing.Size(100, 20);
+            this.tbHargaBeli.TabIndex = 74;
+            // 
+            // btnBatal
+            // 
+            this.btnBatal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBatal.Enabled = false;
+            this.btnBatal.Location = new System.Drawing.Point(324, 661);
+            this.btnBatal.Name = "btnBatal";
+            this.btnBatal.Size = new System.Drawing.Size(153, 23);
+            this.btnBatal.TabIndex = 73;
+            this.btnBatal.Text = "Batal";
+            this.btnBatal.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnBatal.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Enabled = false;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(291, 512);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 13);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "EDIT / HAPUS BARANG";
+            // 
+            // tbHapusKode
+            // 
+            this.tbHapusKode.Enabled = false;
+            this.tbHapusKode.Location = new System.Drawing.Point(332, 536);
+            this.tbHapusKode.Name = "tbHapusKode";
+            this.tbHapusKode.Size = new System.Drawing.Size(49, 20);
+            this.tbHapusKode.TabIndex = 71;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 626);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 70;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DataSource = this.mbarangBindingSource;
+            this.comboBox3.DisplayMember = "DESCRIPTION";
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(89, 509);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(121, 21);
+            this.comboBox3.TabIndex = 69;
+            this.comboBox3.ValueMember = "ID";
+            this.comboBox3.TextChanged += new System.EventHandler(this.comboBox3_TextChanged);
+            // 
+            // mbarangBindingSource
+            // 
+            this.mbarangBindingSource.DataMember = "m_barang";
+            this.mbarangBindingSource.DataSource = this.dbProjectUasDataSet;
+            // 
+            // btnHapusItem
+            // 
+            this.btnHapusItem.BackColor = System.Drawing.Color.Red;
+            this.btnHapusItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnHapusItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHapusItem.Enabled = false;
+            this.btnHapusItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHapusItem.Location = new System.Drawing.Point(405, 633);
+            this.btnHapusItem.Name = "btnHapusItem";
+            this.btnHapusItem.Size = new System.Drawing.Size(72, 23);
+            this.btnHapusItem.TabIndex = 68;
+            this.btnHapusItem.Text = "Delete Item";
+            this.btnHapusItem.UseVisualStyleBackColor = false;
+            this.btnHapusItem.Click += new System.EventHandler(this.btnHapusItem_Click);
+            // 
+            // btnTambahItem
+            // 
+            this.btnTambahItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTambahItem.Location = new System.Drawing.Point(89, 652);
+            this.btnTambahItem.Name = "btnTambahItem";
+            this.btnTambahItem.Size = new System.Drawing.Size(78, 23);
+            this.btnTambahItem.TabIndex = 67;
+            this.btnTambahItem.Text = "Tambah Item";
+            this.btnTambahItem.UseVisualStyleBackColor = true;
+            this.btnTambahItem.Click += new System.EventHandler(this.btnTambahItem_Click);
+            // 
+            // m_barangTableAdapter
+            // 
+            this.m_barangTableAdapter.ClearBeforeFill = true;
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 633);
+            this.ClientSize = new System.Drawing.Size(1122, 729);
+            this.Controls.Add(this.tbDescEdit);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbEditHargaJual);
+            this.Controls.Add(this.updateQty);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbHargaJual);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbHargaBeli);
+            this.Controls.Add(this.btnBatal);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbHapusKode);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.btnHapusItem);
+            this.Controls.Add(this.btnTambahItem);
+            this.Controls.Add(nOTELabel);
+            this.Controls.Add(this.nOTETextBox);
+            this.Controls.Add(this.nPWPTextBox);
+            this.Controls.Add(nAMA_NPWPLabel);
+            this.Controls.Add(this.nAMA_NPWPTextBox);
+            this.Controls.Add(this.kOTATextBox);
+            this.Controls.Add(eMAILLabel);
+            this.Controls.Add(this.eMAILTextBox);
+            this.Controls.Add(this.aLAMATTextBox);
+            this.Controls.Add(this.nAMATextBox);
+            this.Controls.Add(this.p_IDComboBox);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbPPN);
@@ -578,19 +817,7 @@ namespace PCSUAS
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvBarang);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbNote);
             this.Controls.Add(p_IDLabel);
-            this.Controls.Add(this.tbSup);
-            this.Controls.Add(this.tbNomorNPWP);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbNamaNPWP);
-            this.Controls.Add(this.tbAlamatSup);
-            this.Controls.Add(this.tbNamaSup);
-            this.Controls.Add(this.tbKota);
-            this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.label1);
             this.Controls.Add(tGL_TERIMALabel);
             this.Controls.Add(this.tGL_TERIMADateTimePicker);
             this.Controls.Add(tGL_INVLabel);
@@ -611,6 +838,10 @@ namespace PCSUAS
             this.t_invoice_headerBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinvoiceheaderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.updateQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,19 +870,7 @@ namespace PCSUAS
         private System.Windows.Forms.TextBox nO_PNWTextBox;
         private System.Windows.Forms.DateTimePicker tGL_INVDateTimePicker;
         private System.Windows.Forms.DateTimePicker tGL_TERIMADateTimePicker;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbKota;
         private System.Windows.Forms.BindingSource msupplierBindingSource;
-        private System.Windows.Forms.TextBox tbNamaSup;
-        private System.Windows.Forms.TextBox tbAlamatSup;
-        private System.Windows.Forms.TextBox tbNamaNPWP;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbNomorNPWP;
-        private System.Windows.Forms.TextBox tbSup;
-        private System.Windows.Forms.TextBox tbNote;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvBarang;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -664,5 +883,34 @@ namespace PCSUAS
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox p_IDComboBox;
+        private System.Windows.Forms.BindingSource tinvoiceheaderBindingSource;
+        private System.Windows.Forms.TextBox nAMATextBox;
+        private System.Windows.Forms.TextBox aLAMATTextBox;
+        private System.Windows.Forms.TextBox eMAILTextBox;
+        private System.Windows.Forms.TextBox kOTATextBox;
+        private System.Windows.Forms.TextBox nAMA_NPWPTextBox;
+        private System.Windows.Forms.TextBox nPWPTextBox;
+        private System.Windows.Forms.TextBox nOTETextBox;
+        private System.Windows.Forms.TextBox tbDescEdit;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbEditHargaJual;
+        private System.Windows.Forms.NumericUpDown updateQty;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbHargaJual;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbHargaBeli;
+        private System.Windows.Forms.Button btnBatal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbHapusKode;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button btnHapusItem;
+        private System.Windows.Forms.Button btnTambahItem;
+        private System.Windows.Forms.BindingSource mbarangBindingSource;
+        private dbProjectUasDataSetTableAdapters.m_barangTableAdapter m_barangTableAdapter;
     }
 }

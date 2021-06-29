@@ -629,7 +629,7 @@ namespace PCSUAS
             // 
             this.btnBatal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBatal.Enabled = false;
-            this.btnBatal.Location = new System.Drawing.Point(209, 574);
+            this.btnBatal.Location = new System.Drawing.Point(210, 574);
             this.btnBatal.Name = "btnBatal";
             this.btnBatal.Size = new System.Drawing.Size(166, 23);
             this.btnBatal.TabIndex = 43;

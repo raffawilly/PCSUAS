@@ -42,30 +42,35 @@ namespace PCSUAS
         {
             conn.Open();
 
-
             //SUM
-            String SUM2 = $"SELECT Sum(td.qty*td.unit_pric2) " +
+            String SUM1 = $"SELECT Sum(td.qty*td.unit_pric2) " +
                         $"FROM t_invoice_detail td,t_invoice_header th " +
                         $"WHERE th.no_inv = td.no_inv " +
-                        $"and th.p_id = '{p_IDComboBox.Text}'";
-            SqlCommand commSum2 = new SqlCommand(SUM2, conn);
-            String tbPart = commSum2.ExecuteScalar().ToString();
+                        $"and th.p_id = '{p_IDComboBox.Text}' ";
+            SqlCommand commSum1 = new SqlCommand(SUM1, conn);
+            String totalHarga = commSum1.ExecuteScalar().ToString();
 
             //SUM
             String SUM = $"SELECT FORMAT(Sum(td.qty*td.unit_pric2),'C') " +
                         $"FROM t_invoice_detail td,t_invoice_header th " +
-                        $"WHERE th.no_inv = td.no_inv " +
-                        $"and th.p_id = '{p_IDComboBox.Text}'";
+                         $"WHERE th.no_inv = td.no_inv " +
+                        $"and th.p_id = '{p_IDComboBox.Text}' ";
             SqlCommand commSum = new SqlCommand(SUM, conn);
-            tbPartPrice.Text = commSum.ExecuteScalar().ToString();
+            tbTotal.Text = commSum.ExecuteScalar().ToString();
+            conn.Close();
 
             int discount = Convert.ToInt32(tbDiscount.Text);
-            int service = Convert.ToInt32(tbService.Text);
             int ppn = Convert.ToInt32(tbPPN.Text);
-            //int partprice = Convert.ToInt32(tbPart);
+            if (totalHarga.Equals(""))
+            {
+                tbTotal.Text = "0";
+            }
+            else
+            {
+                int total = Convert.ToInt32(totalHarga);
 
-            //tbTotal.Text = "$" + (partprice - discount + service + ppn).ToString() + ",00";
-
+                tbGrandTotal.Text = "$" + (total - discount + ppn).ToString() + ",00";
+            }
             DataSet ds = new DataSet();
             String query = $"SELECT td.kode as KODE,td.part_no AS 'PART NO',td.descriptio AS DESCRIPTION,td.qty AS QTY ,FORMAT(td.unit_price,'C') AS 'BUY PRICE',FORMAT(td.unit_pric2,'C') AS 'SELL PRICE',FORMAT((td.qty*td.unit_pric2),'C') as AMOUNT " +
                            $"FROM t_invoice_detail td,t_invoice_header th " +

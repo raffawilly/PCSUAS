@@ -63,17 +63,7 @@ namespace PCSUAS
             this.tGL_TERIMADateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.msupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvBarang = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbPartPrice = new System.Windows.Forms.TextBox();
-            this.tbDiscount = new System.Windows.Forms.TextBox();
-            this.tbService = new System.Windows.Forms.TextBox();
-            this.tbPPN = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.p_IDComboBox = new System.Windows.Forms.ComboBox();
             this.tinvoiceheaderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nAMATextBox = new System.Windows.Forms.TextBox();
@@ -103,6 +93,14 @@ namespace PCSUAS
             this.btnHapusItem = new System.Windows.Forms.Button();
             this.btnTambahItem = new System.Windows.Forms.Button();
             this.m_barangTableAdapter = new PCSUAS.dbProjectUasDataSetTableAdapters.m_barangTableAdapter();
+            this.tbGrandTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbPPN = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbDiscount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             nO_INVLabel = new System.Windows.Forms.Label();
             nO_PNWLabel = new System.Windows.Forms.Label();
             tGL_INVLabel = new System.Windows.Forms.Label();
@@ -418,84 +416,6 @@ namespace PCSUAS
             this.dgvBarang.TabIndex = 23;
             this.dgvBarang.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBarang_CellDoubleClick);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(921, 492);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Part $";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(907, 516);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Discount";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(904, 538);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Service $";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(927, 564);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "PPN";
-            // 
-            // tbPartPrice
-            // 
-            this.tbPartPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPartPrice.Location = new System.Drawing.Point(973, 489);
-            this.tbPartPrice.Name = "tbPartPrice";
-            this.tbPartPrice.Size = new System.Drawing.Size(124, 20);
-            this.tbPartPrice.TabIndex = 28;
-            this.tbPartPrice.Text = "0";
-            this.tbPartPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbDiscount
-            // 
-            this.tbDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbDiscount.ForeColor = System.Drawing.Color.Red;
-            this.tbDiscount.Location = new System.Drawing.Point(973, 512);
-            this.tbDiscount.Name = "tbDiscount";
-            this.tbDiscount.Size = new System.Drawing.Size(124, 20);
-            this.tbDiscount.TabIndex = 29;
-            this.tbDiscount.Text = "0";
-            this.tbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbService
-            // 
-            this.tbService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbService.Location = new System.Drawing.Point(973, 535);
-            this.tbService.Name = "tbService";
-            this.tbService.Size = new System.Drawing.Size(124, 20);
-            this.tbService.TabIndex = 30;
-            this.tbService.Text = "0";
-            this.tbService.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbPPN
-            // 
-            this.tbPPN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPPN.ForeColor = System.Drawing.Color.Red;
-            this.tbPPN.Location = new System.Drawing.Point(973, 558);
-            this.tbPPN.Name = "tbPPN";
-            this.tbPPN.Size = new System.Drawing.Size(124, 20);
-            this.tbPPN.TabIndex = 31;
-            this.tbPPN.Text = "0";
-            this.tbPPN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -504,24 +424,6 @@ namespace PCSUAS
             this.label9.Size = new System.Drawing.Size(235, 13);
             this.label9.TabIndex = 32;
             this.label9.Text = "______________________________________";
-            // 
-            // tbTotal
-            // 
-            this.tbTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbTotal.Location = new System.Drawing.Point(973, 586);
-            this.tbTotal.Name = "tbTotal";
-            this.tbTotal.Size = new System.Drawing.Size(124, 20);
-            this.tbTotal.TabIndex = 34;
-            this.tbTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(916, 589);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Total $";
             // 
             // p_IDComboBox
             // 
@@ -772,11 +674,96 @@ namespace PCSUAS
             // 
             this.m_barangTableAdapter.ClearBeforeFill = true;
             // 
+            // tbGrandTotal
+            // 
+            this.tbGrandTotal.Enabled = false;
+            this.tbGrandTotal.Location = new System.Drawing.Point(962, 594);
+            this.tbGrandTotal.Name = "tbGrandTotal";
+            this.tbGrandTotal.ReadOnly = true;
+            this.tbGrandTotal.Size = new System.Drawing.Size(124, 20);
+            this.tbGrandTotal.TabIndex = 92;
+            this.tbGrandTotal.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(849, 598);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 13);
+            this.label6.TabIndex = 91;
+            this.label6.Text = "Grand Total Rp. :";
+            // 
+            // tbPPN
+            // 
+            this.tbPPN.ForeColor = System.Drawing.Color.Red;
+            this.tbPPN.Location = new System.Drawing.Point(962, 558);
+            this.tbPPN.Name = "tbPPN";
+            this.tbPPN.Size = new System.Drawing.Size(124, 20);
+            this.tbPPN.TabIndex = 90;
+            this.tbPPN.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(916, 561);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 89;
+            this.label5.Text = "PPN :";
+            // 
+            // tbDiscount
+            // 
+            this.tbDiscount.Location = new System.Drawing.Point(962, 532);
+            this.tbDiscount.Name = "tbDiscount";
+            this.tbDiscount.Size = new System.Drawing.Size(124, 20);
+            this.tbDiscount.TabIndex = 88;
+            this.tbDiscount.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(891, 535);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "Discount :";
+            // 
+            // tbTotal
+            // 
+            this.tbTotal.Enabled = false;
+            this.tbTotal.Location = new System.Drawing.Point(962, 506);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
+            this.tbTotal.Size = new System.Drawing.Size(124, 20);
+            this.tbTotal.TabIndex = 86;
+            this.tbTotal.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(826, 509);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(130, 13);
+            this.label8.TabIndex = 85;
+            this.label8.Text = "Total Pembelian Rp. :";
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 729);
+            this.Controls.Add(this.tbGrandTotal);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbPPN);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbDiscount);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tbTotal);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tbDescEdit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label12);
@@ -806,16 +793,6 @@ namespace PCSUAS
             this.Controls.Add(this.aLAMATTextBox);
             this.Controls.Add(this.nAMATextBox);
             this.Controls.Add(this.p_IDComboBox);
-            this.Controls.Add(this.tbTotal);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.tbPPN);
-            this.Controls.Add(this.tbService);
-            this.Controls.Add(this.tbDiscount);
-            this.Controls.Add(this.tbPartPrice);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvBarang);
             this.Controls.Add(p_IDLabel);
             this.Controls.Add(tGL_TERIMALabel);
@@ -872,17 +849,7 @@ namespace PCSUAS
         private System.Windows.Forms.DateTimePicker tGL_TERIMADateTimePicker;
         private System.Windows.Forms.BindingSource msupplierBindingSource;
         private System.Windows.Forms.DataGridView dgvBarang;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbPartPrice;
-        private System.Windows.Forms.TextBox tbDiscount;
-        private System.Windows.Forms.TextBox tbService;
-        private System.Windows.Forms.TextBox tbPPN;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbTotal;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox p_IDComboBox;
         private System.Windows.Forms.BindingSource tinvoiceheaderBindingSource;
         private System.Windows.Forms.TextBox nAMATextBox;
@@ -912,5 +879,13 @@ namespace PCSUAS
         private System.Windows.Forms.Button btnTambahItem;
         private System.Windows.Forms.BindingSource mbarangBindingSource;
         private dbProjectUasDataSetTableAdapters.m_barangTableAdapter m_barangTableAdapter;
+        private System.Windows.Forms.TextBox tbGrandTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbPPN;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbDiscount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.Label label8;
     }
 }

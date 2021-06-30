@@ -101,6 +101,7 @@ namespace PCSUAS
             this.label7 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             nO_INVLabel = new System.Windows.Forms.Label();
             nO_PNWLabel = new System.Windows.Forms.Label();
             tGL_INVLabel = new System.Windows.Forms.Label();
@@ -119,6 +120,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.updateQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_INVLabel
@@ -752,12 +754,23 @@ namespace PCSUAS
             this.label8.TabIndex = 85;
             this.label8.Text = "Total Pembelian Rp. :";
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(1057, 648);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 93;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1122, 729);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.tbGrandTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbPPN);
@@ -821,6 +834,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.updateQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -889,5 +903,6 @@ namespace PCSUAS
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

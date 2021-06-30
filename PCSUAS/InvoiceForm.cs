@@ -486,5 +486,11 @@ namespace PCSUAS
         {
             enableInsert();
         }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerInvoice rp = new ReportViewerInvoice();
+            rp.Show();
+        }
     }
 }

@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReportInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportMasterBarang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,6 +213,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportViewerInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerInvoice.Designer.cs">
+      <DependentUpon>ReportViewerInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportViewerMasterBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +297,10 @@
     <Compile Include="ViewMasterSupplier.Designer.cs">
       <DependentUpon>ViewMasterSupplier.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrystalReportInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportMasterBarang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportMasterBarang.cs</LastGenOutput>
@@ -374,6 +390,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportViewerInvoice.resx">
+      <DependentUpon>ReportViewerInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerMasterBarang.resx">
       <DependentUpon>ReportViewerMasterBarang.cs</DependentUpon>
     </EmbeddedResource>

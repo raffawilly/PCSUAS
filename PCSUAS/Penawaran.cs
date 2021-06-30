@@ -52,22 +52,18 @@ namespace PCSUAS
             dataGridView1.DataSource = ds.Tables[0];
 
             //SUM
-            String SUM1 = $"SELECT Sum(td.qty*mb.unit_price) " +
-                        $"FROM m_barang mb,t_penawaran_detail td,t_penawaran_header th " +
-                        $"WHERE mb.kode = td.kode " +
-                         $"and th.no_pnw = td.no_pnw " +
-                        $"and th.p_id = '{p_IDComboBox.Text}' " +
-                         $"and '{nO_PNWTextBox.Text}' = td.no_pnw ";
+            String SUM1 = $"SELECT Sum(td.qty*td.unit_pric2) " +
+                        $"FROM t_penawaran_detail td,t_penawaran_header th " +
+                        $"WHERE th.no_pnw = td.no_pnw " +
+                        $"and th.p_id = '{p_IDComboBox.Text}' ";
             SqlCommand commSum1 = new SqlCommand(SUM1, conn);
             String totalHarga = commSum1.ExecuteScalar().ToString();
 
             //SUM
-            String SUM = $"SELECT FORMAT(Sum(td.qty*mb.unit_price),'C') " +
-                        $"FROM m_barang mb,t_penawaran_detail td,t_penawaran_header th " +
-                        $"WHERE mb.kode = td.kode " +
-                         $"and th.no_pnw = td.no_pnw " +
-                        $"and th.p_id = '{p_IDComboBox.Text}' " +
-                         $"and '{nO_PNWTextBox.Text}' = td.no_pnw ";
+            String SUM = $"SELECT FORMAT(Sum(td.qty*td.unit_pric2),'C') " +
+                        $"FROM t_penawaran_detail td,t_penawaran_header th " +
+                         $"WHERE th.no_pnw = td.no_pnw " +
+                        $"and th.p_id = '{p_IDComboBox.Text}' ";
             SqlCommand commSum = new SqlCommand(SUM, conn);
             tbTotal.Text = commSum.ExecuteScalar().ToString();
             conn.Close();

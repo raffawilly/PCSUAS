@@ -104,6 +104,7 @@ namespace PCSUAS
             this.label12 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.tbDescEdit = new System.Windows.Forms.TextBox();
+            this.pictPrint = new System.Windows.Forms.PictureBox();
             nO_PNWLabel = new System.Windows.Forms.Label();
             p_IDLabel = new System.Windows.Forms.Label();
             mODELLabel = new System.Windows.Forms.Label();
@@ -122,6 +123,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // nO_PNWLabel
@@ -775,12 +777,23 @@ namespace PCSUAS
             this.tbDescEdit.Size = new System.Drawing.Size(90, 20);
             this.tbDescEdit.TabIndex = 66;
             // 
+            // pictPrint
+            // 
+            this.pictPrint.Image = ((System.Drawing.Image)(resources.GetObject("pictPrint.Image")));
+            this.pictPrint.Location = new System.Drawing.Point(904, 43);
+            this.pictPrint.Name = "pictPrint";
+            this.pictPrint.Size = new System.Drawing.Size(40, 36);
+            this.pictPrint.TabIndex = 67;
+            this.pictPrint.TabStop = false;
+            this.pictPrint.Click += new System.EventHandler(this.pictPrint_Click);
+            // 
             // Penawaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(969, 669);
+            this.Controls.Add(this.pictPrint);
             this.Controls.Add(this.tbDescEdit);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label12);
@@ -845,6 +858,7 @@ namespace PCSUAS
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mbarangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.updateQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -917,5 +931,6 @@ namespace PCSUAS
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbDescEdit;
+        private System.Windows.Forms.PictureBox pictPrint;
     }
 }

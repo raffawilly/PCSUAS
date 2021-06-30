@@ -485,5 +485,11 @@ namespace PCSUAS
 
 
         }
+
+        private void pictPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewerPenawaran rp = new ReportViewerPenawaran();
+            rp.Show();
+        }
     }
 }

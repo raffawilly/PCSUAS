@@ -125,6 +125,12 @@
       <DependentUpon>CrystalReportPembelian.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportPenawaran.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportPenawaran.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dbProjectUasDataSet.cs">
       <DependentUpon>dbProjectUasDataSet.xsd</DependentUpon>
     </Compile>
@@ -279,6 +285,12 @@
     <Compile Include="ReportViewerPembelian.Designer.cs">
       <DependentUpon>ReportViewerPembelian.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportViewerPenawaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerPenawaran.Designer.cs">
+      <DependentUpon>ReportViewerPenawaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewMasterBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +352,10 @@
     <EmbeddedResource Include="CrystalReportPembelian.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportPembelian.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportPenawaran.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportPenawaran.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -422,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportViewerPembelian.resx">
       <DependentUpon>ReportViewerPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerPenawaran.resx">
+      <DependentUpon>ReportViewerPenawaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMasterBarang.resx">
       <DependentUpon>ViewMasterBarang.cs</DependentUpon>
